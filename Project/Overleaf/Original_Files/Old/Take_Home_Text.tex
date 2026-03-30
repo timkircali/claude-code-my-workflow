@@ -1,0 +1,818 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[margin=1in]{geometry} % Adjust margins; 1in is an example, customize as needed
+\usepackage{graphicx} % Required for inserting images
+\usepackage{setspace} % For line spacing
+\usepackage[backend=biber,style=authoryear]{biblatex} % For citations and bibliography
+\usepackage[backend=biber, style=authoryear]{biblatex}
+\addbibresource{references.bib} % Add your .bib file here
+\usepackage[hang,flushmargin]{footmisc} % Footnote formatting
+\usepackage{hyperref}
+
+% Customizing biblatex to remove "In" from entries
+\DeclareFieldFormat{journaltitle}{#1}
+\DeclareFieldFormat[inbook]{title}{#1}
+\DeclareFieldFormat[article]{title}{#1}
+\renewbibmacro{in:}{}
+
+% Title formatting
+\title{\normalsize \textbf{Understanding Tax Enforcement}}
+
+\author{\small Tim Kircali\\
+\small Matthias Weber}
+\date{\small 08.01.2025}
+
+\begin{document}
+
+% Title page
+\maketitle
+\onehalfspacing
+\tableofcontents
+\section{SNSF Project Work package 1: Design and run survey experiments on a representative sample of the population}
+Survey experiments will be conducted with a sample representative for the general population. These survey experiments  aim at understanding \textbf{which level of tax enforcement and which kind of tax enforcement the population prefers}. This  includes how much tax money the population would like to see\textbf{ invested in tax auditing} and other enforcement activities  (in dependence of the additional tax revenue that these enforcement activities generate). The surveys try to\textbf{ provide a comprehensive picture of the preferences on tax enforcement and tax administration} more generally. This includes the following aspects:
+\begin{itemize}
+    \item Tax auditing can take place for very different tax types and taxable entities. \textbf{Would people prefer to have more enforcement or auditing activities for the corporate income tax or VAT} (where enterprises are audited), or for  personal income and wealth taxes (where natural persons are audited)? 
+    \item \textbf{Which types of audits would the general population prefer} (such as random audits, targeted audits based on  human expertise, or targeted audits based on data science)? Relatedly, \textbf{what are the populations preferences  concerning the use of artificial intelligence in tax auditing}? 
+    \item What are people’s \textbf{views on the possible goals of targeted audits}, such as generating additional \textbf{revenue},  minimizing the \textbf{number of errors} (independent of revenue generation), or \textbf{finding the errors that weigh heaviest} from a legal perspective (i.e., tax fraud, as opposed to accidental mistakes)? Relatedly, should\textbf{ audits be more  frequent for taxpayers with higher levels of income} or wealth, and if so, to what extent?
+    \item What are people’s preferences regarding activities that\textbf{ improve enforcement while also improving the service  provided to taxpayers, such as automatic transmission of information}? This could include reducing\textbf{ bank secrecy}  (potentially on a voluntary basis, as an opt-in scheme for taxpayers) or \textbf{allowing health insurances to transmit  information} on health-related payments, so that tax administrations can pre-fill part of the tax declaration.
+    \item What are people’s preferences on\textbf{ enforcement-improving activities that place compliance costs on companies}  (such as the forced printing of receipts to reduce VAT evasion or laws requiring the acceptance of electronic  payments)?
+    \item How does the \textbf{perception of the level of tax enforcement influence people’s compliance decisions}?
+    \item How does the\textbf{ perception of the quality of the service provided by the tax authority influence people’s  compliance decisions}?
+    \item How does the \textbf{perception of tax evasion by others influence compliance decisions}?
+    \item What is the \textbf{perception of people’s own compliance costs} (including time and effort costs for tax filing)?
+    \item What is people’s \textbf{perception of companies’ tax compliance costs}?
+    \item Into \textbf{which administration and enforcement measures} would people \textbf{like to see most investment} (evaluating the  trade-offs between generating revenue, being fair, and improving services or reducing compliance costs)?
+\end{itemize}
+
+The experimental variations will include different information provision, to gain a better understanding of the role that  the knowledge and information that participants have about the tax system and tax administration play in their  preferences (similar in spirit to the work by Kuziemko et al., 2015).11 The information treatments will contain information  on the amount of revenue created via audits, on compliance costs, on the distribution of wealth and income, and on how  audits and other enforcement measures work. The exact questions that will be asked and the exact treatment  interventions are yet to be determined, as these are part of the experimental design stage (which is the stage that needs  most time and deliberation in experimental papers).12  The survey will be conducted in Switzerland (so that it is possible to compare the results to the results from the surveys  among politicians and tax experts, which are discussed in WPs 2 and 3).13 The target sample size is 1’000, which is enough to obtain very thorough estimates for all parts that are equal for all participants, and which yields sufficiently high statistical power to detect rather small treatment differences (according to simple rule of thumb calculations), assuming  about six treatments in a between-subjects design.
+
+\section{Research Question Bundles}
+The aim is to elicit people's factual knowledge, (mis)perceptions and beliefs about tax enforcement policies. There are several interesting potential sub-fields in which we could conduct research, which I list and explain below. I try to define very detailed research questions. This helps us to define what exactly we want to elicit. However, it will be difficult to ask such questions in a survey. Probably we will have to ask easier and more aggregated questions. 
+\subsection{Understanding of Tax Enforcement Mechanisms (and related Tax Policy)}
+The main aim of this section would be to understand whether people understand the economic mechanism that takes place between taxpayers and the tax system. For example, do people understand that tax deductions are worth more in higher income brackets due to progressive tax schedules? And do they understand that taxpayers in higher income brackets have greater incentives to evade tax, and vice versa, the state has greater incentives to control them? Moreover, do people understand what happens to the government budget if people evade? Who will bear the burden if people evade? What happens to the degree of progressivity if people in high income brackets evade disproportionately? 
+\begin{itemize}
+    \item Government budget effects.
+    \begin{itemize}
+        \item What is the effect of person A evading on the budget of the Government? 
+        \item How has to/can a government to respond government budget is getting smaller?
+        \item What is the effect of person A evading on person B's (future) tax payments or profits from public goods?
+        \item How costly is tax enforcement? How much money gets lost not by the tax gap, but through tax audits and tax enforcement overall? 
+    \end{itemize}
+    \item Household budget effects. 
+    \begin{itemize}
+        \item What is the (perceived) \% saving of an additional tax deduction (legally deducting and/or by evading) for person A in income bracket X?
+        \begin{itemize}
+            \item How does this change with the income level of the household: bottom 10\%, your income level, top 10\%, top 1\% 
+        \end{itemize}
+        \item What is the (perceived) costs (how difficult is it) of an additional realized tax deduction (legally deducting and/or by evading)?
+        \begin{itemize}
+            \item How does this change with the income level of the household: bottom 10\%, your income level, top 10\%, top 1\%.
+        \end{itemize}
+        \item What are the perceived chances and costs of getting caught evading by tax authorities?
+        \begin{itemize}
+            \item How do these chances change by income level and how to people evaluate it for higher/lower income levels?
+        \end{itemize}
+        \item When do people (rationally) decide to realize a tax deduction (legally deducting and/or by evading)?
+        \begin{itemize}
+            \item How does this change with the income level of the household: bottom 10\%, your income level, top 10\%, top 1\%.
+            \item How do (people (mis)perceive how) incentives to evade/to legally deduct depend on income? How do people (mis)perceive how these incentives depend on income?
+        \end{itemize} 
+        \end{itemize}
+    \item Distributional effects
+    \begin{itemize}
+        \item What is the distributional impact of (additional) tax deduction (legally deducting and/or by evading)? 
+        \begin{itemize}
+            \item What is the impact if everyone can deduct it? 
+            \item What is the impact if only a subsample as example only rich people are able to deduct it?
+        \end{itemize}
+        \item What is the (perceived) relative gain of a tax deduction?
+        \begin{itemize}
+            \item What is the (perceived) relative gain in other income deciles? bottom 10\%, your income level, top 10\%, top 1\% 
+        \end{itemize}
+    \end{itemize}
+
+\end{itemize}
+
+\subsection{Understanding of Tax Systems}
+The aim of this section is to find out what people know about how a tax system works. Where and how do tax administrations get relevant information? Are there differences between large and small companies in the level of data available to tax authorities? How do tax authorities choose the level of control for firms/individuals? When and how are taxes paid?  
+\begin{itemize}
+    \item Collection of tax payments
+    \begin{itemize}
+        \item How and when are tax payments collected? 
+        \item Concerning tax collection, are there differences for population groups?
+        \item In Switzerland there are options to pay taxes in "advance". Do people choose this option?
+        \item Are people in favor of their taxes directly to be paid from their wages?
+    \end{itemize}
+    \item Control and audits of individuals 
+    \begin{itemize}
+        \item How strong/often do tax authorities audit individuals? (This question is unclear as it is not so clear what audit means(soft audit, strong audit))
+        \item How does this depend on characteristics of individuals 
+        \item Which implicit control mechanism do we have for individuals? 
+    \end{itemize}
+    \item Control and audits of firms
+    \begin{itemize}
+        \item How and how much do tax authorities audit firms?
+    \end{itemize}
+    \begin{itemize}
+        \item How does this depend on characteristics of firms? 
+    \end{itemize}
+    \begin{itemize}
+        \item How does the level of tax audits change in firm size and income level?
+    \end{itemize}
+    \begin{itemize}
+        \item Which other (implicit) control mechanisms do we have?
+    \begin{itemize}
+            \item VAT paper trails
+            \item Audit of big firms
+            \item Cash-payments vs. Card payments
+    \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Governmental Data and Privacy Concerns}
+The aim of this section is to understand what level of data transfer between the tax authorities (the government) and other tax-related actors (banks, employers, health insurers...) is preferred by people. An important objective in this section would be to understand whether people generally prefer privacy in tax-related matters or whether their privacy concerns are driven by goals to hide income and thus evade tax. And how would people change their views if there was a (non-governmental) institution that collected the data but still treated it as private information, i.e. did not share it directly with tax authorities? How do people think differently about these issues if they mostly benefit from automatic exchange or if they mostly lose? And what do people think about publicly sharing their information?
+
+\begin{itemize}
+    \item Automatic information exchange with government/ tax authorities
+    \begin{itemize}
+        \item How strong are people in favor of automatic information exchange of data that generally help them to pay less taxes (because they can be deducted)
+        \begin{itemize}
+            \item as example the information exchange of health insurance data. 
+        \end{itemize}
+        \item How strong are people in favor of automatic information exchange of data that generally increase their tax amount paid (because it is income)
+        \begin{itemize}
+            \item as example bank related data or job related data 
+        \end{itemize}
+        \item How strong are people in favor of sharing data that generally have no impact on the tax amount. 
+        \begin{itemize}
+            \item Data that is not tax relevant at all.
+            \item Data that is not tax relevant for this specific person, but might be for others
+        \end{itemize}
+        \item How strong are people in favor of sharing data that will result in a reduction in their tax compliance costs (as example by less effort for filling taxes).
+        \item How strong are people in favor of sharing data that won't result in any direct cost reduction, however, will reduce tax evasion opportunities of others.
+        \begin{itemize}
+            \item Is their preference for such policies driven by inequality concerns?
+            \item Or is the preference mainly driven by the indirect effect of profiting more from higher tax collection?
+        \end{itemize} 
+    \end{itemize}
+    \item Automatic information exchange with non-governmental institutions (semi-private) 
+    \begin{itemize}
+        \item How do all these views about sharing information change if we think about someone non-governmental holding the data. And important is, that this institution keeps the data very private. Basically this institution would collect the data as a service for the tax payer, however, it would not send it to the tax authorities directly. Therefore people CAN use its services when handing in tax declarations. It would bring the personal benefits of harmonizing data. 
+    \end{itemize}
+    \item How strong are people in favor of sharing data publicly with the population?
+    \begin{itemize}
+        \item Would people be willing to publicly share their tax data? 
+        \item Would people be willing to publicly share their tax data if everyone else also has to?
+        \item Do people see any / understand the benefit in making people's data publicly available? (as example trough control mechanisms within the population)
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item OLD: What are people’s preferences regarding activities that \textbf{improve enforcement while also improving the service  provided to taxpayers, such as automatic transmission of information}? This could include reducing\textbf{ bank secrecy}  (potentially on a voluntary basis, as an opt-in scheme for taxpayers) or \textbf{allowing health insurances to transmit  information} on health-related payments, so that tax administrations can pre-fill part of the tax declaration.
+    \item OLD: How much do people value privacy in tax systems? Is the privacy preference driven by a privacy preference from the government?
+    \item OLD: How big is the WTP for pre-filled tax declarations? How much is it if people don't loose privacy?
+\end{itemize}
+
+\subsection{Tax Complexity}
+The first part of this section is a short potential research abstract that I handed in (in a similar form) in Joel Slemrod's Tax System course. I have included it here as a motivation for the topic of preferences for tax complexity.    
+\subsubsection{Abstract of a hand in in the tax system course}
+From a theoretical fairness perspective there are strong arguments in favour of more complex tax systems. First, greater tax complexity requires taxpayers to provide more information, making tax evasion more difficult. And second, a more complex tax system allows for a more progressive tax schedule. Recent research shows that US citizens are in favour of policies that reduce the complexity of the tax system (\cite{benzarti2024rising}). They perceive a complex system to be less fair overall and to encourage tax evasion, which further exacerbates the perception of unfairness that complexity imposes on taxpayers. Another reason for the preference for low complexity may be that the high compliance costs a complex system brings outweigh the benefits for the poor. 
+
+Using a socio-economic survey, I shed more light on the question of how people's preferences for tax complexity are formed. In a first step, I collect socio-demographic data of the respondents. In a second step, I elicit their perceptions and beliefs that may influence their views on optimal tax enforcement complexity. Key factors include perceptions of others' tax evasion, perceived fairness of complexity, trust in government, and beliefs about political integrity. Another driver is the (mis)understanding of the relationship between tax complexity and progressivity, as well as the perceived utility gain from a simplified system. I differentiate between preferences for tax complexity in areas that directly affect individuals (e.g., personal income deductions) versus areas that affect corporations.
+
+In a correlational analysis, I then analyse which of these factors are the main drivers of preferences for the optimal level of tax complexity. I use experimental information treatments to identify causal links between these factors and preferences for tax complexity. With this approach, we can first test how respondents' beliefs and understanding change when they receive detailed information. Finally, we can test how these changes affect preferences for the right level of tax complexity.
+
+Potential results suggest that the strong preference for reduced tax complexity is primarily driven by the desire to reduce compliance costs. This result is consistent with the finding that people want to reduce tax complexity in areas where they are involved (personal income) and don't care about the level of tax enforcement in areas where they are not involved (corporate income). Moreover, the perceived relationship between complexity and fairness significantly shapes preferences for more complex tax systems.
+\subsubsection{Potential research question bundles}
+\begin{itemize}
+    \item Do people understand the benefits of more complex tax systems?
+    \begin{itemize}
+        \item Do people understand that differentiating peoples tax liabilities by many factors (besides income) might decrease inequality?
+        \item Do people understand that a more complex tax system allows for a more progressive tax schedule?
+        \item Do people understand that greater tax complexity requires tax payers to provide more information, making tax evasion more difficult? 
+    \end{itemize}
+    \item What are the reasons why people might dislike complex tax systems? 
+    \begin{itemize}
+        \item Do people think that tax complexity increases tax compliance costs? 
+        \item And do they think that tax compliance costs due to higher tax complexity fall disproportionately on certain subgroups (as example the poor that cant afford tax advice)
+        \item Do people think that tax complexity opens options for tax evasion?
+        \item Do people don't like that people with same income (+ other factors) face other tax liabilities because tax complexity opens options for tax evasion?
+        \item Do people generally don't like that people with same income won't face same tax liabilities because also other factors play a role. (Inequality)
+    \end{itemize}
+    \item When do people change their views about tax complexity? 
+    \begin{itemize}
+        \item Is the (mis)preference for tax complexity mainly driven by the high tax compliance cost, and does the support for tax complexity increase if tax compliance costs are reduced as example trough pre-filed tax declarations? 
+        \item Is the (mis)preference for tax complexity mainly driven by the concern that tax complexity opens options for tax evasion and therefore increases inequality? Does the support for tax complexity therefore increase if tax evasion is decreased as example trough more investments in tax control mechanism?
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Fairness, Inequality Concerns, Reciprocity and Social Norms in Tax Enforcement / Social Preferences in Tax Enforcement} 
+This section aims to understand people's social preferences and perceived social norms in tax enforcement. How do people value the tax evasion/avoidance behaviour of others? Do they dislike it when their peers evade tax because they are indirectly paying for it? Or do they dislike the unequal treatment of evaders in terms of their tax liability? Do people think that it is the people's fault that tax evasion takes place, or is it the state's fault because it should be controlling them more? 
+
+\begin{itemize}
+    \item What do people think about other's tax evasion behavior? 
+    \item Does tax evasion of other people trigger a form of disutility in persons?
+    \begin{itemize}
+        \item Does tax evasion of other people trigger a disutility because they assume that this negatively affects their household budget (as example by having to pay more taxes, or profiting less of public goods.)
+        \item Does tax evasion of other people trigger a disutility because people dislike that they pay they taxes fairly while others behave unfairly and evade. 
+    \end{itemize}
+    \item Do people feel disutility if they evade taxes? 
+    \item Do tax evaders think that it is generally okay to evade taxes because many do/everyone does?  
+    \item Do tax evaders think that one generally has to evade taxes because everyone else does, and one would else bear the burden of others?
+    \item Do tax evaders think that it is generally okay to evade taxes because many/everyone much richer does?  Do they think it is generally not unfair, because many much richer are more unfair?
+    \item How would people evaluate what other people think about the questions above? (perceived social norms)
+    \item What are the perceived social norms about paying taxes? Would people feel ashamed when being caught evading? 
+\end{itemize}
+
+\subsection{Tax compliance behavior}
+This section aims to understand if people evade taxes and why they are doing it? Are financial incentives the main reason why they evade? Are there other behavioral reasons to pay or to not pay taxes (tax moral)? Do people as example not want to finance the government because they don't trust them?   
+\begin{itemize}
+    \item Do people evade taxes?
+    \item What are the beliefs of people being caught evading?
+    \item Do people evade taxes because they think they won't get caught?
+    \item Do people do not evade because they think they will get caught?
+    \item What are people's beliefs about fines when being caught?
+    \item Generally, are financial incentives the reason for evading or not evading?
+    \item Do people evade because they don't want to pay the government anything?
+    \begin{itemize}
+        \item Do they not trust the government and therefore do not want to finance it?
+        \item Do they think that the government spends the money in a wrong way? 
+        \item Do they think that they won't profit in any way from government payments? 
+    \end{itemize}
+    \item Do people pay their taxes fairly because they think that the government spends it in a good way?
+    \item Do people pay their taxes fairly because they think that this is a social norm?
+    \item Would people feel ashamed when being caught publicly?
+\end{itemize}
+
+\section{Survey Design and Data}
+\subsection{Survey Design}
+The goal would be to create a survey experiment similar to other studies where we first test for prior knowledge in a field. After that we experimentally treat persons with information provision in some areas. Finally we elicit preferences on economic policies in these fields. 
+We discuss the most promising subfields below and how they interact with each other. 
+\subsubsection{Taxation / Tax System in General}
+\textbf{Knowledge}
+\begin{itemize}
+    \item How is a (additional) tax deduction related to the tax liability? 
+    \item How does this relationship change by income level?
+    \item How do the effects and incentives of tax deductions transfer to tax evasion?
+    \item What is the tax rate for income level x? 
+    \item What is the top income tax rate? 
+    \item What is the tax rate of firms?
+    \item And, how does the tax system work for self employed and so on?
+\end{itemize}
+\textbf{Preferences}
+\begin{itemize}
+    \item ???
+\end{itemize}
+\subsubsection{Tax Enforcement / Evasion}
+\textbf{Knowledge}
+\begin{itemize}
+    \item Audit Probabilities: What are the probabilities for being audited as a firm / as a person, and how do they change by income level?
+    \item Return to audits: On average, what is the return on each invested dollar in audits?  
+    \item Audit costs: What are the costs for audits?
+    \item Audit investment level: How much is invested in audit and is it enough from economic perspective?
+    \item Who evades taxes and who avoids taxes? 
+    \item Which other implicit control mechanism do exist? 
+    \begin{itemize}
+        \item As example VAT paper trails.
+        \item Big firms are being audited by non-tax authorities and therefore have less chances to evade.
+    \end{itemize}
+    \item What are the chances to evade for different types of people and different types of firms: 
+    \begin{itemize}
+        \item regular people get their pay sheet, where they can't change anything, whereas self employed produce that by themselves and have many opportunities to evade.
+    \end{itemize}
+    \item Punishment: What form of punishment do people receive? 
+\end{itemize}
+\textbf{Preferences}
+\begin{itemize}
+    \item What is the desired level of punishment and what should it be based on?
+    \item What should be the goals of targeted audits? 
+    \begin{itemize}
+        \item generating additional revenue?
+        \item minimizing the number of errors?
+        \item or find the errors that weight the heaviest from legal perspective?
+    \end{itemize}
+    \item Where do people want more enforcement or audit activities?
+    \begin{itemize}
+        \item Do they want more enforcement for the corporate income tax or VAT? (Firms)? relatedly, should it be focused on smaller or bigger firms?
+        \item Do they want more enforcement for personal income and wealth taxes? relatedly, should it be focused on persons with lower or higher incomes?
+        \item Or should tax authorities focus on individuals/firms that fall less under implicit control mechanism due to their characteristics (as example self employed)?
+    \end{itemize}
+\end{itemize}
+\subsubsection{Privacy / Automatic Exchange of Information}
+\textbf{Knowledge}
+\begin{itemize}
+    \item What automatic exchange is there? 
+    \item What is 3rd-Party information and where does it exist? 
+    \item How do other countries' tax systems implement automatic information exchange? 
+    \item Is tax data publicly available? Are there countries where this is different?
+\end{itemize}
+\textbf{Preferences}
+\begin{itemize}
+    \item How strong are people in favor of automatic information exchange of data with tax authorities?
+        \begin{itemize}
+        \item For health insurance data?
+        \item For bank data?
+        \item For job data? 
+        \item ...?
+    \end{itemize}
+    \item How does the support for automatic information exchange change if the information exchange happens with a non-governmental institution?
+    \item (Is their preference for automatic information reporting driven by if they profit, don't profit from it?)
+    \item How strong are people in favor of tax authorities sharing tax data publicly with the population?
+\end{itemize}
+\subsubsection{Tax filing costs / compliance costs / complexity}
+\textbf{Knowledge}
+
+
+\textbf{Preferences}
+\subsection{Treatments}
+\begin{itemize}
+    \item T1: Treatments for introduction of  AEI and pre-filed tax declarations:
+    \begin{itemize}
+        \item Info about impacts of AEI on tax evasion and returns: This info treatment would focus on the government return side. It would give information about the potential return of AEI. It could give information about how much wealth has been uncovered by AEI. And it would include   
+        \item Info about pre-filed tax declarations: This info treatment would provide information about the (costs and) benefits of pre-filed tax declarations. Such a treatment would also have to include information about the use of AEI.
+        \item Infos about potential disadvantages of AEI: Information loss as example?
+        \item (Infos about differences along income distribution:) We would not include this part if 
+        \item \textbf{Note:} I think it could be interesting to disentangle between the infos above. However I think it could be difficult, especially if we additionally want to include disadvantages of tax harmonization.   
+    \end{itemize}
+    \item T2: Treatments on the cost benefit analysis of tax enforcement investments:
+    \begin{itemize}
+        \item Info about the current auditing level and the optimal auditing level: This info treatment would provide information about current auditing and detection probabilities. It would give information about the current investments/costs of auditing and the optimal investments/costs of auditing.  
+        \item Info about auditing levels in other fields, as example social assistance: We could show that in other areas people are often more controlled.  
+        \item (Info about auditing and evading along the income distribution): We would not keep that if we  
+    \end{itemize}
+    \item T3: Treatments on the income distribution and evasion inequality: 
+    \begin{itemize}
+        \item Information about the tax evasion incentives along the income distribution.
+        \item Information about the tax evasion behavior along the income distribution.
+        \item Information about the return on audit investments along the income distribution.
+        \item Information about the relative place along the income distribution.
+    \end{itemize}
+\end{itemize}
+\textbf{Note:} A potential approach would be to experimentally vary T1 and T2 on a first treatment level. And after that experimentally add T3 on a second treatment level. 
+\subsection{Roadmap after Discussion with Matthias on 07.01.2025}
+\subsubsection{Knowledge Areas}
+\begin{itemize}
+    \item K1: Enforcement and Audits
+    \begin{itemize}
+        \item Audit \& Detection Probabilities
+        \item Fine Sizes
+        \item Returns to audits
+        \item Costs of evasion
+        \item (Distribution who evades)
+    \end{itemize}
+    \item K2: Filing Costs, Automatic Exchange of Information and Privacy
+    \begin{itemize}
+        \item What is automatic exchange of information?
+        \item Which automatic exchange is possible?
+        \item What is the revenue effect of implementation of AEI? 
+        \item What are the filing costs for persons?
+        \item What are the filing costs of firms?
+        \item How can automatic exchange also provide tax payers a service? As example with pre filed tax declarations
+    \end{itemize}
+    \item K3: Income and Evasion Inequality. In this area, we have not yet defined whether we want to test for prior knowledge or whether our goal is primarily to shock them with a treatment. 
+    \begin{itemize}
+        \item understanding of incentives and tax evasion behavior along the income distribution. 
+        \item perceived place in income distribution. 
+    \end{itemize}
+\end{itemize}
+\subsubsection{Preference Areas}
+\begin{itemize}
+    \item P1: Enforcement and Audits
+    \begin{itemize}
+        \item What is the preferred audit level? (For persons, for firms?)
+        \item Does the preferred audit level change for different income levels?
+        \item Does the preferred audit level change for different company sizes? 
+        \item What should tax administrations focus on?
+        \begin{itemize}
+            \item Focus on persons/firms that weight the most financially?
+            \item Should audits be random or should tax authorities use data science to decide on audits?
+            \item Or should we focus on evasion that weight the heaviest form a legal perspective?
+        \end{itemize}
+        \item What is the preferred fine size? 
+        \begin{itemize}
+            \item Should the fine size vary depending on income level?
+        \end{itemize}
+    \end{itemize}
+    \item P2: Filing Costs, Automatic Exchange of Information and Privacy
+    \begin{itemize}
+        \item How much information should be transferred automatically? 
+        \item Which information should be transferred automatically? 
+        \item Should tax information be public to the population (as in Norway)?
+        \item Would people support the introduction of a voluntary information exchange system?
+        \item Would people be willing to opt for automatic information exchange if it is voluntary?
+        \begin{itemize}
+            \item How would all responses above change if filing costs are reduced by provision of pre filed tax declarations?
+        \end{itemize}
+        \item Do people want government to provide pre-filed tax declarations?
+    \end{itemize}
+\end{itemize}
+\subsubsection{Treatment Areas}
+\begin{itemize}
+    \item T1: Enforcement and Audits
+    \begin{itemize}
+        \item Information about current (and optimal) audit probabilities
+        \item Information about fine sizes
+        \item information about cost/return to audits
+        \item Information about cost of evasion
+    \end{itemize}
+    \item T2: Filing Costs, Automatic Exchange of Information: For this treatment we were thinking about doing one treatment with information about AEI and information about pre filled tax declarations. Alternatively we could do two treatments: T2a that gives info about AEI, and T2b that gives info about pre-filled tax declarations.
+    \begin{itemize}
+        \item Info about potential returns of AEI on due to uncovered tax evasion (T2a)
+        \item Info about cost reductions for tax administrationm due to AEI (T2a)
+        \item Info about disadvantages of AEI, as example Privacy loss (T2a)
+        \item Info about pre-filed tax declarations and frame it as a possible (T2b) 
+    \end{itemize}
+    \item T3: Income and Evasion Inequality
+    \begin{itemize}
+        \item Information about the tax evasion incentives along the income distribution.
+        \item Information about the tax evasion behavior along the income distribution.
+        \item Information about current (and optimal) audit probabilities.
+        \item Information about the return on audit investments along the income distribution.
+        \item Information about the relative place along the income distribution.
+    \end{itemize}
+\end{itemize}
+
+Possible treatment combination would then be
+\begin{itemize}
+    \item C
+    \item T1
+    \item T1 x T3
+    \item T2 
+    \begin{itemize}
+        \item or: T2a and T2a x T2b
+    \end{itemize}
+    \item T2 x T3
+    \begin{itemize}
+        \item T2a x T3 and T2a x T2b x T3
+    \end{itemize}
+\end{itemize}
+\subsubsection{Further Ideas on the treatment Design}
+\begin{itemize}
+    \item If I heard that right from Matthias, Stefanie Stantcheva was not really convinced by our treatment design. We are in a very early stage and we are trying to improve it. 
+    \item We could also think about using Priming instead of info treatments.
+    \item I think key would however more be to more precisely define what exactly we want to find out. 
+    \item what are exactly the policy views we want to elicit? 
+    \item Is it maybe possible to also disentangle between self-interest and broader economic \& social concerns like Stantcheva is doing in her understanding trade policy paper?
+\end{itemize}
+
+\subsection{Data}
+The goal is to find survey platforms to run representative surveys. Possibly in CH, Germany, US, UK? Possible platforms would be: 
+\begin{itemize}
+    \item \textbf{UK\&US Prolific}
+    \begin{itemize}
+        \item UK \& US: representatitve sample available
+        \item "We currently estimate our maximum deliverable representative sample size to be around 3800 for the UK and 2500 for the US."
+        \item Costs: Lets assume 2500 Participants: (2500*5 = 12500, Payments) + 4200 Platform fees + 800 VAT = 17500  
+    \end{itemize}
+    \item \textbf{CH Intervista:} 
+    \begin{itemize}
+        \item offer B2C Panel (normal persons) and B2B Panel (Managers).
+        \item repr. für alle Sprachregionen
+        \item For us the most relevant would be "Sampling only im Intervista Panel": That means we would program survey by ourselves and just use their sampling services. 
+        \item Pre-tests also possible 
+        \item Do they maybe also have a sample of politicians?
+        \item we could ask them for the price - not accessible online. 
+    \end{itemize}
+    \item \textbf{CH: FORS:} 
+    \begin{itemize}
+        \item We don't know the price yet - not accessible online. 
+        \item The sample looks good
+        \item Xiaoyi asked here
+    \end{itemize}
+    \item \textbf{DE: Gesis}
+    \begin{itemize}
+        \item Survey of maximum 5 minutes 
+        \item therefore not really an option
+    \end{itemize}
+    \item \textbf{DE: GIP Uni Mannheim}
+    \begin{itemize}
+        \item representative
+        \item Maximum 20 minutes surveys! (The maximum length of the complete survey is 25min, where 5minutes are reserved for the GIP studies)
+        \item 3500 participants
+        \item generally we should contact them 3-4 months in advance
+        \item costs: we have to ask
+        \item A wealth of background information is available from all participants, such as the annually reviewed or refreshed information on socio-demographics (age, gender, federal state, school and professional qualifications, employment status), household composition, party preferences/voting intention etc. as well as linkable survey data from - depending on the sample and after its publication - up to 70 survey waves over approx. 5 to 11 years of regular surveys.
+    \end{itemize}
+    \item \textbf{EUROPE \& US:Bilendi \& Respondi:}
+    \begin{itemize}
+        \item "We first channel respondents through screening questions that ensure that the final sample is nationally representative along the dimensions of gender, age, income, region, and area of residence (urban versus rural). (Antoine Dechezleprˆetre, Adrien Fabre, Tobias Kruse)"
+        \item commercial provider, I don't understand yet how representative their samples are
+        \item they cover samples of several countries in europe and also have data access to the US  
+        \item costs? we don't know
+    \end{itemize}
+    \item \textbf{Europe: Norstat:} 
+    \begin{itemize}
+        \item Similar options like in Bilendi \& Respondi.
+        \item I don't know the price yet
+    \end{itemize}
+    \item \textbf{Germany: German Socio Economic Panel}
+    \begin{itemize}
+        \item "We embedded our survey in the German Socio-Economic Panel (SOEP), a representative longitudinal study of German households. The SOEP contains an innovation sample (SOEP-IS) allowing researchers to implement tailor-made survey experiments. The surveys are administered by trained interviewers who visit respondents in their homes each year." (Fehr et al 2022)
+        \item I am not sure yet if this innovation option still exists, because I can't find it on their website.
+    \end{itemize}
+    \item \textbf{Yougov:}
+    \item \textbf{Qualtrics:}
+    
+    
+\end{itemize}
+
+Just to get a sense on how many people we would need to have per country in our surveys: 
+\begin{itemize}
+    \item \cite{stantcheva2021understanding} uses 2780 for the income tax survey and 2360 for the estate tax survey
+\end{itemize}
+
+\section{Related Literature}
+
+
+
+\subsection{Related Survey Experimental Literature}
+\subsubsection*{Stantcheva (2023)} stantcheva2023run
+\begin{itemize}
+    \item \textbf{Relevance:} High
+    \item \textbf{Paper:} \fullcite{stantcheva2023run}
+    \item \textbf{Abstract:} 
+    \item \textbf{Survey Experiments}
+    \begin{itemize}
+        \item A survey experiment is simply an experiment embedded in a survey. You do not necessarily need an experimental part in your survey. The outcomes of interest are the endogenous variables; the experimentally manipulated conditions are the independent variables.
+        \item Allows you to test for and identify causal relationships.
+        \item The problem of information equivalence is more specific to survey experiments. Different respondents can interpret an experimental intervention designed to shift beliefs or information sets differently, resulting in them de facto experiencing a different treatment. --> an experimental treatment meant to trigger a given construct A could also trigger an unintended construct B
+        \item An assumption required to estimate the causal impact of a given factor of interest is that the survey manipulation be information equivalent with respect to the background features of the scenario. However, manipulating respondents’ beliefs about a given factor will often affect their beliefs about other background factors in the scenario, too.
+        \item There are many different types of survey experiments. In brief, information treatments work by correcting or expanding respondents’ information via learning and updating. Priming treatments activate certain mental concepts or mindsets or make certain features more salient than others. Vignette designs and factorial experiments modify various attributes of the choice context in a controlled manner to study their impacts on judgment and behavior.
+        \item between subject designs: each respondent is only subject to one experimental condition
+        \item within subject design: each respondent is subject to multiple experimental condition. ONly difference between the groups is the order of the treatments.
+        \item : There are dependent variables that can be labeled first-stage variables—i.e., the belief, information, or knowledge that your treatment is trying to shift (e.g., the perceived share of immigrants in the respondent’s country)—and second-stage variables, which are dependent variables influenced by those first-stage ones (e.g., policy views such as whether there should be more immigration)
+        \item The first three experimental designs represent between-respondent designs. In the posttest design, which is very standard, one group is exposed to treatment, the other one is not, and the dependent variables are measured after the treatment only. The dependent variables are measured twice, before and after the experiment, in the prepost design. In the quasi-prepost design, the dependent variables are again measured before and after, using similar rather than identical elicitations.
+        \item In general, eliciting posterior first-stage variables (after the treatment) is advisable. It is the only way to get an actual first stage of your treatment and see if it worked and, if yes, by how much. Furthermore, it is often of interest per se to estimate the effects of information on these first-stage variables (e.g., on knowledge), the direction and speed of learning, and the updating that people do.
+        \item There are also benefits of eliciting prior first-stage variables (before the treatment). First, this allows you to estimate heterogeneous treatment effects based on the prior value of the dependent variable. In particular, you will be able to check whether treatment effects are larger for those who, given their baseline values of the dependent variable, de facto received a larger shock from the treatment.
+        \item Yet, for both first- and second-stage variables, there are concerns about asking twice: (a) Consistency pressures may prompt the respondents to answer similarly pre- and posttreatment. Yet, it is possible to ask similar, but not identical, questions to avoid making the inconsistency salient and to vary the question format. (b) Asking twice about the same thing may also lead to more EDE or SDB if it makes the respondent more aware of the topic of the experiment. (c) Related to this, the biggest worry is perhaps that, by asking these questions, you are already priming respondents to think about the topic, and priming in itself may not be neutral. (d) More elicitations also mean more time commitment for the respondents, increasing survey fatigue and cognitive load and potentially leading to the problems.
+        \item Priming can change the relative weight (or salience) individuals attach to the primed concept at a given moment (Cohn \& Maréchal 2016). Hence, priming acts differently from more explicit treatments such as information treatments, since it exploits a subconscious exogenous increase in salience with respect to the primed element.
+        \item Following Bargh \& Chartrand (2014), experiments can focus on (a) conceptual priming, which activates mental concepts in one context so as to induce mental representations that are used subconsciously in subsequent contexts; or on (b) mindset priming, which primes a given way of or procedure for thinking (i.e., a mindset) by having the participant actively use that procedure. For instance, Cohn et al. (2015) prime financial professionals to think in a risk-averse way (a risk-averse mindset), while Alesina et al. (2023) prime respondents to think about immigration (a concept). Some experiments prime identity by highlighting specific groups the respondent is part of.
+        \item An important distinction to keep in mind when priming is that certain dimensions may be context dependent, while others are hardwired in how we think. This can explain why certain priming interventions work (as they act on the dimensions that are context dependent) and others do not (as they act on those that are hardwired). In other words, certain dimensions of our thinking, identity, or mindset are already salient before the priming treatment. If the treatment tries to emphasize them, it may be difficult to detect an additional effect. If the treatment tries to dampen them, it may not produce meaningful change.
+        \item Note that, with some of these techniques, it may be difficult to disentangle the effect of priming from that of information provision. A prime should ideally not lead to any learning or belief updating, since it would then be impossible to disentangle the effect of the prime from the effect of the new information. It is also possible to probe whether respondents are aware of the prime at the end of the survey, by asking them about their perceived purpose of the survey and whether they noticed links between different parts.
+        \item Information treatment
+        \item Quantitative information. Quantitative information can be precise and clear and minimize differences in interpretation across respondents. Yet, such treatments may be harder to understand and less appealing to respondents. For instance, Alesina et al. (2023) tell respondents in one treatment group the share of immigrants in their country and compare it to the share of immigrants in the countries with the highest and lowest immigrant shares in the OECD.
+        \item Qualitative information. Treatments can provide more qualitative information, which is sometimes more effective than exact numbers and better suited to the question you are trying to answer. Qualitative information can also help make the treatment more homogeneous when doing an experiment in several countries or settings.
+        \item Anecdotes, stories, and narratives. Treatments can also take the form of anecdotes, stories, or narratives. For instance, Alesina et al. (2023) show respondents in one of the treatment groups an animation about a day in the life of a hardworking immigrant.
+    \end{itemize}
+\end{itemize}
+\subsubsection*{Alesina, Stantcheva, Teso (2018)}
+\begin{itemize}
+    \item \textbf{Relevance:} High
+    \item \textbf{Paper:} \fullcite{alesina2018intergenerational}
+    \item \textbf{Abstract:} Using new cross-country survey and experimental data, we investigate how beliefs about intergenerational mobility affect preferences for redistribution in France, Italy, Sweden, the United Kingdom, and the United States. Americans are more optimistic than Europeans about social mobility. Our randomized treatment shows pessimistic information about mobility and increases support for redistribution, mostly for “equality of opportunity” policies. We find strong political polarization. Left-wing respondents are more pessimistic about mobility: their preferences for redistribution are correlated with their mobility perceptions; and they support more redistribution after seeing pessimistic information. None of this is true for right-wing respondents, possibly because they see the government as a “problem” and not as the “solution.”
+    \item \textbf{Beliefs/Perceptions:} The study focuses on \textbf{perceptions of social mobility} (specifically, the belief that hard work leads to success) and how these perceptions relate to \textbf{attitudes toward redistribution}.
+    \item \textbf{Survey Design:} 
+    \begin{itemize}
+        \item The policy questions they ask reflect realistic trade-offs: e.g. they avoid having respondents think that there are free lunches.
+        \item Socioeconomic background and own experience of mobility: gender, income, education, ethnicity, state, zip code, family status, political leanings. They also ask questions to assess respondents own experience of mobility (They ask about their parents)
+        \item Views on Fairness: two but intentionally not the same questions about their views about fairness. One before, one after treatment. 
+        \begin{itemize}
+            \item Before: Is the economic system in your country (basically fair/basically unfair).
+            \item After: American dream question; does everyone gets a chance to succeed?
+        \end{itemize}
+        \item Perceptions of mobility: The main question used to elicit respondents’ beliefs about mobility uses a picture with two ladders (see Figure 1) that represents, on the left, the parents’ income distribution split into five quintiles and, on the right, the children’s income distribution split into the same quintiles. Respondents have to fill out the empty fields to indicate their views on how many out of 100 children from the bottom quintile can make it to each quintile when they grow up.
+        \begin{itemize}
+            \item Control: chances of the general population
+            \item Treatment 1: chances of very hard-working people ("these children are very determined and put in hard work")
+            \item Treatment 2: chances of very talented people ("these children are very talented")
+        \end{itemize}
+        \item Policy preferences: 
+        \begin{itemize}
+            \item They ask about i) the overall level of government intervention that people would like (through a series of questions presented below); (ii) how a fixed level of revenues should be raised; and (iii) how a fixed amount of budget should be allocated to various categories of spending.
+            \item for ii) they use interactive sliders where respondents can "collect" taxes from certain subgroups (top 1\%, next 9\%, next 40\%, bottom 50\%)
+            \item for iii) they let people allocate government budget of 100 to different categories. 
+        \end{itemize}
+        \item Views on Government: Ask respondents what is their desired scope of government intervention
+        \begin{itemize}
+            \item We ask three additional questions in a randomized way: some respondents see these before the treatment, while others see them after. For respondents who see them before, the responses are considered preexisting characteristics used to study the heterogeneous effects of the treatment among groups delimited by these characteristics. For respondents who see them after the treatment, they are treated as outcomes potentially influenced by the treatment.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Experimental Design:} 
+    \begin{itemize}
+        \item Participants were randomly assigned to either a treatment or a control group. The treatment involved showing participants an animated \textquotedblleft movie\textquotedblright{} that summarized academic research on the link between family background and chances of success. This \textquotedblleft movie\textquotedblright{} aimed to make people more \textquotedblleft pessimistic\textquotedblright{} about their chances of upward mobility. The control group did not watch the movie. \textbf{To minimize experimenter demand effects, precise numbers or statistics were avoided;} The animations are therefore not very informative and objective but rather just "emotionally influencing" 
+        \item On top of the animated treatment, there are also the two survey treatment arms described above. Therefore, there are three randomizations in place, which create eight treatment or control groups, summarized in online Appendix Table OA2: (i) the main perception treatment (see Section IV); (ii) whether respondents are asked about the chances of very-hard working children or talented children; and (iii) whether respondents are asked the three questions on government (described in the previous paragraph) before or after the questions eliciting mobility perceptions.
+    \end{itemize}
+    
+    \item \textbf{Data:} US respondents were contacted through the survey company C\&T Marketing, European respondents by the survey company Respondi. These companies maintain panels of respondents whom they can email with survey links. The respondents who choose to respond are first channeled through some screening questions that ensure that the final sample is nationally representative along gender, age, and income dimensions. Respondents are paid if they fully complete the survey. The pay per survey completed was 2.50 in the United States, 2.20 for Italy, France, and the United Kingdom, and 5.50 for Sweden. The average time for completion of the survey among respondents was 40 minutes and the median time of completion was 15 minutes.
+    \item \textbf{Links:}
+    \begin{itemize}
+        \item Paper: \url{https://www.aeaweb.org/articles?id=10.1257/aer.20162015}
+        \item Online Appendix: \url{https://www.aeaweb.org/content/file?id=6282}
+        \item Survey U.S.: \url{https://harvard.az1.qualtrics.com/SE/?SID=SV_5dxninfErZ246X3}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Bursztyn and Yang (2022)}
+\begin{itemize}
+    \item \textbf{Relevance:} Low-Medium
+    \item \textbf{Paper:} \fullcite{bursztyn2022misperceptions}
+    \item \textbf{Abstract:} Perceptions about others play an important role in shaping people’s attitudes and behaviors, as well as social norms more broadly. This review presents a meta-analysis of the recent empirical literature that examines perceptions about others in the field, covering over a million observations for a total of 434 elicited perceptions. We document a number of stylized facts. Misperceptions about others are widespread, asymmetric, much larger when about out-group members, and positively associated with one’s own attitudes. Experimental treatments to recalibrate misperceptions generally work as intended; they sometimes lead to meaningful changes in behaviors, though this often occurs only immediately after the treatments. We discuss different conceptual frameworks that could explain the origin, persistence, and rigidity of misperceptions about others. We point to several directions for future research.
+    \item \textbf{Beliefs/Perceptions:} The meta-analysis encompasses a wide range of \textbf{beliefs about others} and identifies systematic patterns in these beliefs.
+    \item \textbf{Design:} Studies categorized based on several aspects:
+    \begin{itemize}
+        \item \textbf{Incentivized vs Non-Incentivized Elicitation:} Some studies used incentives to encourage accurate reporting of beliefs.
+        \item \textbf{Units of Measurement:} Beliefs were measured as shares, absolute values, or binary indicators.
+        \item \textbf{Methods for Assessing Belief Changes:} Treatments often involved providing truthful information about the actual distribution of opinions or behaviors. Information was presented as \textbf{statistical data, narratives, or training}.
+    \end{itemize}
+    \item Links: 
+    \begin{itemize}
+        \item Paper: \url{https://www.annualreviews.org/content/journals/10.1146/annurev-economics-051520-023322}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Card, Mas, Moretti \& Saez (2012)}
+\begin{itemize}
+    \item \textbf{Relevance:} Low-Medium
+    \item \textbf{Paper:} \fullcite{card2012inequality}
+    \item \textbf{Beliefs/Perceptions:} Access to \textbf{peer salary information} and its effect on \textbf{job satisfaction}.
+    \item \textbf{Experimental Design:} A searchable database of public employee salaries was created. University employees in the treatment group received an email with a link to the database. A \textbf{placebo treatment} group received a neutral email mentioning research on inequality.
+\end{itemize}
+
+\subsubsection*{Cavallo, Cruces \& Perez-Truglia (2017)}
+\begin{itemize}
+    \item \textbf{Relevance:} Medium-High
+    \item \textbf{Paper:} \fullcite{cavallo2017inflation}
+    \item \textbf{Abstract:} Information frictions play a central role in the formation of household inflation expectations, but there is no consensus about their origins. We address this question with novel evidence from survey experiments. We document two main findings. First, individuals in low inflation contexts have significantly weaker priors about the inflation rate. This finding suggests that rational inattention may be an important source of information frictions. Second, cognitive limitations also appear to be a source of information frictions: even when information about inflation statistics is available, individuals still place a significant weight on inaccurate sources of information, such as their memories of the price changes of the supermarket products they purchase. We discuss the implications of these findings for macroeconomic models and policymaking.
+    \item \textbf{Beliefs/Perceptions:} Focus on \textbf{inflation expectations} and the role of \textbf{official statistics vs personal experiences}.
+    \item \textbf{Experimental Design:} Two components:
+    \begin{itemize}
+        \item \textbf{Structure of the survey experiments:} 
+        \begin{itemize}
+            \item Eliciting	subjects’ inflation	perceptions	(i.e., the perception of the annual inflation rate over the previous 12 months). This constitutes the individual’s prior belief 
+            \item Providing the subject with information related to the inflation rate over the previous 12 months, which constitutes the signal
+            \item Eliciting subjects' expectations about inflation and other nominal variables (after the information provision)
+        \end{itemize}
+        \item \textbf{Experimental treatments:}
+        \begin{itemize}
+            \item Our first treatment arm, shown in panel C of Figure 1, aimed to capture how individuals incorporate information from inflation statistics. This Statistics (1.5 percent) treatment consisted of a table with the most recent statistics about annual inflation at the time of the survey, and it was preceded by an explanation of what they were intended to measure.
+            \item Our second treatment arm was designed to capture the degree to which individuals use the information related to their everyday experience when forming inflation expectations, even if that information is not as representative and precise as aggregate inflation statistics. The Products treatment arm, illustrated in panels A and B of Figure 1, presented respondents with a table containing the prices of six products at the time of the survey and one year earlier, as well as the price change (in percentage points) for each product and the average percentage price change for all products presented in the table, also for the period from August 1, 2012 to August 1, 2013.
+            \item An additional treatment arm consisted of a combination of the previous two pieces of information (i.e., the respondent was shown the table with inflation statistics and one of the tables with prices for specific products). This is the Statistics (1.5 percent) + Products treatment arm, which was designed to test whether the tables with specific prices induced learning over and above the information conveyed by the inflation statistics.
+            \item Finally, we included a fourth treatment arm to gauge the degree of spurious learning, which we call the Hypothetical treatment. The respondents were asked to “eyeball” the price change of a product over one year. We phrased the question in terms of the need to assess how comfortable the respondent was with questions about price changes. The table we provided contained only two prices at two points in time (January 1, 2012 and January 1, 2013) without specifying the product. The price of the hypothetical product changed from $9.99 to $10.99, a price increase of about 10 percent (panel D of Figure 1). If the number we introduced in the information provision stage, which was unrelated to reality, had any impact on stated inflation expectations, it would comprise evidence of spurious learning.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Cruces, Perez-Truglia \& Tetaz (2013)}
+\begin{itemize}
+    \item \textbf{Relevance:} Medium-High
+    \item \textbf{Paper:} \fullcite{cruces2013biased}
+    \item \textbf{Abstract:} Individual perceptions of income distribution play a vital role in political economy and public finance models, yet there is little evidence regarding their origins or accuracy. This study examines how individuals form these perceptions and explores their potential impact on preferences for redistribution. A tailored household survey provides original evidence on systematic biases in individuals' evaluations of their own relative position in the income distribution. The study discusses one of the mechanisms that may generate such biases, based on the extrapolation of information from endogenous reference groups, and presents some suggestive evidence that this mechanism has significant explanatory power. The impact of these biased perceptions on attitudes toward redistributive policies is studied by means of an experimental design that was incorporated into the survey, which provided consistent information on the own-ranking within the income distribution to a randomly selected group of respondents. The evidence suggests that those who had overestimated their relative position and thought that they were relatively richer than they were tend to demand higher levels of redistribution when informed of their true ranking.
+    \item \textbf{Beliefs/Perceptions:} \textbf{Perceptions of income distribution} and \textbf{preferences for redistribution}.
+    \item \textbf{Survey on distributional perceptions and redistribution:} 
+    \begin{itemize}
+        \item face-to-face interviews with a random sample of that population
+        \item collected data on a set of individual and household characteristics and on respondents' labor-market and other socioeconomic outcomes
+        \item gathered also information on respondents' actual household income and on their perception of their own income rank
+        \item “There are 10 million households in Argentina. Of those 10 million, how many do you think have an income lower than yours?”
+    \end{itemize}
+    \item \textbf{Survey Experiment Setup:} Treatment group received feedback on their actual relative income position; the control group did not.
+    \begin{itemize}
+        \item Specifically, after collecting information on household characteristics, income levels and positional perceptions, the interviewer informed respondents in the treatment group whether their estimates of relative income coincided with those of the research team
+        \item he presence of a bias in their perceptions was thus explicitly pointed out to respondents in the treatment group
+        \item After the treatment, the questionnaire was used to collect information on attitudes about specific redistributive policies of interest in Argentina within the political context existing at the time of the survey.
+    \end{itemize}
+    \item \textbf{Data:} paper are based on the Survey on Distributional Perceptions and Redistribution, a study of 1100 representative households in Greater Buenos Aires in Argentina.
+\end{itemize}
+
+\subsubsection*{Cullen and Perez-Truglia (2022)}
+\begin{itemize}
+    \item \textbf{Relevance:} Low-Medium
+    \item \textbf{Paper:} \fullcite{cullen2022much}
+    \item \textbf{Beliefs/Perceptions:} \textbf{Beliefs about peer and manager salaries} and their influence on employee behavior.
+    \item \textbf{Experimental Design:} Multi-stage design including belief elicitation, information provision, and behavioral measures.
+\end{itemize}
+
+\subsubsection*{D\"orrenberg and Peichl (2018)}
+\begin{itemize}
+    \item \textbf{Relevance:} High, but the paper is not published and also does not seem to be soon...
+    \item \textbf{Paper:} \fullcite{doerrenberg2018tax}
+    \item \textbf{Abstract:} We present the first randomized survey experiment in the context of tax compliance to assess the role of social norms and reciprocity for intrinsic tax morale. We find that participants in a social-norm treatment have lower tax morale relative to a control group while participants in a reciprocity treatment have significantly higher tax morale than those in the social-norm group. This suggests that a potential backfire effect of social norms is outweighed if the consequences of violating the social norm are made salient. We further document the anatomy of intrinsic motivations for tax compliance and present first evidence that previously found gender effects in tax morale are not driven by differences in risk preferences.
+    \item \textbf{Beliefs/Perceptions:} \textbf{Tax morale}, influenced by \textbf{tax compliance norms} and \textbf{government spending}.
+    \item \textbf{Experimental Design:} Treatments included information about compliance rates and public spending.
+    \begin{itemize}
+        \item The survey experiment is embedded in the German Internet Panel (GIP), a representative online survey in Germany
+        \item ’How justifiable do you think it is to evade taxes if an easy opportunity to do so presents itself ? ’
+        \item three groups: 
+        \begin{itemize}
+            \item Control group
+            \item Social norm treatment: Participants are informed that scientific studies estimate the tax gap in industrialised countries to be approximately 10\%. (intends to manipulate the social norm of tax evasion by providing information)
+            \item Reciprocity group: Additionally participants are informed that the government expenses for education in Germany could be increased by approx 50\% if foregone revenue due to tax gap would be spent on education. (This variation adds a reciprocity component as it increases awareness and salience about the relationship between evaded taxes and governmennt expenditures)  
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Fuster, Perez-Truglia, Wiederholt, Zafar (2022)}
+\begin{itemize}
+    \item \textbf{Relevance:} Medium
+    \item \textbf{Paper:} \fullcite{fuster2022expectations}
+    \item \textbf{Abstract:} We use a survey experiment to generate direct evidence on how people acquire and process information. Participants can buy different information signals that could help them forecast future national home prices. We elicit their valuations and exogenously vary the cost of information. Participants put substantial value on their preferred signal and, when acquired, incorporate the signal in their beliefs. However, they disagree on which signal to buy. As a result, making information cheaper does not decrease the cross-sectional dispersion of expectations. We provide a model with costly acquisition and processing of information, which can match most of our empirical results.
+    \item \textbf{Beliefs/Perceptions:} \textbf{Expectations about home prices} and the value placed on different information signals. The goal of this paper is to use experimental methods to measure how each of these three stages (three stages of belief formation: information selection, information acquisition, and information processing) of belief formation gives rise to heterogeneity in expectations.
+    \item \textbf{Experimental Design:} Participants ranked and paid for preferred information signals to forecast home prices.
+    \begin{itemize}
+        \item "we study a more realistic information acquisition environment in which agents have to acquire the information at a cost and have a choice of the information sources they want to see."
+        \item Experimental design has four stages: 
+        \begin{itemize}
+            \item 1. respondents report their expectations about national median home price for end of the year
+            \item 2. respondents are informed that their forecast will be reelicited and incentivized (reward for accurate beliefs). Before that they can choose between different pieces of information
+            \item 3. Elicit WTP for for their most preferred piece of information, by giving experimentally varied prices. 
+            \item 4. Respondents get to see their preferred piece of information if they drew a scenario in which they see information. 
+        \end{itemize}
+        \item 
+    \end{itemize}
+    \item \textbf{Data:} The main survey underlying our study was conducted in February 2017 as part of an annual SCE special module on the topic of housing.
+\end{itemize}
+
+\subsubsection*{Gross, Lorek and Richter. (2017)}
+\begin{itemize}
+    \item \textbf{Relevance:} Medium
+    \item \textbf{Paper:} \fullcite{gross2017attitudes}
+    \item \textbf{Beliefs/Perceptions:} \textbf{Fairness of inheritance taxation} (choosing tax amount) based on various vignette characteristics.
+    \item \textbf{Experimental Design:} Respondents assessed fairness using vignettes with varied inheritance scenarios. "We constructed vignettes with varying cases of inheritance (see Fig. 1for an example) to examine which of the given dimensions are seen as relevant for a proposed inheritance tax rate (PITR)".
+    \item Varying dimensions are: 
+    \begin{itemize}
+        \item Heir's monthly gross income
+        \item Value of bequest
+        \item Relation between testator and heir
+        \item Type of bequest
+        \item Governmental debt
+        \item Heir's gender
+    \end{itemize}
+    \item each respondent answered six vignettes
+    \item \textbf{Data:} Respondents were sampled from an online access opt-in-panel, the WiSo-Panel, with approximately 10,000 participants (effective October 2011) that was run at the University of Freiburg in Germany (Göritz 2014). Three different tyes of data is sampled: 
+    \begin{itemize}
+        \item basic information: gender, age
+        \item data collected in online survey: educational background, household income, and family orientation of the respondent, and whether the respondent him- or herself is expecting a bequest.
+        \item vignette judgments
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{J\"ager, Roth, Roussille, Schoefer (2024)}
+\begin{itemize}
+    \item \textbf{Relevance:} Medium
+    \item \textbf{Paper:} \fullcite{jager2024worker}
+    \item \textbf{Abstract:} Standard labor market models assume that workers hold accurate beliefs about the external wage distribution, and hence their outside options with other employers. We test this assumption by comparing German workers’ beliefs about outside options with objective benchmarks. First, we find that workers wrongly anchor their beliefs about outside options on their current wage: workers that would experience a 10\% wage change if switching to their outside option only expect a 1\% change. Second, workers in low-paying firms underestimate wages elsewhere. Third, in response to information about the wages of similar workers, respondents correct their beliefs about their outside options and change their job search and wage negotiation intentions. Finally, we analyze the consequences of anchoring in a simple equilibrium model. In the model, anchored beliefs keep overly pessimistic workers stuck in low-wage jobs, which gives rise to monopsony power and labor market segmentation.
+    \item \textbf{Beliefs/Perceptions:} \textbf{Worker beliefs about outside options} in the labor market.
+    \item \textbf{Experimental Design:} Treatment group received tailored information about job openings: "To causally identify the anchoring mechanism and explore its effects on labor market behavior, we implement an online information experiment in Germany. We provide a random subset of respondents with information about the average wage of workers with similar characteristics in the same labor market. We find that treated workers use this information to correct not only their beliefs about the wages of similar workers but also to adjust their beliefs about their own outside options. We document that this updating of beliefs causes them to adjust their job search and wage negotiation intentions."
+    \item \textbf{Data:} Representative survey embedded in the german socio-economic panel (SOEP)
+\end{itemize}
+
+\subsubsection*{Kuziemko, Norton, Saez, Stantcheva (2015)}
+\begin{itemize}
+    \item \textbf{Relevance:} High
+    \item \textbf{Paper:} \fullcite{kuziemko2015elastic}
+    \item \textbf{Abstract:} We analyze randomized online survey experiments providing interactive, customized information on US income inequality, the link between top income tax rates and economic growth, and the estate tax. The treatment has large effects on views about inequality but only slightly moves tax and transfer policy preferences. An exception is the estate tax—informing respondents of the small share of decedents who pay it doubles support for it. The small effects for all other policies can be partially explained by respondents’ low trust in government and a disconnect between concerns about social issues and the public policies meant to address them.
+    \item \textbf{Beliefs/Perceptions:} \textbf{Information about inequality} and \textbf{redistributive preferences}.
+    \item \textbf{Experimental Design:} Treatments included information about inequality, estate tax, and emotional framing.
+    \begin{itemize}
+        \item First Wave of experiments: "Omnibus" treatment providing interactive, personalized information on US income inequality, the historical correlation between top income tax rates and economic growth, and the incidence of estate tax. 
+        \begin{itemize}
+            \item Background socioeconomic questions: demographic questions, political leanings
+            \item randomized treatment providing information on inequality and tax policy: 
+            \begin{itemize}
+                \item "In general, the goal of the information treatments was to provide a large “shock” to individuals’ knowledge about inequality and redistributive policies, rather than to provide a PhD-level, nuanced discussion about, say, the underlying causes of inequality or the trade-off between equality and efficiency"
+                \item 1. interactive information on the current income distribution, where they were also asked to play around with the application (as example find median)
+                \item 2. focus on counterfactual distribution: what they “would have made” had economic growth since 1980 been evenly shared across the income distribution
+                \item 3. Redistributive policies: To emphasize that higher income taxes on the well-off need not always lead to slower economic growth, we presented respondents a figure showing that, at least as a raw correlation, economic growth, measured by average real pre-tax income per family from tax return data, has been slower during periods with low top tax rates (1913–1933 and 1980–2010) than with high top tax rates (1933–1980).
+                \item link to survey: \url{https://hbs.qualtrics.com/SE/?SID=SV_77fSvTy12ZSBihn.}
+            \end{itemize}
+            \item questions on views on inequality, tax and transfer policies, and government more generally
+        \end{itemize}
+        \item Follow up experiments with new respondents to analyze potential mechanism behind the inital results.
+        \item Some of the experimental information is customized (show their place in income distribution)
+    \end{itemize}
+    \item \textbf{Data:} "We conduct a series of randomized survey experiments using Amazon’s Mechanical Turk (mTurk). mTurk is a rapidly growing online platform that can be used to carry out social and survey experiments (see Horton, Rand, and Zeckhauser 2011 and Paolacci, Chandler, and Ipeirotis 2010)"
+\end{itemize}
+
+
+\subsubsection*{Stantcheva (2021)}
+\begin{itemize}
+        \item \textbf{Relevance:} High
+        \item \textbf{Paper:} \fullcite{stantcheva2021understanding}
+        \item \textbf{Beliefs/Perceptions:} This study examines \textbf{factual knowledge} about how the tax system (with focus on )works, \textbf{perceptions} of its effects on efficiency and redistribution, and \textbf{fairness concerns} related to taxation. It also investigates how providing information about tax policy impacts individuals' views and preferences.
+        \item \textbf{Survey Structure:} 
+        \begin{itemize}
+            \item Background socioeconomic questions: gender, age, income, highest level of education achieved, field of study in college, sector of occupatio, employment status, marital status, number of children, place of residence, main source of news, and political orientation. (The political oriantation is elicitated in 3 different ways)
+            \item Knowledge: level of top federal or top state taxes, threshold for top income tax bracket, share of households paying no income tax, average tax rate for the median household/top household, share of total income or wealth that goes to the top 1\%, the share of wealth inherited, or the occupational composition of the top 1\% of earners.
+            \item Information treatments
+        \end{itemize}
+        \item \textbf{Experimental Design:} The research employs a combination of large-scale social economics surveys and experiments using a representative sample of the US population. The survey includes questions about individuals’ existing understanding of the tax system, their perceptions of its fairness and effects, and their preferences for various tax policies. To examine the causal effects of information on these views, the study incorporates an experimental element:
+        \begin{itemize}
+            \item \textbf{Video Treatments:} Respondents are randomly assigned to watch instructional videos that explain the mechanics and consequences of different tax policies. These videos present the information from different perspectives, such as focusing on efficiency, equity, or fairness considerations.
+            \begin{itemize}
+                \item Redistribution treatment: The Redistribution perspective considers the impact of policies on winners and losers. \url{https://youtu.be/_vq7ZTjBN3Y}
+                \item Efficiency treatment: Efficiency perspective looks at  efficiency costs. \url{https://youtu.be/9xd-RHMiIcE}
+                \item Economist: Economist perspective combines both and presents trade-offs. \url{https://youtu.be/e3NBmrzEmUQ}
+            \end{itemize}
+        \end{itemize}
+        \end{itemize}
+
+\subsection{Related literature in the field of tax systems and enforcement}
+\subsubsection*{Perez-Truglia and Troiano (2018)}
+\begin{itemize}
+    \item \textbf{Beliefs/Perceptions:} \textbf{Tax compliance behavior} influenced by \textbf{social pressure} and \textbf{detection likelihood}.
+    \item \textbf{Experimental Design:} Treatments included social information and financial penalty letters.
+\end{itemize}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

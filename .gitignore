@@ -54,3 +54,6 @@ CLAUDE.local.md
 # Output artifacts — uncomment lines below based on your preference
 # *.rds
 # output/**/*.rds
+
+# Survey data — keep local only (participant data, never commit)
+Project/Data/
