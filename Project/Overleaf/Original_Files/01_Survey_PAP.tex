@@ -1,0 +1,2381 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{amsmath}
+\usepackage{booktabs}      % For \toprule, \midrule, \bottomrule
+\usepackage{threeparttable} % For tablenotes
+\usepackage{pdflscape} 
+\usepackage{placeins}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{multicol}
+
+
+%\renewcommand{\arraystretch}{0.85}
+% =========================
+% Custom macros for coauthor comments
+% =========================
+\newcommand{\sst}[1]{\textcolor{green}{#1}}
+\newcommand{\tk}[1]{\textcolor{orange}{#1}}
+\newcommand{\mw}[1]{\textcolor{magenta}{#1}}
+\newcommand{\var}[1]{\text{\texttt{#1}}}
+% ===========================================================================
+
+\onehalfspacing
+
+% Title information
+\title{Title TBD:\\Draft of Survey Questions and Estimation Strategy}
+\author{Tim Kircali, Stefanie Stantcheva, Matthias Weber}
+\date{\today} % Use \date{} for no date
+
+% Bibliography package
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{references.bib} % Link to the bibliography file
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Survey}
+\noindent We indicate with ”/” and ”-” whether questions have discrete choice options (e.g. yes / no) or continuous choice options (e.g. strongly oppose - strongly support). 
+\subsection*{Page for the Confirmation of Participant Consent}
+We are a non-partisan academic research team. Our goal is to understand people's views on several issues. By reading the questions carefully and answering honestly, you help us gain valuable insights.
+\\
+\\
+\noindent Please note: 
+\begin{itemize}
+    \item \uline{You may not use external resources, including AI (e.g. ChatGPT or Gemini), while completing this survey.}
+    \item \uline{Don't use your smartphone to fill out the survey.} Only desktop or tablet devices are compatible.
+    \item \uline{This survey includes videos with audio.} Please ensure you have headphones available or are in an environment where you can listen to audio.
+    \item Your participation in this survey is voluntary, and completing it will take approximately 30 minutes. If at any point you wish to stop participating, you can simply exit the survey by closing this window.
+    \item Your name will not be recorded by us. Only anonymized data will be used.
+    \item To receive compensation for this interview, you must (i) complete the survey and (ii) pass our and Prolific’s survey quality checks, which use statistical methods to detect incoherent or rushed responses. Responses that lack adequate effort may not be paid. 
+    \item If you have any questions about the study, please either send us a message via Prolific or email Matthias Weber directly at matthias.weber@unisg.ch.
+\end{itemize}
+
+\noindent There are no right or wrong responses, we are interested in your personal views. For this reason, \uline{the use of external resources, including AI (ChatGPT, Gemini etc.), is not permitted.}
+\\
+\\
+\noindent Do you consent to participate in this survey?\\
+\textit{[I consent/I do not consent]}
+
+\subsection*{Demographic Background}
+\begin{enumerate}
+    \item What is your Prolific ID? \\ \textit{Please note that this response should auto-fill with the correct ID}\\ \textit{[Prolific ID]}
+    \item What is your current age in years? \\ \textit{[nr. between 0 and 100]}
+    \item What is your gender? \\ \textit{[Male/Female/Other]} 
+    \item In what state or U.S. territory do you currently live?  \\
+\begin{multicols}{3} % number of columns
+\begin{itemize}
+\item Alabama
+\item Alaska
+\item Arizona
+\item Arkansas
+\item California
+\item Colorado
+\item Connecticut
+\item Delaware
+\item District of Columbia
+\item Florida
+\item Georgia
+\item Hawaii
+\item Idaho
+\item Illinois
+\item Indiana
+\item Iowa
+\item Kansas
+\item Kentucky
+\item Louisiana
+\item Maine
+\item Maryland
+\item Massachusetts
+\item Michigan
+\item Minnesota
+\item Mississippi
+\item Missouri
+\item Montana
+\item Nebraska
+\item Nevada
+\item New Hampshire
+\item New Jersey
+\item New Mexico
+\item New York
+\item North Carolina
+\item North Dakota
+\item Ohio
+\item Oklahoma
+\item Oregon
+\item Pennsylvania
+\item Rhode Island
+\item South Carolina
+\item South Dakota
+\item Tennessee
+\item Texas
+\item Utah
+\item Vermont
+\item Virginia
+\item Washington
+\item West Virginia
+\item Wisconsin
+\item Wyoming
+\item American Samoa
+\item Guam
+\item Northern Mariana Islands
+\item Puerto Rico
+\item U.S. Virgin Islands
+\end{itemize}
+\end{multicols}
+    
+
+\item What is your 5-digit zipcode? \\ \textit{[5-digit zipcode]}
+\item What is your marital status? \\ \textit{[Never married / Now married / Widowed / Divorced]}
+\item What is your highest level of education? \\  
+    \textit{[Eighth Grade or lower/ Some High School/ High School degree/GED/ Some College/ 2-year College Degree/ 4-year College Degree/ Master’s Degree/ Doctoral Degree/ Professional Degree (JD, MD, MBA)]}
+\item \textit{(Screening Attention Check 1:)} \\ People increasingly use smartphones to consume media. As digital content becomes more personalized and instantly accessible, many users rely on mobile devices as their primary gateway to news and entertainment. For this question, we are not interested in your actual habits. Instead, to confirm that you are reading carefully, please select “Not very often” from the options below. \\\textit{[Almost never / Not very often / Sometimes / A lot of the time / Almost always]}
+\item Do you live with your partner (if you have one)? \\ \textit{[Yes/No or I do not have a partner]}
+\item How many people are you in your household? \textit{(A household only includes members of family or your dependants but not roommates.)} \\  \textit{[1/2/.../9/10 or more]} 
+\item How many children below the age of 14 live in your household? \textit{(A household only includes members of family or your dependants but not roommates.)} \\  \textit{[1/2/.../9/10 or more]} 
+\item  Are you a homeowner or a tenant? \\ \textit{[Homeowner/Tenant/Both/Other]}
+ \item What is your employment status?\\
+    \textit{[Full-time employed/ Part-time employed/ Self-employed / (Part-time) employed and self-employed / Unemployed (searching for a job)/ Not in labor force (no job and not searching for one) / Full time student / Retired]}
+\item Are you currently enrolled as student in college, graduate school or professional school? \\
+    \textit{[Yes / No]}
+\item What is your total household income per year, including all earners in your household (after tax) in USD?\textit{(A household only includes members of family or your dependants but not roommates.)} \\
+    \textit{[less than \$10,000 / \$10,000--\$15,999 / \$16,000--\$19,999 / \$20,000--\$29,999 / \$30,000--\$39,999 / \$40,000--\$49,999 / \$50,000--\$59,999 / \$60,000--\$69,999 / \$70,000--\$79,999 / \$80,000--\$89,999 / \$90,000--\$99,999 / \$100,000--\$124,999/ \$125,000--\$149,999 / more than \$150,000]}
+
+\end{enumerate}
+\begin{enumerate}[resume]
+    %\item What is your ethnicity? (Select all that apply) (\textit{ethnicity}) \\ \textit{(White / Black or African-American / Hispanic or Latino / Asian / Other race or multiracial)}
+    \item  What are your current sources of income? (\uline{Select all that apply.})\\
+    \textit{[Salary or wages (payroll) / Income from self-employment or freelance work / Rental income from property you own / Interest from domestic bank accounts / Interest from foreign bank accounts / Dividends or capital gains from publicly traded stocks or mutual funds / Income from private business investments or partnerships / Earnings from cryptocurrencies or digital assets / Income from savings or investment products held at domestic banks / Income from savings or investment products held at foreign banks / Cash payments (tips, informal or unreported work) / Other]}
+    \item What is the estimated total value of your assets — or your household’s assets if you are married? Please include everything you own (e.g., home, car, savings, investments), minus any outstanding debts (such as mortgages, car loans, or credit card balances). For example: if your home is worth \$300,000 and you still owe \$200,000 on your mortgage, the net value of your home is \$100,000.\\
+    \textit{[Less than \$3,000 / \$3,000 - \$9,999 / \$10,000-\$29,999 / 
+    \$30,000 - \$69,999 / \$70,000 - \$129,999 / \$130,000 - \$209,999 / 
+    \$210'000 - \$309'999 / \$310,000 - \$459'999 / \$460,000 - \$709'999/
+    \$710'000 - \$1'199'999 / \$1'200'000 - \$2'399'999 / \$2'400'000 or more]}
+\end{enumerate}
+\subsection*{Political Leaning}
+\begin{enumerate}[resume]
+    \item What do you consider your political affiliation, as of today?\\
+    \textit{[Republican / Democrat / Independent / Other / Non-Affiliated]} 
+    \item \label{n:19} \textit{(If “Other” to 17)} Please specify your political affiliation: \\ \textit{[Text box]}
+\end{enumerate}
+
+\subsection*{First Order Concerns}
+\tk{Q to SS: Open-ended questions help us to better understand people's concerns by avoiding any restrictions or priming of respondents regarding certain considerations. And, they might be interesting to analyze respondent's typing speed to check for unusual behavior. The following questions could be interesting. However, we are hesitant to include open-ended questions because we are unsure whether the results would be worth the effort of analysing them. Do you think it is important to include open-ended questions such as the following? \textbf{Our suggestion is to include question 23 and 24 in the pilot and and then analyse whether we'll find something interesting.} Another advantage of them: We can analyze respondent's typing speed.}
+\begin{enumerate}[resume]
+    \item What are your main considerations, whether positive or negative, regarding the process by which U.S. taxpayers file their taxes? Are there any problems that the government should address? \\ \\ \noindent \textit{Please don't spend more than 1-2 minutes on this question. A few words or 2–3 short sentences are enough.} \\ \\ \textit{[Text box]}
+    \item Now, if you think about tax evasion in the U.S, what are your main considerations that come to your mind? Are there any problems the government should address?\\ \\ \noindent \textit{Please don't spend more than 1-2 minutes on this question. A few words or 2–3 short sentences are enough.} \\ \\ \textit{[Text box]}
+\end{enumerate}
+\subsection*{Personal Exposure to Taxes}
+\underline{Exposure to Tax Filing}
+\begin{enumerate}[resume]
+    \item People file their tax returns in different ways. Some prepare and submit them on their own, while others rely on help from friends, relatives, or professionals. How do you usually file your taxes? \\ 
+    \textit{[I prepare and file them myself / I prepare them together with help from a friend or relative /  A friend or relative prepares and files them for me / I prepare them together with a professional / A professional prepares and files them for me / I am not filing my taxes, and neither is anyone else / Other]}
+    \item Some peoples' tax returns are filed using tax software, while those of others are filed by hand. How are your tax returns filed, by hand or by using tax software?\\ 
+    \textit{[By hand / By using tax software / Both, by hand and by using tax software / I don't know / I am not filing my taxes, and neither is anyone else]}
+\end{enumerate}
+\underline{Exposure to Tax Enforcement} 
+\begin{enumerate}[resume]
+    \item Among the people you know personally, how many do you believe make \uline{unintentional} mistakes on their tax returns?   \\ 
+    \textit{[Nobody/ Very few/ Some/ Many/ Most or all/ Prefer not to say]}
+    \item Some people \uline{intentionally} report parts of their income incorrectly to reduce their tax burden. Among the people you know personally, how many do you believe intentionally report incorrectly? \\ 
+    \textit{[Nobody/ Very few/ Some/ Many/ Most or all/ Prefer not to say]}
+
+    \item \textit{(Screening Attention Check 2:)} \\ Please watch the following video (with audio) and make sure your sound is turned on. Follow the spoken instructions and select the corresponding option. \\ \textit{(The hills are covered with trees / The clouds are gray / The forest is green / The river flows through the forest / The field is green / I don't have audio)}
+\end{enumerate}
+
+\subsection*{Experimental Treatments}
+\textit{Respondents are randomized to one of the following treatment arms. Outside the control treatment arm we ask a few questions to validate that people were actually watching the video.}
+\begin{itemize}
+    \item Control
+    \begin{itemize}
+        \item Please proceed to the next page. 
+    \end{itemize}
+    \item Evasion
+    \begin{itemize}
+        \item We will now show you a short video (with sound) that summarizes key findings from research on tax administration. Please pay close attention to the information provided, as you will be asked questions about it afterward. \\[0.5em] Do not skip ahead or close the page while the video is playing; the survey will not allow you to advance before it finishes.\\To start the video, proceed to the next page.
+        \item Information Text (Video, Audio, Subtitles): 
+        \begin{itemize}
+            \item A major challenge for the US government is the loss of tax revenue through tax evasion.
+            \item Out of \$4.6 trillion in taxes, the IRS collects only 87\%. The missing 13\% add up to \$606 billion that never reach government revenue. 
+            \item The tax authorities have a number of options to combat tax evasion.
+            \item One option is to conduct tax audits, which involves closely examining tax returns.
+            \item Increasing tax audit activities is costly, but it helps the IRS to increase tax revenue.
+            \item Another powerful tool to combat tax evasion is third-party reporting. 
+            \item This means the IRS receives information directly from domestic firms and institutions.
+            \item Employers, for example, report their workers’ earnings to the IRS using Form W-2.
+            \item Another example is that banks use Form 1099 to report interest and dividend payments. 
+            \item Research shows that increasing third-party reporting reduces tax evasion and, therefore, increases tax revenue.
+            \item Beyond domestic reporting, international information exchange also plays a crucial role in reducing tax evasion. 
+            \item The IRS has information on most U.S. bank accounts, but some taxpayers hold accounts abroad.
+            \item Without international agreements, this information does not reach the IRS.
+            \item Research shows that expanding cooperation with more countries reduces tax evasion and, therefore, increases tax revenue.
+            \item To summarize the tools the IRS has to reduce tax evasion: It can increase tax audits, it can expand third-party reporting, and it can strengthen information exchange with other countries. All of this would increase tax revenue. 
+        \end{itemize}
+        \item Validation Questions: \\
+        For us as researchers, it is important to determine whether you were able to recall some of the information presented in the videos. For the following two questions, please indicate whether the video included the information mentioned.
+        \begin{enumerate}
+        \setcounter{enumi}{26}
+        \item The video covered information about tax evasion. \\ \textit{[True / False / I don’t remember]}
+        \item The video covered information about tax filing software. \\ \textit{[True / False / I don’t remember]}
+        \end{enumerate}
+    \end{itemize}
+    \item Evasion \& Inequality 
+    \begin{itemize}
+        \item We will now show you a short video (with sound) that summarizes key findings from research on tax administration. Please pay close attention to the information provided, as you will be asked questions about it afterward. \\[0.5em] Do not skip ahead or close the page while the video is playing; the survey will not allow you to advance before it finishes.\\To start the video, proceed to the next page.
+        \item Information Text
+        \begin{itemize}
+            \item A major challenge for the US government is the loss of tax revenue through tax evasion.
+            \item Out of \$4.6 trillion in taxes, the IRS collects only 87\%. The missing 13\% add up to \$606 billion that never reach government revenue. [\textit{Up to this point, the Evasion and Evasion \& Inequality treatments are identical.}]
+            \item Research has shown that not all groups of the population evade taxes to the same extent. 
+            \item While the poorer half of the population is responsible for only 11\% of evaded taxes, the 10\% richest taxpayers are responsible for 57\% 
+            \item But also within the wealthiest households, tax evasion is largely driven by a small group. 
+            \item The top 1\% richest taxpayers are responsible for every third dollar of evaded taxes.  
+            \item When some people don’t pay their taxes, the government either has to raise taxes or lower public services. Either way, all taxpayers are affected.
+            \item The tax authorities have a number of options to combat tax evasion. [\textit{From here on, the evasion: revenue and evasion: inequality treatments are identical.}]
+            \item The tax authorities have a number of options to combat tax evasion.
+            \item One option is to conduct tax audits, which involves closely examining tax returns.
+            \item Increasing tax audit activities is costly, but it helps the IRS to increase tax revenue.
+            \item Another powerful tool to combat tax evasion is third-party reporting. 
+            \item This means the IRS receives information directly from domestic firms and institutions.
+            \item Employers, for example, report their workers’ earnings to the IRS using Form W-2.
+            \item Another example is that banks use Form 1099 to report interest and dividend payments. 
+            \item Research shows that increasing third-party reporting reduces tax evasion and, therefore, increases tax revenue.
+            \item Beyond domestic reporting, international information exchange also plays a crucial role in reducing tax evasion. 
+            \item The IRS has information on most U.S. bank accounts, but some taxpayers hold accounts abroad.
+            \item Without international agreements, this information does not reach the IRS.
+            \item Research shows that expanding cooperation with more countries reduces tax evasion and, therefore, increases tax revenue.
+            \item To summarize the tools the IRS has to reduce tax evasion: It can increase tax audits, it can expand third-party reporting, and it can strengthen information exchange with other countries. All of this would increase tax revenue. 
+        \end{itemize}
+        \item Validation Questions: \\
+        For us as researchers, it is important to determine whether you were able to recall some of the information presented in the videos. For the following two questions, please indicate whether the video included the information mentioned.
+        \begin{enumerate}
+        \setcounter{enumi}{26}
+        \item The video covered information about tax evasion. \\ \textit{[True / False / I don’t remember]}
+        \item The video covered information about tax filing software. \\ \textit{[True / False / I don’t remember]}
+        \end{enumerate}
+    \end{itemize}
+    \item Filing
+    \begin{itemize}
+        \item We will now show you a short video (with sound) that summarizes key findings from research on tax administration. Please pay close attention to the information provided, as you will be asked questions about it afterward. \\[0.5em] Do not skip ahead or close the page while the video is playing; the survey will not allow you to advance before it finishes.\\To start the video, proceed to the next page.
+        \item Information text
+        \begin{itemize}
+            \item Most people need to file tax returns to report information to the tax administration. 
+            \item This can be a tedious and expensive process.
+            \item In the U.S., taxpayers spend an average of 13 hours to file their taxes.
+            \item On average, additional financial costs of \$250 arise because many taxpayers either pay for advice, for someone preparing their tax returns, or for tax software. 
+            \item Such software provides guidance through the tax formulas and explains which deductions might apply.
+            \item It offers field-by-field advice, including clear explanations and examples. 
+            \item In the U.S., most taxpayers pay commercial providers for tax software.
+            \item However, the IRS could offer tax software free of charge, as tax authorities in many other countries already do.
+            \item Not only could there be free tax software, but the IRS could also offer pre-populated tax returns. 
+            \item This means that the tax returns are pre-filled with information the tax administration already has.
+            \item To submit the tax return, some of the taxpayers would only need to enter missing information such as deductible expenses that the IRS does not know of. But many taxpayers would only have to briefly confirm that the pre-populated return is correct.
+            \item This would save time, effort and it would reduce the potential of making mistakes when filing. 
+            \item In order to offer pre-populated tax returns, the IRS needs the relevant data. Without these data, it will not be able to pre-populate many fields. 
+            \item The tax authority often gets access to tax-relevant information by third-party reporting. 
+            \item This means the IRS receives information directly from domestic firms and institutions. 
+            \item Employers, for example, report their workers’ earnings to the IRS using Form W-2.  
+            \item Another example is that banks use Form 1099 to report interest and dividend payments. 
+            \item Currently, the IRS already receives enough third-party reported data to pre-populate around 45\% of tax returns. 
+            \item However, these data are often sent and processed after the filing deadline.
+            \item To pre-populate tax returns on time, the IRS needs to receive and process these data more quickly. 
+            \item Another point is that other government institutions hold tax-related information, but these data are not shared with the IRS. 
+            \item Local governments, for example, keep track of who owns a house and how much property tax they pay. However, they do not send this information to the IRS. 
+            \item Having access to these data would enable the IRS to pre-populate even more tax returns. 
+        \end{itemize}
+        \item Validation Questions: \\
+        For us as researchers, it is important to determine whether you were able to recall some of the information presented in the videos. For the following two questions, please indicate whether the video included the information mentioned.
+        \begin{enumerate}
+        \setcounter{enumi}{26}
+        \item The video covered information about tax evasion. \\ \textit{[True / False / I don’t remember]}
+        \item The video covered information about tax filing software. \\ \textit{[True / False / I don’t remember]}
+        \end{enumerate}
+    \end{itemize}
+    \item Filing \& Lobbying 
+    \begin{itemize}
+        \item We will now show you a short video (with sound) that summarizes key findings from research on tax administration. Please pay close attention to the information provided, as you will be asked questions about it afterward. \\[0.5em] Do not skip ahead or close the page while the video is playing; the survey will not allow you to advance before it finishes.\\To start the video, proceed to the next page.
+        \item Information text
+        \begin{itemize}
+            \item Most people need to file tax returns to report information to the tax administration. 
+            \item This can be a tedious and expensive process.
+            \item In the U.S., taxpayers spend an average of 13 hours to file their taxes.
+            \item On average, additional financial costs of \$250 arise because many taxpayers either pay for advice, for someone preparing their tax returns, or for tax software. 
+            \item Such software provides guidance through the tax formulas and explains which deductions might apply.
+            \item It offers field-by-field advice, including clear explanations and examples. 
+            \item In the U.S., most taxpayers pay commercial providers for tax software.
+            \item However, the IRS could offer tax software free of charge, as tax authorities in many other countries already do.
+            \item Not only could there be free tax software, but the IRS could also offer pre-populated tax returns. 
+            \item This means that the tax returns are pre-filled with information the tax administration already has.
+            \item To submit the tax return, some of the taxpayers would only need to enter missing information such as deductible expenses that the IRS does not know of. But many taxpayers would only have to briefly confirm that the pre-populated return is correct.
+            \item This would save time, effort and it would reduce the potential of making mistakes when filing. 
+            \item In order to offer pre-populated tax returns, the IRS needs the relevant data. Without these data, it will not be able to pre-populate many fields. 
+            \item The tax authority often gets access to tax-relevant information by third-party reporting. 
+            \item This means the IRS receives information directly from domestic firms and institutions. 
+            \item Employers, for example, report their workers’ earnings to the IRS using Form W-2.  
+            \item Another example is that banks use Form 1099 to report interest and dividend payments. 
+            \item Currently, the IRS already receives enough third-party reported data to pre-populate around 45\% of tax returns. 
+            \item However, these data are often sent and processed after the filing deadline.
+            \item To pre-populate tax returns on time, the IRS needs to receive and process these data more quickly. 
+            \item Another point is that other government institutions hold tax-related information, but these data are not shared with the IRS. 
+            \item Local governments, for example, keep track of who owns a house and how much property tax they pay. However, they do not send this information to the IRS. 
+            \item Having access to these data would enable the IRS to pre-populate even more tax returns. [\textit{Up to this point, the Filing and the Filing \& Lobbying treatments are identical.}] 
+            \item Limited data access is not the only reason the IRS has not yet introduced better filing services. 
+            \item Such reforms also require support from federal politicians. 
+            \item And when it comes to policy debates about better filing services, the tax software industry is very active in putting forward its position. 
+            \item Over the last 20 years, two providers alone have spent around 100 million dollars on lobbying. 
+            \item These companies have a strong financial interest in maintaining the current system. 
+            \item Their tax preparation business generates billions in revenue each year. Simpler filing would reduce demand for their services. 
+            \item As long as they are able to persuade politicians to maintain the current system, reforms will be difficult to implement.
+        \end{itemize}
+        \item Validation Questions: \\
+        For us as researchers, it is important to determine whether you were able to recall some of the information presented in the videos. For the following two questions, please indicate whether the video included the information mentioned.
+        \begin{enumerate}
+        \setcounter{enumi}{26}
+        \item The video covered information about tax evasion. \\ \textit{[True / False / I don’t remember]}
+        \item The video covered information about tax filing software. \\ \textit{[True / False / I don’t remember]}
+        \end{enumerate}
+    \end{itemize}
+    \item Full Info
+    \begin{itemize}
+    \item We will now show you two short videos (with sound) that summarize key findings from research on tax administration. Please pay close attention to the information provided, as you will be asked questions about them afterward.\\[0.5em] Do not skip ahead or close the page while the videos are playing; the survey will not allow you to advance before they finish.\\[0.5em] To start the first video, proceed to the next page.
+    \item Video 1: \textit{Either the video from the Evasion \& Inequality or the video from the Filing \& Lobbying treatment is shown. (Randomized)}
+    \item Now watch the second video.\\[0.5em]
+To start the video, proceed to the next page
+    \item Video 2: \textit{The video from the Evasion \& Inequality or the video from the Filing \& Lobbying treatment is shown. (This video which has not been shown before)}
+    \item Validation Questions: \\
+        For us as researchers, it is important to determine whether you were able to recall some of the information presented in the videos. For the following two questions, please indicate whether the video included the information mentioned.
+        \begin{enumerate}
+        \setcounter{enumi}{26}
+        \item The video covered information about tax evasion. \\ \textit{[True / False / I don’t remember]}
+        \item The video covered information about tax filing software. \\ \textit{[True / False / I don’t remember]}
+        \end{enumerate}
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Emotion}
+\begin{enumerate}[resume]
+\setcounter{enumi}{28}
+    \item Please indicate to what extent you feel each of the following emotions right now. 
+    \begin{enumerate}
+        \item Active\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Upset\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Hostile\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Inspired\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Ashamed\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Alert\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Nervous\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Determined\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Attentive\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+        \item Afraid\\ \textit{[Very slightly or not at all / A little / Moderately / Quite a bit / Extremely]}
+    \end{enumerate}
+\end{enumerate}
+\subsection*{Knowledge}
+%\tk{Q to SS: We are not sure whether we should include a special introduction to the knowledge questions - or potentially even incentivize the questions. In your recent health care paper you used the following paragraph. Should we include it too? \textbf{We suggest not including it to save space.}}
+%\\
+%\begin{adjustwidth}{0.75em}{0em}
+%\textcolor{gray}{As you probably know, the government and researchers gather a lot of statistical information about the economy. We are interested in learning whether this information finds its way to the general public. The next set of questions is about some economic policies in the United States. These are questions for which there are right or wrong answers.}
+%\textcolor{gray}{In order for your answers to be most helpful to us, it is really important that you answer these questions as accurately as you can and without consulting any external sources. Although you may find some questions difficult, it is very important for our research that you try your best. Thank you very much!}
+%\end{adjustwidth}
+%\vspace{0.5em}
+\begin{adjustwidth}{0.75em}{0em}Please carefully read the following explanation and keep it in mind when answering the next question.\end{adjustwidth} 
+\vspace{0.5em}
+\begin{adjustwidth}{1.25em}{1.25em} 
+\textbf{Explanation Tax Evasion:} Some individuals and companies do not pay their taxes fully. They may hide income or assets from the tax authorities, or they may misreport information on their tax returns. This is called tax evasion. 
+\end{adjustwidth}
+\begin{enumerate}[resume]
+    \setcounter{enumi}{29}
+    \item Please think about tax evasion. If you had to take a guess, out of each 100 dollars of total tax revenue how many dollars do you think is lost due to tax evasion? (each year) \\
+    \textit{[nr. between 0 and 100] dollars} 
+\end{enumerate}
+\begin{adjustwidth}{0.75em}{0em}Please carefully read the following explanation and keep it in mind when answering the next question.\end{adjustwidth}
+\vspace{0.5em}
+\begin{adjustwidth}{1.25em}{1.25em} \textbf{Explanation Tax Filing Costs:} Tax filing costs are the costs incurred when filing taxes. These include expenses for software license fees, expenses for paying someone else to file tax returns, but also the time cost when filing the taxes. 
+\end{adjustwidth}
+\vspace{0.5em}
+
+\begin{enumerate}[resume]
+    \item Please think about tax filing costs. How many hours do US individual taxpayers, on average, spend to file their taxes (each year)?\\
+    \textit{[ ] hours} 
+    \item Please think about tax filing costs. How many dollars do US individual taxpayers, on average, spend to file their taxes (each year)?
+    \textit{[ ] dollars}
+\end{enumerate}
+\vspace{0.5em}
+%\tk{Q to SS: We are unsure whether or not to include questions 33 and 34. What do you think? The insights would be interesting, but the questions are complex and possibly time consuming, it would be difficult to validate whether their responses are correct, and the questions might prime participants. Are there any other knowledge questions that might be very important to include?}
+%\begin{enumerate}[resume]
+%    \stepcounter{enumi}
+%    \item[\sout{\theenumi.}] \textcolor{gray}{Some groups of taxpayers may contribute differently to the missing tax revenue. If you had to take a guess, out of each 100 dollars of total tax revenue, how many dollars do you think are lost due to tax evasion within each of the following groups? (In red you can see the level of tax evasion you indicated before for the overall population.)}
+%    \textcolor{gray}{
+%    \begin{enumerate}[label=\alph*)]
+%        \item Large businesses \textit{(Slider 0-100) dollars} 
+%        \item Small businesses \textit{(Slider 0-100) dollars} 
+%        \item High-income households \textit{(Slider 0-100) dollars} 
+%        \item Middle-income households \textit{(Slider 0-100) dollars} 
+%        \item Low-income households \textit{(Slider 0-100) dollars} 
+%    \end{enumerate}}
+%\end{enumerate}
+%\begin{enumerate}[resume]
+%    \stepcounter{enumi}
+%    \item[\sout{\theenumi.}] \textcolor{gray}{The tax authority checks if tax returns are correct. For that they use various data sources. While they have direct access to some types of information, other data is only accessible under specific conditions, such as a strong suspicion of tax fraud.\\
+%    What do you think, to how much of the following types of tax-relevant information does your country’s tax authority (the IRS) have direct and automatic access — without needing a special request or court order? \\ 
+%    Please answer using a scale from 1 to 10, where 1 is no access at all and 10 is full access.}
+%    \textcolor{gray}{
+%    \begin{enumerate}[label=\alph*)]
+%        \item Employment income (e.g., wages, salaries, and employer-reported income via W-2 or 1099 forms) \\ \textit{(1: No access, 2: Between no and limited access, 3: Limited access, 4: Between limited and unlimited  access, 5: Unlimited access)} 
+%        \item Self-employment income (e.g., income from freelance work or own business not reported by a third-party) \\ \textit{(1: No access, 2: Between no and limited access, 3: Limited access, 4: Between limited and unlimited  access, 5: Unlimited access)} 
+%        \item Investment and capital income (e.g., dividends, interest payments, or rental income reported by banks or platforms) \\ \textit{(1: No access, 2: Between no and limited access, 3: Limited access, 4: Between limited and unlimited  access, 5: Unlimited access)}
+%        \item Health insurance data (e.g., information about coverage status or premium amounts) \\ \textit{(1: No access, 2: Between no and limited access, 3: Limited access, 4: Between limited and unlimited  access, 5: Unlimited access)}
+%        \item Bank account data (e.g., account balances or individual transactions) \\ \textit{(1: No access, 2: Between no and limited access, 3: Limited access, 4: Between limited and unlimited  access, 5: Unlimited access)}
+%        \item Payment data (e.g., credit card transactions, mobile payments, or digital wallet activity) \\ \textit{(1: No access, 2: Between no and limited access, 3: Limited access, 4: Between limited and unlimited  access, 5: Unlimited access)}
+%    \end{enumerate}}
+%\end{enumerate}
+
+\subsection*{Government Views}
+
+\begin{adjustwidth}{0.75em}{0em}The following questions ask about your general views on the federal government. When answering, \uline{please think broadly about the past 10 years and your expectations for the next 10 years, and try to set aside the actions of any specific administration.}\end{adjustwidth}
+\begin{enumerate}[resume]
+    \item On average how often do you think you can trust the federal government to do what is right? \\ \textit{[Almost never/ Not very often/ Sometimes/ A lot of the time/ Almost always]} 
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item To what extent do you agree with the statement that the government acts in ways that align with the interests of the public?\\
+    \textit{[Strongly disagree/ Somewhat disagree/ Neither agree nor disagree/ Somewhat agree/ Strongly agree]}
+\end{enumerate}
+\begin{enumerate} [resume]
+    \item Think about the resources the government has to finance their expenses. In general, do you think these resources should be decreased or increased? \\ 
+    \textit{[Strongly decrease/ Decrease/ Neither decrease nor increase/ Increase/ Strongly increase]} 
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item Do you think the government should be more or less involved in providing public services than it is now? \\
+    \textit{[Much less involved/ Less involved/ About the same/ More involved/ Much more involved]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item Think about the quality of government services provided to citizens (such as fire protection, vehicle registration, waste collection, and public education)? Consider ease of use, delivery speed, and cost. How would you rate government services in the U.S.? \\
+    \textit{[Very poor/ Poor/ Average/ Good/ Very good]}
+\end{enumerate}
+
+\subsection*{Considerations on Economic Problems}
+\underline{Considerations on Tax Evasion, Revenue and Involved Inequality}
+\begin{enumerate}[resume]
+    \item In general, how concerning is the current level of tax evasion in your country?  \\
+    \textit{[Not concerning at all/ Slightly concerning/ Moderately concerning/ Concerning/ Very concerning]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item Do you think tax evasion is mostly driven by a small group of individuals responsible for a large share of total evasion, or do you think many taxpayers contribute roughly equally to the total amount of taxes evaded? Select a number between 1 and 5 where 1 is "A small group is responsible for most tax evasion" and 5 is "Many taxpayers contribute equally to total evasion". \\
+    \textit{[1/ 2/ 3/ 4/ 5]}
+    \end{enumerate}
+\begin{enumerate}[resume]
+    \item Considering all the responsibilities a government has, how important do you think it is for the government to reduce the extent of tax evasion? \\
+    \textit{[Not important at all/ Slightly important/ Moderately important/ Important/ Very important]} 
+\end{enumerate}
+\underline{Considerations on Tax Filing Costs} \\ 
+\begin{enumerate}[resume]
+    \item Do you consider tax filing costs -- both the time and money required -- in your country to be low or high? \\ 
+    \textit{[Very low/ Low/ Neither low nor high/ High/ Very high)}
+    \item Considering all the responsibilities a government has, how important do you think it is for the government to reduce the costs associated with filing taxes?  \\ \textit{[Not important at all/ Slightly important/ Moderately important/ Important/ \tk{Very important}]}
+    \item The federal government sets the rules for how taxpayers file their taxes each year, including forms, reporting requirements, and filing methods. \vspace{0.25em} \\
+    When evaluating fairness, consider whether the system is reasonable, places appropriate burdens on taxpayers, and serves the public interest. \vspace{0.25em}\\
+    Overall, how fair or unfair do you consider the U.S. tax-filing process? \\
+    \textit{[Very unfair/ Unfair/ Neither Fair nor unfair/ Fair/ Very Fair]}
+\end{enumerate}
+\begin{itemize}
+    \item \textit{(Screening Attention Check 3:)} \\ Many factors influence how people make choices, including personal beliefs, past experiences, and the context in which a decision is made. To show that you are carefully reading the questions, please select strongly disagree for the response below, regardless of your true opinion. \\[0.25em]
+    Do you agree or disagree with the following statement: The media has a strong influence on people’s choices and plays an important role in shaping public information. \\ \textit{[Strongly disagree/ Somewhat disagree/ Neither agree nor disagree/ Somewhat agree/ Strongly agree]}
+\end{itemize}
+\underline{Considerations on Data Privacy} \\
+\begin{adjustwidth}{0.75em}{0em}The following question asks about your general view on the federal government. When answering, \uline{please think broadly about the past 10 years and your expectations for the next 10 years, and try to set aside the actions of any specific administration.}\end{adjustwidth}
+
+\begin{enumerate}[resume]
+    \item Some people see government data collection on individuals and businesses as a threat to privacy. Others view it as acceptable or even beneficial when it serves public interests, such as ensuring tax compliance or improving public services. \\ How concerned are you about the government collecting data on individuals and businesses? \\
+    \textit{[Not concerned at all/ Slightly concerned/ Moderately concerned/ Concerned/ Very concerned]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item Considering all the responsibilities a government has, how important do you think it is for the government to ensure data privacy for its citizens? \\
+    \textit{[Not important at all/ Slightly important/ Moderately important/ Important/ Very important]}
+\end{enumerate}    
+
+\subsection*{Considerations on Policies}
+\subsubsection*{Third Party Reporting: Considerations}
+\begin{adjustwidth}{0.75em}{0em}Before proceeding to the next page, please carefully read the following explanation of comprehensive third-party reporting.\end{adjustwidth} 
+\vspace{0.5em}
+
+\begin{adjustwidth}{1.25em}{1.25em}  \textbf{Explanation:}
+\textbf{Explanation:} To fulfill its functions, the tax authority relies on information from third parties such as employers, banks, and government institutions. Under third-party reporting, tax-relevant information is automatically transmitted from domestic firms and institutions to the tax authority. There are ongoing discussions about substantially expanding third-party reporting Assume that comprehensive third-party reporting would consist of the following changes:
+\begin{itemize}
+    \item \textbf{Additional data reporting:} In addition to current reporting requirements, banks would report the total annual inflows and outflows for each account. Individual transactions would not be reported; only annual totals.
+    \item \textbf{Expanded government reporting:} State and local tax authorities would transmit previously unreported information (such as property taxes and state/local income taxes) to the IRS.
+    \item \textbf{Faster reporting:} The IRS would receive data more quickly through stricter submission deadlines for third-party reported information.
+\end{itemize}
+\end{adjustwidth}
+\begin{adjustwidth}{0.75em}{0em}In the following, we will ask you about your views on comprehensive third-party reporting.\end{adjustwidth} 
+
+\begin{itemize}
+    \item[$\rightarrow$] Click here if you would like to see the explanation of comprehensive third-party reporting again.
+\end{itemize}
+\begin{enumerate}[resume]
+    \item In your view, how much would comprehensive third-party reporting reduce tax evasion? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+    \item In your view, how much would comprehensive third-party reporting reduce the administrative costs of tax enforcement for the government? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+    \item In your view, how much would comprehensive third-party reporting increase government revenue?  \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+\end{enumerate}
+\underline{Considerations on Fairness and Inequality}
+\begin{enumerate}[resume]
+    \item In your view, how much would comprehensive third-party reporting increase the overall fairness of the tax system? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+    \item In your view, how important is comprehensive third-party reporting for reducing income and wealth inequality? \\
+    \textit{[Not important at all/ Slightly important/ Moderately important/ Important/ Very important]}
+    %\item In your view, to what extent does comprehensive third-party reporting reduce the administrative costs of tax enforcement for the government?\\
+    %\textit{(1: No reduction at all - 10: Strong reduction)}
+\end{enumerate}
+\begin{enumerate}[resume]    
+    \item In your view, how much would comprehensive third-party help in reducing time and monetary costs for taxpayers when filing their taxes? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+\end{enumerate}
+\begin{enumerate}[resume]    
+    \item \label{question:tprdataprivacy} To what extent are you concerned that comprehensive third-party reporting may reduce individuals’ data privacy? \\
+    \textit{[Not concerned at all/ Slightly concerned/ Moderately concerned/ Concerned/ Very concerned]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item \label{question:tprdataprivacycondition} In the previous question you stated that you are \textit{[insert from above]} that comprehensive third-party reporting may reduce individuals’ data privacy.
+
+    \noindent The extent to which you are concerned about data privacy may depend on the type of data involved.
+
+    \noindent Please indicate, \uline{for each of the following specific types of data}, the extent to which you would be concerned about data privacy if it were covered by third-party reporting. You can do this by adjusting the sliders below. (The default position of the slider indicates your previous response.)
+
+\begin{enumerate}[label=\alph*)]
+        \item General employment data (e.g., job type, hours worked, salary, bonuses)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+        \item Employment data limited to tax-relevant financial information (e.g., salary, bonuses)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+        \item General health insurance data (e.g., types of treatments, premium payments, subsidies)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+        \item Health insurance data limited to tax-relevant financial information (e.g., premium payments, subsidies)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+        \item General bank account data (e.g., all transactions and balances)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+        \item Bank account data limited to tax-relevant information (e.g. interest payments)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+        \item General payment data (e.g., credit card or mobile payment histories)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+        \item Payment data limited to tax-relevant information (e.g., VAT-relevant payment information)\\
+        \textit{[Slider 1-5 reaching from Not concerned at all to Very concerned with 0.1 steps]}
+\end{enumerate}
+\end{enumerate}
+\begin{adjustwidth}{0.75em}{0em} In the following, we will ask you about your support for comprehensive third-party reporting. \end{adjustwidth}
+\vspace{0.5em}
+\begin{itemize}
+    \item[$\rightarrow$] Click here if you would like to see the explanation of comprehensive third-party reporting again.
+\end{itemize}
+\begin{enumerate}[resume]
+    \item \label{question:tprsupport} In general, do you support comprehensive third-party reporting of tax-relevant information to the tax authority? \\ \textit{[Strongly Oppose/ Oppose/ Neither oppose nor support/ Support/  Strongly support]}
+\end{enumerate}
+
+\begin{adjustwidth}{0.75em}{0em} \end{adjustwidth}  
+\begin{enumerate}[resume]
+    \item \label{question:tprsupportcondition} 
+    In the previous question you stated that you \textit{[insert from above]} comprehensive third-party reporting of tax-relevant information to the tax authority.
+    
+    In the following, please state how much your support for comprehensive third-party reporting would change if it contained certain elements or were applied to certain subgroups. You can do this by adjusting the sliders below. (The default position of the slider indicates your previous response.) \\
+
+    How much do you support comprehensive third-party reporting of tax-relevant information to the tax authority..
+
+\begin{enumerate}[label=\alph*)]
+    \item ...if it applied equally to all taxpayers — both individuals and businesses?\\
+    \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]}
+    \item ...if it applied primarily to businesses, but not to individual taxpayers?\\
+    \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]}
+    \item ...if it focused primarily on high-income individuals, but not on low-income individuals?\\
+    \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]}
+    \item ...if it focused primarily on large enterprises, but not on small or medium-sized businesses?\\
+    \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]}
+    \item ...if it can be guaranteed that the data will be used exclusively for tax administration?\\
+    \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]}
+    \end{enumerate}
+\end{enumerate}    
+\subsubsection*{Third Party Reporting: Petition}
+%\tk{Q to SS: We suggest to place the petition here directly after the corresponding policy block. The main advantage is that it is much more aligned, and there will probably be less confusion. One potential disadvantage is that some respondents may dislike the petition, which may influence their subsequent answers. What do you think, where should it be placed?} 
+\begin{enumerate}[resume]
+    \item Thank you for your answers about comprehensive third party reporting. For interested respondents, we have prepared a related petition that you can support.  As soon as the survey is complete, we will send the results to the Office of the Governor of [State], informing them what share of people who took this survey supported the petition. \\ \\
+    \textbf{Petition for stronger action against tax evasion:} "I agree that fair taxation is essential for a functioning society. The government must act to ensure everyone pays their fair share. One way to reduce tax evasion is through comprehensive third-party reporting---requiring banks, employers, and other institutions to share key financial information with tax authorities in a timely manner. I support expanding such reporting systems to close the tax gap and ensure tax fairness." \\ \\
+        Do you want to support this petition? \textit{[Yes / No]} (You will \underline{NOT} be asked to sign, only your answer here is required and remains anonymous.)
+
+    \item Screening Attention Check 4:\\ 
+    Please watch the video. Four digits will appear one after another. Type the four digits exactly in the order in which they appear. Enter only those four digits (no spaces or additional characters).
+\end{enumerate}
+\subsubsection*{International Exchange of Information: Considerations and Support}
+\begin{adjustwidth}{0.75em}{0em} Before proceeding to the next page, please carefully read the following explanation of international exchange of information.\end{adjustwidth}
+\vspace{0.5em}
+\begin{adjustwidth}{1em}{1em} \textbf{Explanation:} Tax authorities do not only receive information from domestic sources — they can also obtain data about their residents’ foreign bank accounts through international agreements. In the case of the United States, many foreign banks are required to report information on accounts held by U.S. taxpayers directly or through their local tax authorities to the U.S. government. In some cases, the U.S. also agrees to share similar information with those partner countries, but this depends on the specific agreement in place. \\ 
+\end{adjustwidth}
+\begin{adjustwidth}{1em}{1em}
+In the following, we will ask you about your views about international exchange of information.
+\end{adjustwidth}
+\begin{itemize}
+    \item[$\rightarrow$] Click here if you would like to see the explanation of international exchange of information again.
+\end{itemize}
+\begin{enumerate}[resume]
+    \item In your view, how much does international exchange of information reduce tax evasion? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+    \item In your view, how much does international exchange of information reduce the administrative costs of tax enforcement for the government? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)}  
+    \item In your view, how much does international exchange of information increase government revenue? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item In your view, how much does international exchange of information increase the overall fairness of the tax system?  \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)} 
+    \item In your view, how important is international exchange of information for reducing income and wealth inequality? \\
+    \textit{[Not important at all/ Slightly important/ Moderately important/ Important/ Very important]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item In your view, how much does international exchange of information reduce the time and costs for taxpayers when filing their taxes? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item To what extent are you concerned that international exchange of information with other countries may reduce individuals’ data privacy? \\
+    \textit{[Not concerned at all/ Slightly concerned/ Moderately concerned/ Concerned/ Very concerned)}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item Do you support international exchange of information with other countries? \\
+    \textit{[Strongly Oppose/ Oppose/ Neither oppose nor support/ Support/ Strongly support]}
+\end{enumerate}
+
+\subsection*{Policy Block 2: Tax Software and Prepopulated Tax Returns}
+\subsubsection*{Tax Software: Considerations and Support} 
+\vspace{0.5em}
+\begin{adjustwidth}{0.75em}{0em}Before proceeding to the next page, please carefully read the following explanation of tax software. \end{adjustwidth}
+\vspace{0.5em}
+\begin{adjustwidth}{1.25em}{1.25em} \textbf{Explanation:} Tax software is a computer program used for filing tax returns. It usually provides guidance through tax formulas and explains which deductions might apply.
+\end{adjustwidth}
+\begin{itemize}
+    \item[$\rightarrow$] Click here if you would like to see the explanation of tax software again.
+\end{itemize}
+\vspace{0.5em}
+\underline{Considerations on Tax Filing Costs}
+\begin{enumerate}[resume]
+    \item Assume you obtain the tax software for free. In your view, how much does tax software reduce time and monetary costs for taxpayers when filing their taxes?  \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly]} 
+    \item \label{question:providerfilingcost} In some countries, the government provides free tax software as a public service. In others, taxpayers can purchase software from private providers. In terms of reducing time and monetary costs for taxpayers, do you think it is better if private companies or the tax authority provides tax software? \\
+    \textit{[Definitely private companies/ Probably private companies/ Both equally/ Probably the tax authority/Definitely the tax authority]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item How costly do you think providing tax software would be for the U.S. government? \\
+    \textit{[Not costly at all/ Slightly costly/ Moderately costly/ Costly/ Very costly)} 
+    \item \label{question:providercost} In terms of overall costs to the society, do you think it is more efficient if private companies or the tax authority provide tax software?  \\
+    \textit{[Definitely private companies/ Probably private companies/ Both equally/ Probably the tax authority/Definitely the tax authority]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item When filing taxes with tax software, taxpayers often need to share private data. How problematic do you think this might be in terms of data privacy? \\
+    \textit{[Not problematic at all/ Slightly problematic/ Moderately problematic/ Problematic/ Very problematic]}
+    \item \label{question:providerdataprivacy} In terms of data privacy, do you think it is better if private companies or the tax authority provide tax software and, therefore, manage tax relevant data? \\
+    \textit{[Definitely private companies/ Probably private companies/ Both equally/ Probably the tax authority/Definitely the tax authority]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item \label{question:providerfairness} When thinking about fairness in how tax filing is organized, do you think it is better if private companies or the tax authority provide tax software?  \\
+    \textit{[Definitely private companies/ Probably private companies/ Both equally/ Probably the tax authority/Definitely the tax authority]}
+\end{enumerate}
+
+\vspace{0.5em}
+\begin{enumerate}[resume]
+    \item \label{question:providergeneral} Generally, do you think it is better if private companies or the tax authority provides tax software?\\
+    \textit{[Definitely private companies/ Probably private companies/ Both equally/ Probably the tax authority/Definitely the tax authority]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item Would you support it if the government provided free tax software? (\textit{ts\_support})\\
+    \textit{[Strongly Oppose/ Oppose/ Neither oppose nor support/ Support/ Strongly support)}
+    \item Screening Attention Check 5: \\ People's views can differ greatly depending on the situation or context. This is why researchers analyze how decisions change in different contexts. For this question, we are not interested in your opinion on the topic itself, only whether you are reading the questions carefully. To demonstrate that you have read this question carefully, please select the first option below. \\[0.25em] To what extent do you think you change your views in different contexts? \\ \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)}
+\end{enumerate}
+\subsubsection*{Prepopulated Tax Returns: Considerations and Support} 
+\vspace{0.5em}
+\begin{adjustwidth}{0.75em}{0em}Before proceeding to the next page, please carefully read the following explanation of prepopulated tax returns.\end{adjustwidth}
+\vspace{0.5em}
+\begin{adjustwidth}{1.25em}{1.25em} \textbf{Explanation:} Prepopulated tax returns are forms automatically filled in by the tax authority based on data they already have (for example data on salaries or interest payments). Taxpayers can review the information, make corrections or additions, and then submit the return.
+\end{adjustwidth}
+\begin{adjustwidth}{1.25em}{1.25em} In the following, we will ask you about your views about prepopulated tax returns. 
+\end{adjustwidth}
+\begin{itemize}
+    \item[$\rightarrow$] Click here if you would like to see the explanation of prepopulated tax returns again.
+\end{itemize}
+\begin{enumerate}[resume]
+    \item How much do you think prepopulated tax returns reduce time and monetary costs for taxpayers when filing their taxes? \\
+    \textit{[Not at all/ Slightly/ Moderately/ Considerably/ Greatly)}
+\end{enumerate}
+\begin{enumerate}[resume]
+     \item How costly do you think prepopulating tax returns would be for the U.S. government? (\textit{ppr\_costly}) \\
+    \textit{[Not costly at all/ Slightly costly/ Moderately costly/ Costly/ Very costly)} 
+\end{enumerate}
+\begin{enumerate}[resume]
+     \item To prepopulate tax returns the tax authority needs a significant amount of tax relevant data. How problematic do you think this might be in terms of data privacy?\\ 
+     \textit{[Not problematic at all/ Slightly problematic/ Moderately problematic/ Problematic/ Very problematic]} 
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item Would you support it if the government offered free prepopulated tax returns?  \\
+    \textit{[Strongly Oppose/ Oppose/ Neither oppose nor support/ Support/ Strongly support]}
+\end{enumerate}
+\begin{enumerate}[resume]
+    \item \label{question:tprsupportupdated}Comprehensive third-party reporting is a key requirement for governments to offer prepopulated tax returns, because otherwise the government cannot prefill the returns. Earlier, you stated that you \textit[insert from above] comprehensive third-party reporting of tax-relevant information to the tax authority.\\[0.5em] In the following, please state (by adjusting the sliders below) how much your support for comprehensive third-party reporting would change... 
+    \begin{enumerate}
+    \item ...if you knew that the collected data would be used to offer prepopulated tax returns (in addition to tax enforcement purposes). \\ \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]}  
+    \item ...if the data were \underline{only} used to provide prepopulated tax returns (and not for enforcement purposes). \\ \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]} 
+    \item ...if taxpayers could voluntarily choose to have their own data covered by third-party reporting, which would allow the tax authority to prepopulate tax returns. \\ 
+    \textit{[Slider 1-5 reaching from Strongly oppose to Strongly support with 0.1 steps]} 
+\end{enumerate}
+\end{enumerate}
+\underline{Voluntary Disclosure of Data} \\
+\begin{enumerate}[resume]
+    \item \label{question:volunarydisclosure} Closely related, if taxpayers could voluntarily choose to have their own data covered by third-party reporting, would you be willing to have your tax-relevant data - for example your bank account data - covered by automatic reporting to the tax authority, ...   \\
+    \begin{enumerate}
+    \item ...if you knew that the collected data would \underline{only} be used for tax enforcement  purposes (and not for prepopulating tax returns). \\     \textit{[Not willing at all/ Slightly willing/ Moderately willing/ Willing/ Very willing]}
+    \item ...if you knew that the collected data would be used to offer prepopulated tax returns (in addition to tax enforcement purposes). \\     \textit{[Not willing at all/ Slightly willing/ Moderately willing/ Willing/ Very willing]}
+    \item ...if the data were \underline{only} used to provide prepopulated tax returns (and not for enforcement purposes). \\     \textit{[Not willing at all/ Slightly willing/ Moderately willing/ Willing/ Very willing]}
+\end{enumerate}
+\end{enumerate}
+\subsubsection*{Tax Software and Prepopulated Tax Returns: Petition} 
+\begin{enumerate}[resume]
+    \item Thank you for your answers about tax software and prepopulated tax returns. For interested respondents, we have prepared a related petition that you can support. As soon as the survey is complete, we will send the results to the Office of the Governor of [State], informing them what share of people who took this survey were willing to support which petition. \\ \\
+    \textbf{Petition to make tax filing easier and more accessible for everyone:} "I believe that paying taxes should be simple and transparent. Many governments already have the information needed to prepare tax returns for most taxpayers. I support the introduction of prepopulated tax returns and government-provided tax filing services, such as free tax software, to save time, reduce errors, and make tax compliance easier for everyone."\\ \\
+    Do you want to support this petition? \textit{[Yes / No]} (You will \underline{NOT} be asked to sign, only your answer here is required and remains anonymous.)
+\end{enumerate}
+%\subsection*{Final Questions}
+%\tk{Q to SS: \textbf{We suggest to not ask the following question.} The advantage of being able to obtain an "unbiased" result might be smaller than the disadvantage of the risk of obtaining a "biased" result. However, as you used it in previous surveys, we wanted to ask whether you think it should be included?}
+%\begin{enumerate}[resume]
+%    \stepcounter{enumi}
+%    \item[\sout{\theenumi.}] \textcolor{gray}{Do you think this survey was biased?\\ \textit{(Yes, left-wing biased / Yes, right-wing biased / No)}}
+%    \item Please feel free to give us any feedback or impressions regarding this survey.
+%\end{enumerate}    
+%\section*{Petition}
+%\subsection*{Support for Comprehensive Third-Party Reporting}
+%\begin{enumerate}[resume]
+%    \item Thanks for participating in the survey. For interested respondents we have prepared three related petitions that you can support: 
+%    \begin{itemize}
+%        \item Petition a) is in favor comprehensive third-party reporting to act against tax evasion. 
+%        \item Petition b) is against comprehensive third-party reporting in order to protect privacy and government overreach in the tax system. 
+%        \item Petition c) is in favor of making tax filing easier and more accessible for everyone. 
+%    \end{itemize}
+%    As soon as the survey is complete, we will send the results to the [head of state’s] office, informing them what share of people who took this survey were willing to support which petition. \\ \\ Would you like to have a look at the petitions to see if you want to support one or more of them? (You will \underline{NOT} be asked to sign, only your answer here is required and remains anonymous.)\\  \textit{(Yes, I want to look at them / No, I do not want to look at them)} 
+%     
+%    \begin{enumerate}[label=\alph*)]
+%        \item \textbf{Petition for stronger action against tax evasion:} "I agree that fair taxation is essential for a functioning society. The government must act to ensure everyone pays their fair share. One way to reduce tax evasion is through comprehensive third-party reporting---requiring banks, employers, and other institutions to share key financial information with tax authorities. I support expanding such reporting systems to close the tax gap and ensure tax fairness." \\ \\
+%        Do you want to support this petition? \textit{(Yes / No)} (You will \underline{NOT} be asked to sign, only your answer here is required and remains anonymous.)\\
+%        \item \textbf{Petition to protect privacy and limit government overreach in the tax system:} "I believe that while reducing tax evasion is important, it must not come at the expense of individual privacy and personal freedom. Comprehensive third-party reporting creates data collection systems that can be vulnerable to misuse or breaches. Expanding such reporting risks turns financial institutions into surveillance tools for the government. I oppose further expansion of third-party reporting and support a tax system that respects privacy and individual rights."\\ \\
+%        Do you want to support this petition? \textit{(Yes / No)} (You will \underline{NOT} be asked to sign, only your answer here is required and remains anonymous.) \\
+%        \item \textbf{Petition to make tax filing easier and more accessible for everyone:} "I believe that paying taxes should be simple and transparent. Many governments already have the information needed to prepare tax returns for most taxpayers. I support the introduction of prepopulated tax returns or government-provided tax filing services, such as free tax software, to save time, reduce errors, and make tax compliance easier for everyone."\\ \\
+%        Do you want to support this petition? \textit{(Yes / No)} (You will \underline{NOT} be asked to sign, only your answer here is required and remains anonymous.)
+%    \end{enumerate}
+%\end{enumerate}
+\newpage
+\section{PAP}
+
+\subsection{Main Analysis}
+\subsubsection{Support for Policies}
+\begin{center}\textbf{\underline{Support for Information Sharing}}\end{center}
+We recruit US residents to measure preferences on tax enforcement and tax administration.\footnote{Details about the sample, survey provider and recruitment can be found in Section \ref{sec:recruitment}} They are randomly assigned to six treatment arms, each receiving different informational content via educational videos. First, we analyze support for information sharing. Our main parameter of interest is the support for comprehensive third party reporting (measured by $TPR\_Support_{i1}$). To compare how support for information sharing differs if data is exchanged with foreign institutions, we analyse support for international exchange of information (measured by $IEI\_Support_{i}$). We run regressions according to Equation~\ref{eq:TPR_Support}~and~\ref{eq:IEI_Support} , where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, and $\mathbf{X}_{i}$ is a vector of control variables. We use three specifications, one without control variables ($\mathbf{X}_{i} = \{\}$), one with only demographic controls included ($\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$), and one with a robust set of controls that includes variables measuring exposure to tax enforcement/administration policy in addition to the demographic controls ($\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$). A description of the variables can be found in Section \ref{sec:appendixvariables} and an overview of the control variable vectors can be found in Section \ref{sec:appendixvectors}. 
+\begin{center}
+\begin{align}
+\label{eq:TPR_Support}
+        \text{$TPR\_Support_{i1}$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \label{eq:IEI_Support}
+        \text{$IEI\_Support_{i}$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} 
+\end{align}
+\end{center}
+
+Table \ref{tab:supportTPRIEI} illustrates how we show results of the regression specification with the demographic set of control variables $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$. Due to the large number of variables, we only report a selection. The (online) appendix will show the results for the full set of covariates and for all the specifications of $\mathbf{X}_{i}$. ATEs of information treatments are reported by $\boldsymbol{\gamma}$.
+
+\begin{table}[!htbp]\centering
+\caption{Support for Third-Party Reporting and International Exchange of Information}
+\label{tab:supportTPRIEI}
+\begin{threeparttable}
+\begin{tabular}{l|cc}
+\toprule
+& (1) & (2) \\
+ & Support & Support  \\
+ & TPR  & IEI \\
+\midrule
+Female                     & - & -  \\
+Age                        & - & -  \\
+College degree             & - & -  \\
+Middle income              & - & -  \\
+High income                & - & -  \\
+Middle wealth              & - & -  \\
+High wealth                & - & -  \\
+Self-employed              & - & -  \\
+Republican                 & - & -  \\[1em]
+
+Evasion        & - & - \\
+Evasion \& Inequality     & - & - \\
+Filing            & - & - \\
+Filing \& Lobbying           & - & - \\
+Full info               & - & - \\[0.5em]
+
+Intercept              & - & - \\
+\midrule
+Observations                        &- &-      \\
+$R^2$                               &- &-   \\
+Controls                 &   $\mathbf{X}_{i}^{D}$ &  $\mathbf{X}_{i}^{D}$   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+To further understand people's determinants for the support of information sharing, we analyze how support changes if the policy fulfills certain conditions. More precisely, we analyze how strong support for comprehensive third party reporting changes, relative to the general support for comprehensive third party reporting (measured in Q\ref{question:tprsupport} as $TPR\_Support_{i1}$),...
+\begin{itemize}
+    \item if it applied equally to all taxpayers, \\(measured in Q\ref{question:tprsupportcondition}a as $TPR\_Support_{i2}$)
+    \item if it applied primarily to businesses, but not to individual taxpayers,\\(measured in Q\ref{question:tprsupportcondition}b as $TPR\_Support_{i3}$)
+    \item if it focuses primarily on high-income individuals, but not on low-income individuals, \\(measured in Q\ref{question:tprsupportcondition}c as $TPR\_Support_{i4}$)
+    \item if it focuses primarily on large enterprises, but not on small or medium-sized busisses, \\(measured in Q\ref{question:tprsupportcondition}d as $TPR\_Support_{i5}$)
+    \item if it can be guaranteed that the data will be used exclusively for tax administration, \\(measured in Q\ref{question:tprsupportcondition}e as $TPR\_Support_{i6}$)
+    \item if the collected data would be used to offer prepopulated tax returns in addition to tax enforcement purposes, \\ (measured in Q\ref{question:tprsupportupdated}a as $TPR\_Support_{i7}$)
+    \item if the data were only used to provide prepopulated tax returns (and not for enforcement purposes), \\(measured in Q\ref{question:tprsupportupdated}b as $TPR\_Support_{i8}$)
+    \item if taxpayers could voluntarily choose to have their own data covered.\\(measured in Q\ref{question:tprsupportupdated}c as $TPR\_Support_{i9}$)
+    \end{itemize}
+The reported support measures are derived from three different survey questions: Q\ref{question:tprsupport}, Q\ref{question:tprsupportcondition}, and Q\ref{question:tprsupportupdated}, which appears later in the survey, after respondents have been informed about the existence of prepopulated tax returns. To measure deviations from general support, we run a regression according to Equation~\ref{eq:TPR_Support_Conditional}, where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables, $\mathbf{D}_c^{TPR}$ is a vector consisting of $k$ dummies $\mathbf{C}_k^{TPR}$, whereas for $k>1$ $\mathbf{C}_k^{TPR}=1$ if $k=c$ and $\mathbf{C}_k^{TPR}=0$ if $k \neq c$. That is, we have a panel structure, where participants are indexed by $i=1,\ldots,N$ and the type of support for which is being asked is indexed by $c=1,\ldots,9$ (1: general support, 2-9: conditional support). We include dummies $\mathbf{C}_2^{TPR},\ldots, \mathbf{C}_9^{TPR}$ which are equal to one if the support is measured under a certain condition $2,\ldots,9$. 
+\begin{center}
+\begin{align}
+    \label{eq:TPR_Support_Conditional}
+    \text{$TPR\_Support_{ic}$}
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\delta}^{\top}\mathbf{D}_c^{TPR}+ \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{ic}
+\end{align}
+\end{center}
+
+$\boldsymbol{\delta}^{\top}$ estimates differences to the general support for third-party reporting if additionally other conditions were met. Table \ref{tab:conditionalsupporttpr} reports these differences along the ATEs of information treatments which are reported by $\boldsymbol{\gamma}$. The (online) appendix will additionally report the regressions with all controls (with $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$).
+
+\begin{table}[!htbp]\centering
+\caption{Conditional Support for Third-Party Reporting}
+\label{tab:conditionalsupporttpr}
+\begin{threeparttable}
+\begin{tabular}{l|c}
+\toprule
+ & (1)\\
+ & Support \\
+ \midrule
+Support for comprehensive third-party reporting if \\[0.25em]
+--it applied equally to all taxpayers. &-\\[0.25em]
+--it applied primarily to businesses.&-\\[0.25em]
+--it focuses on high-income individuals. &- \\[0.25em]
+--it focuses on large enterprises.&- \\[0.25em]
+--the data collected could only be used for purposes  & - \\
+related to tax enforcement and tax administration.\\[0.25em]
+--the data collected would also be used to offer & - \\
+prepopulated tax returns & - \\[0.25em]
+--the data collected could only be used to offer & - \\
+prepopulated tax returns & - \\[0.25em]
+--taxpayers could voluntarily choose to have their own & -\\ 
+data covered.\\[1em]
+Evasion       & - \\
+Evasion \& Inequality     & - \\
+Filing            & - \\
+Filing \& Lobbying           & - \\
+Full info               & - \\[0.5em]
+Intercept &-  \\
+\midrule
+Observations                        &-       \\
+$R^2$                               &-    \\
+Controls                 &    $\mathbf{X}_{i}^{D}$      \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: Note that the later 3 conditions are asked later in the survey, namely after respondents are informed about the existence of prepopulated tax returns.   
+\end{tablenotes}
+\end{threeparttable}
+\end{table} 
+
+\FloatBarrier
+\begin{center}\textbf{\underline{Support for Tax Software and Prepopulated Tax Returns}}\end{center}
+Next, we analyze two additional parameters of substantial interest; the support for government provided free tax software (measured by $TS\_Support_i$) and the support for prepopulated tax returns (measured by $PPR\_Support_i$). We run regressions according to Equation \ref{eq:Support_TS}-\ref{eq:Support_PPR}, where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, and $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables. 
+\begin{center}
+\begin{align}
+    \label{eq:Support_TS}
+    \text{$TS\_Support_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \label{eq:Support_PPR}
+    \text{$PPR\_Support_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} 
+\end{align}
+\end{center}
+
+In Table \ref{tab:supporttaxsoftware} we show results of the regression specification with the demographic set of control variables $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$. Due to the large number of variables, we do only report a selection. The (online) appendix will show the results for the full set of covariates and for all the specifications of $\mathbf{X}_{i}$. ATEs of information treatments are reported by $\boldsymbol{\gamma}$.
+
+\begin{table}[!htbp]\centering
+\caption{Support for free tax software and prepopulated tax returns}
+\label{tab:supporttaxsoftware}
+\begin{threeparttable}
+\begin{tabular}{l|cc}
+\toprule
+& (1) & (2) \\
+ & Support & Support  \\
+ & TS  & PPR \\
+\midrule
+Female                     & - & -  \\
+Age                        & - & -  \\
+College degree             & - & -  \\
+Middle income              & - & -  \\
+High income                & - & -  \\
+Middle wealth              & - & -  \\
+High wealth                & - & -  \\
+Self-employed              & - & -  \\
+Republican                 & - & -  \\[1em]
+
+Evasion        & - & - \\
+Evasion \& Inequality     & - & - \\
+Filing            & - & - \\
+Filing \& Lobbying           & - & - \\
+Full info               & - & - \\[0.5em]
+
+Intercept              & - & - \\
+\midrule
+Observations                        &- &-      \\
+$R^2$                               &- &-   \\
+Controls                 &  $\mathbf{X}_{i}^{D}$ &  $\mathbf{X}_{i}^{D}$    \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table} 
+\FloatBarrier
+
+
+\begin{center}\textbf{\underline{Support for Petitions}}\end{center}
+Next, using Equation \ref{eq:corr_tpr_petition_tpr_support}-\ref{eq:corr_ts_ppr_petition_ppr_support} we measure whether self reported support for the policies correlate with willingness to sign related petitions. This helps us to validate the measure. Correlation results can be mentioned in the text. 
+
+\begin{align}
+\label{eq:corr_tpr_petition_tpr_support}
+\mathrm{Corr}\!\left( TPR\_Petition_i,\; TPR\_Support_i \right) \\
+\label{eq:corr_tpr_petition_iei_support}
+\mathrm{Corr}\!\left(TPR\_Petition_i,\; IEI\_Support_i \right) \\
+\label{eq:corr_ts_ppr_petition_ts_support}
+\mathrm{Corr}\!\left( TS\_PPR\_Petition_i,\; TS\_Support_i \right) \\
+\label{eq:corr_ts_ppr_petition_ppr_support}
+\mathrm{Corr}\!\left( TS\_PPR\_Petition_i,\; PPR\_Support_i \right)
+\end{align}
+
+
+\subsubsection{Knowledge of Economic Problems}
+In this part we analyze people's knowledge on important underlying economic problems. Namely, we analyze...
+\begin{itemize}
+    \item the perception of the tax gap, \\(measured by $Perception\_Tax\_Gap_i$)
+    \item the perception of filing costs in form of time spent to file taxes, \\(measured by $Perception\_Filing\_Cost\_Time_i$)
+    \item and the perception of filing costs in form of money spent. \\(measured by $Perception\_Filing\_Cost\_Cost_i$)
+\end{itemize}
+The main part of the paper presents a figure plotting the distribution and mean of perceived values for the non-treated population alongside those of the treated groups. In the appendix we demonstrate how knowledge varies across demographic groups. We run regressions according to Equations \ref{eq:perception_tax_gap}-\ref{eq:perception_cost_cost}, where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, and $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables. 
+
+\begin{center}
+\begin{align}
+    \label{eq:perception_tax_gap}
+    \text{$Perception\_Tax\_Gap_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Perception\_Filing\_Cost\_Time_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.25em]
+    \label{eq:perception_cost_cost}
+    \text{$Perception\_Filing\_Cost\_Cost_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} 
+\end{align}
+\end{center}
+
+Table \ref{tab:perception} will show the results for the demographic set of covariates $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$. In the appendix we will show results for all the specifications of $\mathbf{X}_{i}$. ATEs of information treatments are reported by $\boldsymbol{\gamma}$.
+\subsubsection{Government Views}
+We continue by estimating people's views on the the government. More specifically, we analyze whether people...
+\begin{itemize}
+    \item think they can trust the federal government to do what is right\\(measured by $Government\_Trust_i$)
+    \item think that the government acts in ways that align with the interests of the public \\(measured by $Government\_Public\_Interest_i$)
+    \item thinks government resources should be decreased or increased \\(measured by $Government\_Reduce\_Resources_i$)
+    \item think the government should in general be more involved in providing public services and functions than it is now \\(measured by $Government\_More\_Involved_i$)
+    \item think the quality of government service is good \\(measured by $Government\_Quality_i$)
+\end{itemize}
+
+We run regressions according to Equations \ref{eq:governemnttrust}-\ref{eq:governemntquality} , where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, and $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables. 
+
+\begin{center}
+\begin{align}
+    \label{eq:governemnttrust}
+    \text{$Government\_Trust_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Government\_Public\_Interest_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.25em]
+    \text{$Government\_Reduce\_Resources_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Government\_More\_Involved_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \label{eq:governemntquality}
+    \text{$Government\_Quality_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} 
+\end{align}
+\end{center}
+
+In Table \ref{tab:government_views} we show results of the regression specification with the demographic set of control variables $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$. Due to the large number of variables, we do only report a selection. The (online) appendix will show the results for the full set of covariates and for all the specifications of $\mathbf{X}_{i}$. ATEs of information treatments are reported by $\boldsymbol{\gamma}$.
+
+\begin{table}[!htbp]\centering
+\caption{Government Views}
+\label{tab:government_views}
+\begin{threeparttable}
+\begin{tabular}{lccccc}
+\toprule
+ & (1) & (2) & (3) & (4) & (5)  \\
+ & Trust in & Gov. Actions& Decrease &Gov. Should & Quality of  \\
+ & Gov. &  Align w. Public & Gov. Resources & Be More Involved & Gov. Services\\
+\midrule
+Female                     &-& - & -& -& - \\
+Age                        &-& - & -& -& - \\
+College degree             &-& - & -& -& - \\
+Middle income              &-& - & -& -& - \\
+High income                &-& - & -& -& - \\
+Middle wealth              &-& - & -& -& - \\
+High wealth                &-& - & -& -& - \\
+Self-employed              &-& - & -& -& - \\
+Republican                 &-& - & -& -& - \\[0.5em]
+Evasion              &-& - & -& -& - \\
+Evasion \& Inequality&-& - & -& -& - \\
+Filing               &-& - & -& -& - \\
+Filing \& Lobbying   &-& - & -& -& - \\
+Full info            &-& - & -& -& - \\[0.5em]
+Intercept              &   -& -   & -& -  \\
+\midrule
+Observations               &-        &-        &-& - & -      \\
+$R^2$                      &-        &-        &-& - & -      \\
+Controls                   &$\mathbf{X}_i^{D}$&$\mathbf{X}_i^{D}$&$\mathbf{X}_i^{D}$&$\mathbf{X}_i^{D}$&$\mathbf{X}_i^{D}$\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: 
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsubsection{Considerations on Economic Problems}
+We continue by estimating people's considerations on economic problems. More specifically, we analyze whether people... 
+\begin{itemize}
+    \item think tax evasion is a serious problem (measured by $Tax\_Evasion\_Serious\_Problem_i$)
+    \item think tax evasion is unequally distributed (measured by $Tax\_Evasion\_Unequally\_Distributed_i$)
+    \item think tax evasion is important to reduce (measured by $Tax\_Evasion\_Importance\_Reduce_i$)
+    \item think tax filing costs are high (measured by $Tax\_Filing\_Cost\_High_i$)
+    \item think tax filing costs are important to reduce (measured by $Tax\_Filing\_Importance\_Reduce_i$)
+    \item think the tax filing process is fair (measured by $Tax\_Filing\_Fair_i$)
+    \item are concerned about the government collecting data (measured by $Data\_Privacy\_Concerned_i$)
+    \item think data privacy is important to protect (measured by $Data\_Privacy\_Importance\_Protect_i$)
+\end{itemize}
+
+We run regressions according to Equations \ref{eq:taxevasionseriousproblem}-\ref{eq:dataprivacyprotect}, where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, and $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables. 
+
+\begin{center}
+\begin{align}
+    \label{eq:taxevasionseriousproblem}
+    \text{$Tax\_Evasion\_Serious\_Problem_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Tax\_Evasion\_Unequally\_Distributed_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.25em]
+    \text{$Tax\_Evasion\_Importance\_Reduce_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Tax\_Filing\_Cost\_High_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Tax\_Filing\_Importance\_Reduce_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Tax\_Filing\_Fair_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$Data\_Privacy\_Concerned_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \label{eq:dataprivacyprotect}
+    \text{$Data\_Privacy\_Importance\_Protect_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i}
+\end{align}
+\end{center}
+
+In Table \ref{tab:considerationseconomicproblems} we show results of the regression specification with the demographic set of control variables $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$. Due to the large number of variables, we do only report a selection. The (online) appendix will show the results for the full set of covariates and for all the specifications of $\mathbf{X}_{i}$. ATEs of information treatments are reported by $\boldsymbol{\gamma}$.
+
+\begin{landscape}
+\begin{table}[!htbp]\centering
+\caption{Considerations on Economic Problems}
+\label{tab:considerationseconomicproblems}
+\begin{threeparttable}
+\begin{tabular}{l||ccc||ccc||cc}
+\toprule
+ & \multicolumn{3}{c||}{Tax Evasion (Revenue \& Inequality)} & \multicolumn{3}{c||}{Filing Costs} & \multicolumn{2}{c}{Data Privacy}\\[0.5em]
+  &(1)  &(2) & (3) & (4)  & (5) & (6) & (7) & (8) \\[0.25em]
+  & Tax Evasion & Tax Evasion & Tax Evasion & Filing Costs & Filing Costs & Filing & Concerned about & Data Privacy \\  
+ & Is a Serious &Is Unequally & Is Important & Are & Are Important & Process  & The Government & Is Important  \\
+  &  Problem & Distributed & to Reduce & High& to Reduce & Is Fair & Collecting Data & to Protect  \\
+\midrule
+Female                     &-& - & - &-& - & - &- &- \\
+Age                        &-& - & - &-& - & - &- &- \\
+College degree                     &-& - & - &-& - & - &- &-\\
+Middle income                      &-& - & - &-& - & - &- &-\\
+High income                        &-& - & - &-& - & - &- &-\\
+Middle wealth                      &-& - & - &-& - & - &- &-\\
+High wealth                        &-& - & - &-& - & - &- &-\\
+Self-employed                      &-& - & - &-& - & - &- &-\\
+Republican                         &-& - & - &-& - & - &- &-\\[0.5em]
+Evasion                 & - & - & - & - & - & - & -  &-\\
+Evasion \& Inequality     & - & - & - & - & - & - & -  &-\\
+Filing                   & - & - & - & - & - & - & -  &-\\
+Filing \& Lobbying         & - & - & - & - & - & - & -  &-\\
+Full info               & - & - & - & - & - & - & -  &-\\[0.5em]
+Intercept &- &- &- &- &- &- &- &-\\
+\midrule
+Observations                        &-    &-    &-    &-    &-    &-    &-  &- \\
+$R^2$                               &-    &-    &-    &-    &-    &-    &-  &- \\
+Controls                 &  $\mathbf{X}_{i}^{D}$  &  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$ &  $\mathbf{X}_{i}^{D}$     \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+\end{landscape}
+
+\subsubsection{Considerations on Policies}
+\begin{center}\textbf{\underline{Considerations on Third-Party Reporting and International Exchange of Information}}\end{center}
+This section analyzes respondents’ considerations and expectations regarding comprehensive third-party reporting and international exchange of information. We analyze whether people think that TPR/IEI...
+\begin{itemize}
+    \item reduces tax evasion, \\(measured by $TPR\_Reduces\_Tax\_Evasion_i$ \& $IEI\_Reduces\_Tax\_Evasion_i$)
+    \item reduces administrative costs, \\(measured by $TPR\_Reduces\_Admin\_Costs_i$ \& $IEI\_Reduces\_Admin\_Costs_i$)
+    \item increases tax revenue, \\(measured by $TPR\_Increases\_Tax\_Revenue_i$ \& $IEI\_Increases\_Tax\_Revenue_i$)
+    \item increases fairness, \\(measured by $TPR\_Increases\_Fairness_i$ \& $IEI\_Increases\_Fairness_i$)
+    \item reduces inequality, \\(measured by $TPR\_Reduces\_Inequality_i$ \& $IEI\_Reduces\_Inequality_i$)
+    \item reduces filing costs, \\(measured by $TPR\_Reduces\_Filing\_Costs_i$ \& $IEI\_Reduces\_Filing\_Costs_i$)
+    \item or whether they are concerned that TPR/IEI reduces data privacy. \\(measured by $TPR\_Data\_Privacy\_Concerned_i$ \& $IEI\_Data\_Privacy\_Concerned_i$)
+\end{itemize}
+
+
+We run regressions according to Equation \ref{eq:TPR_reduce_tax_evasion}-\ref{eq:IEI_data_privacy_reduce}, where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, and $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables. 
+
+\begin{center}
+\begin{align}
+    \label{eq:TPR_reduce_tax_evasion}
+    \text{$TPR\_Reduces\_Tax\_Evasion_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$IEI\_Reduces\_Tax\_Evasion_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.5em]
+    \text{$TPR\_Reduces\_Admin\_Costs_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.25em]
+    \text{$IEI\_Reduces\_Admin\_Costs_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.5em]
+    \text{$TPR\_Increases\_Tax\_Revenue_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$IEI\_Increases\_Tax\_Revenue_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.5em]
+    \text{$TPR\_Increases\_Fairness_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.25em]
+    \text{$IEI\_Increases\_Fairness_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.5em]
+    \text{$TPR\_Reduces\_Inequality_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$IEI\_Reduces\_Inequality_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.5em]
+    \text{$TPR\_Reduces\_Filing\_Costs_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.25em]
+    \text{$IEI\_Reduces\_Filing\_Costs_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.5em]
+    \text{$TPR\_Data\_Privacy\_Concerned_{i1}$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \label{eq:IEI_data_privacy_reduce}
+    \text{$IEI\_Data\_Privacy\_Concerned_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} 
+\end{align}
+\end{center}
+
+In Table \ref{tab:policyconsiderationstpr} we show results of the regression specification with the demographic set of control variables $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$. Due to the large number of variables, we do only report a selection. The (online) appendix will show the results for the full set of covariates and for all the specifications of $\mathbf{X}_{i}$. ATEs of information treatments are reported by $\boldsymbol{\gamma}$.
+
+\begin{landscape}
+\begin{table}[!htbp]\centering
+\caption{Considerations on Third-Party Reporting and International Exchange of Information}
+\label{tab:policyconsiderationstpr}
+\begin{threeparttable}
+\begin{tabular}{l||cc|cc|cc|cc|cc||cc||cc}
+\toprule
+ & \multicolumn{10}{c||}{Tax Evasion (Revenue \& Inequality)} & \multicolumn{2}{c||}{Filing Costs} & \multicolumn{2}{c}{Data Privacy}\\[0.5em]
+ & (1) & (2)  & (3) & (4) & (5)& (6)& (7)& (8)& (9)& (10)& (11)& (12)& (13)& (14) \\[0.5em]
+ & \multicolumn{2}{c|}{reduces} & \multicolumn{2}{c|}{reduces} & \multicolumn{2}{c|}{increases}& \multicolumn{2}{c|}{increases} & \multicolumn{2}{c||}{reduces}  & \multicolumn{2}{c||}{reduces} & \multicolumn{2}{c}{concerned about} \\
+ & \multicolumn{2}{c|}{tax evasion} & \multicolumn{2}{c|}{admin. costs} & \multicolumn{2}{c|}{tax revenue} & \multicolumn{2}{c|}{fairness} & \multicolumn{2}{c||}{inequality}& \multicolumn{2}{c||}{filing costs} & \multicolumn{2}{c}{data privacy}  \\[0.5em]
+  & TPR & IEI  & TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI \\
+\midrule
+Female                     &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+Age                        &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+College degree             &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+Middle income              &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+High income                &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+Middle wealth              &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+High wealth                &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+Self-employed              &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\
+Republican                 &-& - & - &-& - & -& - &-& - & -& - &-& - & - \\[1em]
+
+Evasion        & - & - & - & - & - & -& - & - & - & -& - & - & - & - \\
+Evasion \& Inequality     & - & - & - & - & - & -& - & - & - & -& - & - & - & - \\
+Filing            & - & - & - & - & - & -& - & - & - & -& - & - & - & - \\
+Filing \& Lobbying           & - & - & - & - & - & -& - & - & - & -& - & - & - & - \\
+Full info               & - & - & - & - & - & -& - & - & - & -& - & - & - & - \\[0.5em]
+
+Intercept &- &- &- &- &- &- &- &- &-&- &- &- &- & -\\
+\midrule
+Observations                        &-    &-    &-    &-    &-    &- &-    &-    &-    &-&-    &-    &-    &-    \\
+$R^2$                               &-    &-    &-    &-    &-    &- &-    &-    &-    &-&-    &-    &-    &-    \\
+Controls                 &  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$ &  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$ &  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$&  $\mathbf{X}_{i}^{D}$ &  $\mathbf{X}_{i}^{D}$   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+\end{landscape}
+
+To understand people's data privacy concerns more in detail we analyze how strong people's concern that third-party reporting reduces data privacy changes, relative to the general concern (measured in Q\ref{question:tprdataprivacy} as $TPR\_Data\_Privacy\_Concerned_{i1}$),  if third-party reporting includes...
+\begin{itemize}
+    \item ... employment data in general, \\(measured in Q\ref{question:tprdataprivacycondition}a by $TPR\_Data\_Privacy\_Concerned_{i2}$)
+    \item ... employment data limited to tax relevant information, \\(measured in Q\ref{question:tprdataprivacycondition}b by $TPR\_Data\_Privacy\_Concerned_{i3}$)
+    \item ... general health insurance data, \\(measured in Q\ref{question:tprdataprivacycondition}c by $TPR\_Data\_Privacy\_Concerned_{i4}$)
+    \item ... health insurance data limited to tax-relevant financial information, \\(measured in Q\ref{question:tprdataprivacycondition}d by $TPR\_Data\_Privacy\_Concerned_{i5}$)
+    \item ... general bank account data, \\(measured in Q\ref{question:tprdataprivacycondition}e by $TPR\_Data\_Privacy\_Concerned_{i6}$)
+    \item ... bank account data limited to tax-relevant information, \\(measured in Q\ref{question:tprdataprivacycondition}f by $TPR\_Data\_Privacy\_Concerned_{i7}$)
+    \item ... payment data, \\(measured in Q\ref{question:tprdataprivacycondition}g by $TPR\_Data\_Privacy\_Concerned_{i8}$)
+    \item ... payment data limited to tax-relevant information. \\(measured in Q\ref{question:tprdataprivacycondition}h by $TPR\_Data\_Privacy\_Concerned_{i9}$)
+\end{itemize}
+
+To measure deviations from the general concern, we run a regression according to Equation \ref{eq:TPR_data_privacy_detailed}, where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables, $\mathbf{D}_c^{DP}$ is a vector consisting of k dummies $\mathbf{C}_k^{DP}$, whereas for $k>1$ $\mathbf{C}_k^{DP}=1$ if $k=c$ and $\mathbf{C}_k^{DP}=0$ if $k \neq c$. That is, we have a panel structure, where participants are indexed by $i=1,\ldots,N$ and the type of data that third-party reporting includes is indexed by $c=1,\ldots,9$ (1: general concern, 2-9: conditional concern). We include dummies $\mathbf{C}_2^{DP}$, \ldots, $\mathbf{C}_9^{DP}$ which are equal to one if the concern is measured assuming third-party reporting includes certain type of data 2,\ldots, 9. 
+\begin{center}
+\begin{align}
+    \label{eq:TPR_data_privacy_detailed}
+    \text{$TPR\_Data\_Privacy\_Concerned_{ic}$}
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\delta}^{\top}\mathbf{D}_c^{DP}+ \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{ic}
+\end{align}
+\end{center}
+
+$\boldsymbol{\delta}^{\top}$ estimates differences to the reported level of concern with regular comprehensive third party reporting (without additional conditions). Table \ref{tab:detaileddataprivacy} reports these differences along the ATEs of information treatments, which are reported by $\boldsymbol{\gamma}$. The (online) appendix will additionally report all controls with $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$.
+
+\begin{table}[!htbp]\centering
+\caption{Detailed Data Privacy Concerns}
+\label{tab:detaileddataprivacy}
+\begin{threeparttable}
+\begin{tabular}{l|c}
+\toprule
+& (1) \\
+ & concerned about \\
+ & data privacy \\
+ \midrule
+\textit{Conditions} \\[0.25em]
+if third-party reporting includes.. & \\[0.25em]
+-employment data in general & - \\[0.25em]
+-employment data limited to tax relevant information & - \\[0.25em]
+-general health insurance data & - \\[0.25em]
+-health insurance data limited to tax-relevant financial information & -\\[0.25em]
+-general bank account data & - \\[0.25em]
+-bank account data limited to tax-relevant information & - \\[0.25em]
+-payment data & - \\[0.25em]
+-payment data limited to tax-relevant information & - \\[1em]
+\textit{Treatments} \\[0.25em]
+Evasion         & - \\[0.25em]
+Evasion \& Inequality     & - \\[0.25em]
+Filing            & - \\[0.25em]
+Filing \& Lobbying           & - \\[0.25em]
+Full info               & - \\[1em]
+Intercept &-  \\
+\midrule
+Observations                        &-       \\
+$R^2$                               &-    \\
+Controls                 & $\mathbf{X}_{i}^{D}$      \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table} 
+\FloatBarrier
+
+\begin{center}\textbf{\underline{Considerations on Tax Software and Prepopulated Tax Returns}}\end{center}
+This section analyzes respondents’ considerations and expectations regarding government provided free tax software and prepopulated tax returns. We analyze whether people think that ...
+\begin{itemize}
+    \item tax software/ prepopulated tax returns is costly for the government to provide, \\(measured by $TS\_Costly_i$ \& $PPR\_Costly_i$)
+    \item tax software/ prepopulated tax returns reduces tax filing costs, \\(measured by $TS\_Reduce\_Filing\_Cost_i$ \& $PPR\_Reduce\_Filing\_Cost_i$)
+    \item or data sharing needed for tax software / prepopulated tax returns is problematic. \\(measured by $TS\_Share\_Data\_Problematic_i$ \& $PPR\_Share\_Data\_Problematic_i$)
+\end{itemize}
+
+We run regressions according to Equation \ref{eq:TS_Costly}-\ref{eq:PPR_share_data_problematic}, where $\alpha$ is the intercept, $\mathbf{T_i}$ is a vector indicating the treatment arm, and $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables. 
+
+\begin{center}
+\begin{align}
+\label{eq:TS_Costly}
+    \text{$TS\_Costly_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+    \text{$PPR\_Costly_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.5em]
+    \text{$TS\_Reduce\_Filing\_Cost_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.25em]
+    \text{$PPR\_Reduce\_Filing\_Cost_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} +  \varepsilon_{i} \\[0.5em]
+    \text{$TS\_Share\_Data\_Problematic_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} \\[0.25em]
+\label{eq:PPR_share_data_problematic}
+    \text{$PPR\_Share\_Data\_Problematic_i$} 
+    &= \alpha + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{i} 
+\end{align}
+\end{center}
+
+In Table \ref{tab:considerationsts} we show results of the regression specification with the demographic set of control variables $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$. Due to the large number of variables, we do only report a selection. The (online) appendix will show the results for the full set of covariates and for all the specifications of $\mathbf{X}_{i}$. ATEs of information treatments are reported by $\boldsymbol{\gamma}$.
+
+\begin{table}[!htbp]\centering
+\caption{Considerations on Tax Software and Prepopulated Tax Returns}
+\label{tab:considerationsts}
+\begin{threeparttable}
+\begin{tabular}{l|cc|cc|cc}
+\toprule
+ & \multicolumn{2}{c|}{Revenue} & \multicolumn{2}{c|}{Filing Costs} & \multicolumn{2}{c}{Data Privacy}\\[0.5em]
+ & (1) & (2) & (3) & (4) & (5) & (6) \\[0.5em]
+ & \multicolumn{2}{c|}{costly for the} & \multicolumn{2}{c|}{reduces} & \multicolumn{2}{c}{data sharing is}\\
+ & \multicolumn{2}{c|}{government} & \multicolumn{2}{c|}{filing costs} & \multicolumn{2}{c}{problematic} \\[0.5em]
+  & TS & PPR  & TS & PPR & TS & PPR  \\
+\midrule
+Female                     &-& - & - &-& - & - \\
+Age                        &-& - & - &-& - & - \\
+College degree             &-& - & - &-& - & - \\
+Middle income              &-& - & - &-& - & - \\
+High income                &-& - & - &-& - & - \\
+Middle wealth              &-& - & - &-& - & - \\
+High wealth                &-& - & - &-& - & - \\
+Self-employed              &-& - & - &-& - & - \\
+Republican                 &-& - & - &-& - & - \\[1em]
+
+Evasion        & - & - & - & - & - & - \\
+Evasion \& Inequality     & - & - & - & - & - & - \\
+Filing            & - & - & - & - & - & - \\
+Filing \& Lobbying           & - & - & - & - & - & - \\
+Full info               & - & - & - & - & - & - \\[0.5em]
+
+Intercept &- &- &- &- &- &- \\
+\midrule
+Observations                        &-    &-    &-    &-    &-    &- \\
+$R^2$                               &-    &-    &-    &-    &-    &- \\
+Controls                            & $\mathbf{X}_{i}^{D}$    & $\mathbf{X}_{i}^{D}$    & $\mathbf{X}_{i}^{D}$    & $\mathbf{X}_{i}^{D}$     & $\mathbf{X}_{i}^{D}$    & $\mathbf{X}_{i}^{D}$  \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+\FloatBarrier
+
+In a next step we analyze whether private companies or the government should offer these services. More precisely we ask respondents whether the tax authority or whether private companies should offer tax software ...
+\begin{itemize}
+    \item in general, \\(measured in Q\ref{question:providergeneral} as $TS\_Tax\_Authority_{i1}$)
+    \item in terms of reducing time and monetary costs for taxpayers,\\ (measured in Q\ref{question:providerfilingcost} as $TS\_Tax\_Authority_{i2}$)
+    \item in terms of overall costs to the society,\\ (measured in Q\ref{question:providercost} as $TS\_Tax\_Authority_{i3}$)
+    \item in terms of data privacy,\\ (measured in Q\ref{question:providerdataprivacy} as $TS\_Tax\_Authority_{i4}$)
+    \item in terms of fairness in how tax filing is organized \\ (measured in Q\ref{question:providerfairness} as $TS\_Tax\_Authority_{i5}$)
+\end{itemize}
+
+We run a regression according to Equation \ref{eq:TS_Tax_Authority}, where $\mathbf{T_i}$ is a vector indicating the treatment arm, $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables, $\mathbf{D}_c^{TS}$ is a vector consisting of k dummies $\mathbf{C}_k^{TS}$, whereas for $\mathbf{C}_k^{TS}=1$ if $k=c$ and $\mathbf{C}_k^{TS}=0$ if $k \neq c$. That is, we have a panel structure, where participants are indexed by $i=1,\ldots,N$ and the condition for which is being asked is indexed by $c=1,\ldots,5$. We include dummies $\mathbf{C}_1^{TS},\ldots, \mathbf{C}_5^{TS}$ which are equal to one if the consideration is measured under a certain condition 1,\ldots, 5. The intercept $\alpha$ is omitted from the regression because the four dummy variables fully absorb the variation. We report the most important results in the text and move the Table \ref{tab:taxsoftwareprovider} to the appendix.
+
+\begin{align}
+    \label{eq:TS_Tax_Authority}
+    \text{$TS\_Tax\_Authority_{ic}$}
+    &= \alpha_i + \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\delta}^{\top}\mathbf{D}_c^{TS} \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{ic} 
+\end{align}
+
+\FloatBarrier
+\subsection{Explorative Analysis and Additional Documentation}
+\subsubsection{First Order Concerns}
+\tk{tbd}
+\subsubsection{Which Channel Drives Support?}
+In this section we analyze which of the channels are the main drivers for policy support. The idea is to include all the considerations (on economic problems and on policies) in one regression where the dependent variable is the policy support. To reduce the amount of covariates we create indices for the considerations on policies such that we only have one consideration (index) per channel. 
+
+\begin{align}
+    \text{$TPR\_Tax\_Revenue_i^+$} &=  \text{$TPR\_Reduces\_Tax\_Evasion_i$ + $TPR\_Reduces\_Admin\_Costs_i$}  \\ & +\text{$TPR\_Increases\_Tax\_Revenue_i$} \\
+    \text{$TPR\_Inequality_i^-$} &=  \text{$TPR\_Increases\_Fairness_i$ + $TPR\_Reduces\_Inequality_i$} \\
+    \text{$IEI\_Tax\_Revenue_i^+$} &=  \text{$IEI\_Reduces\_Tax\_Evasion_i$ + $IEI\_Reduces\_Admin\_Costs_i$} \\ & +\text{$IEI\_Increases\_Tax\_Revenue_i$} \\
+    \text{$IEI\_Inequality_i^-$} &=  \text{$IEI\_Increases\_Fairness_i$ + $IEI\_Reduces\_Inequality_i$}
+\end{align}
+
+Having defined these indices, we then run regressions according to Equations \ref{eq:TPR_driver}-\ref{eq:PPR_driver}, where $\alpha$ is the intercept, $\mathbf{K}_i$ is a vector consisting of the dependent variables from the knowledge section, $\mathbf{C}_i^{GV}$ is a vector consisting of the dependent variables from the section regarding considerations on economic problems, $\mathbf{C}_i^{EP}$ is a vector consisting of the dependent variables from the section regarding considerations on economic problems, $\mathbf{C}_i^{TPR}$/$\mathbf{C}_i^{IEI}$/$\mathbf{C}_i^{TS}$/$\mathbf{C}_i^{PPR}$ are vectors consisting of considerations on the policy (summarized in indices as described above), and $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables. We intentionally do not include treatment variables as the variation from it should be present in the considerations. We can then report the results in Table \ref{tab:PolicySupportDrivers}. We can just show the most important controls (possibly republican and female) and concentrate on the considerations. If there is a big partisan gap, we could optionally try to decompose it with a Gelbach decomposition. 
+
+\begin{align}
+    \label{eq:TPR_driver}
+    \text{$TPR\_Support_i$} 
+    &= \alpha 
+    + \boldsymbol{\kappa}^{\top}\mathbf{K}_i
+    + \boldsymbol{\delta}^{\top}\mathbf{C}_i^{GV}
+    + \boldsymbol{\gamma}^{\top}\mathbf{C}_i^{EP} 
+    + \boldsymbol{\lambda}^{\top}\mathbf{C}_i^{TPR}
+    + \boldsymbol{\beta}^{\top}\mathbf{X}_i
+    + \varepsilon_i \\
+    \text{$IEI\_Support_i$} 
+    &= \alpha 
+    + \boldsymbol{\kappa}^{\top}\mathbf{K}_i
+    + \boldsymbol{\delta}^{\top}\mathbf{C}_i^{GV}
+    + \boldsymbol{\gamma}^{\top}\mathbf{C}_i^{EP} 
+    + \boldsymbol{\lambda}^{\top}\mathbf{C}_i^{IEI}
+    + \boldsymbol{\beta}^{\top}\mathbf{X}_i
+    + \varepsilon_i \\
+    \text{$TS\_Support_i$} 
+    &= \alpha 
+    + \boldsymbol{\kappa}^{\top}\mathbf{K}_i
+    + \boldsymbol{\delta}^{\top}\mathbf{C}_i^{GV}
+    + \boldsymbol{\gamma}^{\top}\mathbf{C}_i^{EP} 
+    + \boldsymbol{\lambda}^{\top}\mathbf{C}_i^{TS}
+    + \boldsymbol{\beta}^{\top}\mathbf{X}_i
+    + \varepsilon_i \\
+    \label{eq:PPR_driver}
+    \text{$PPR\_Support_i$} 
+    &= \alpha 
+    + \boldsymbol{\kappa}^{\top}\mathbf{K}_i
+    + \boldsymbol{\delta}^{\top}\mathbf{C}_i^{GV}
+    + \boldsymbol{\gamma}^{\top}\mathbf{C}_i^{EP} 
+    + \boldsymbol{\lambda}^{\top}\mathbf{C}_i^{PPR}
+    + \boldsymbol{\beta}^{\top}\mathbf{X}_i
+    + \varepsilon_i
+\end{align}    
+
+\begin{table}[!htbp]\centering
+\caption{Drivers of policy support}
+\label{tab:PolicySupportDrivers}
+\begin{threeparttable}
+\begin{tabular}{l|cccc}
+\toprule
+& (1) & (2) & (3) & (4) \\
+ & Support & Support & Support & Support  \\
+ & TPR  & IEI & TS & PPR \\
+\midrule
+\textit{Controls} \\
+Republican                 & - & - & - & - \\
+... \\[1em]
+
+\textit{Government views}\\
+--Trust in government       & - & -& - & - \\
+--Government actions align with public interest     & - & -& - & - \\
+--Government resources should be decreased     & - & -& - & - \\
+--Government should be more involved     & - & -& - & - \\
+--Quality of government services      & - & -& - & - \\[1em]
+
+\textit{Considerations on economic problems}\\
+--Tax evasion is a serious problem        & - & -& - & - \\
+--Tax evasion is unequally distributed     & - & -& - & - \\
+--Tax evasion is important to reduce & - & -& - & - \\
+--Filing costs are high               & - & -& - & - \\
+--Filing costs are important to reduce    & - & -& - & - \\
+--Filing process if fair & - & -& - & - \\
+--Concerned about the government collecting data    & - & -& - & - \\
+--Data privacy is important to protect    & - & -& - & - \\[1em]
+
+\textit{Considerations on policies regarding...}\\
+--Tax evasion and revenue    & - & -& - & - \\
+--Inequality          & - & -&   &   \\
+--Filing costs        & - & -& - & - \\
+--Data privacy        & - & -& - & - \\[1em]
+
+Intercept              & - & - & - & -\\
+\midrule
+Observations                        &- &- & - & -     \\
+$R^2$                               &- &- & - & -  \\
+Controls                 & $\mathbf{X}_{i}^{D}$  & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$  & $\mathbf{X}_{i}^{D}$    \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table} 
+\FloatBarrier
+\subsubsection{Voluntary Disclosure of Data}
+We measure whether taxpayers would be willing to voluntarily disclose their data. More precisely, we measure whether people would be willing to voluntary disclose their data if...
+\begin{itemize}
+    \item the collected data would only be used for tax enforcement purposes (and not for prepopulating tax returns),\\
+    (measured in Q\ref{question:volunarydisclosure}a by $Voluntary\_Disclosure_{i1}$)
+    \item the collected data would be used to offer prepopulated tax returns (in addition to tax enforcement purposes), \\
+    (measured in Q\ref{question:volunarydisclosure}b by $Voluntary\_Disclosure_{i2}$)
+    \item the collected data were only used to provide prepopulated tax returns (and not for enforcement purposes).\\
+    (measured in Q\ref{question:volunarydisclosure}c by $Voluntary\_Disclosure_{i3}$)
+\end{itemize}
+
+We run the following regression \ref{eq:voluntary_disclosure}, where $\mathbf{T_i}$ is a vector indicating the treatment arm, $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, or  $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a vector with control variables, $\mathbf{D}_c^{VD}$ is a vector consisting of k dummies $\mathbf{C}_k^{VD}$, whereas for $\mathbf{C}_k^{VD}=1$ if $k=c$ and $\mathbf{C}_k^{VD}=0$ if $k \neq c$. That is, we have a panel structure, where participants are indexed by $i=1,\ldots,N$ and the condition for which is being asked is indexed by $c=1,\ldots,3$. We include dummies $\mathbf{C}_1^{VD},\ldots, \mathbf{C}_4^{VD}$ which are equal to one if the willingness to disclose data is measured under a certain condition 1,\ldots, 3. The intercept $\alpha$ is omitted from the regression because the four dummy variables fully absorb the variation. We report the results in the Table \ref{tab:willingnessdisclosedata}.  
+\begin{center}
+\begin{align}
+    \label{eq:voluntary_disclosure}
+    \text{$Voluntary\_Disclosure_{ic}$}
+    &= \boldsymbol{\gamma}^{\top}\mathbf{T}_i + \boldsymbol{\delta}^{\top}\mathbf{D}_c^{DP}+ \boldsymbol{\beta}^{\top}\mathbf{X}_{i} + \varepsilon_{ic}
+\end{align}
+\end{center}
+
+%\subsubsection{Personal Exposure to Tax Enforcement and Tax Filing Services}
+%An important set of control variables are the measures on exposure to tax filing and tax enforcement policy.
+%\begin{itemize}
+%    \item Exposure to tax filing: $Exposure\_Tax\_Filing_i$
+%    \item Exposure to tax software: $Exposure\_Tax\_Software_i$
+%    \item Exposure to filing mistakes: $Exposure\_Filing\_Mistakes_i$
+%    \item Exposure to tax evasion: $Exposure\_Tax\_Evasion_i$
+%\end{itemize}
+%We run regressions according to Equations \ref{eq:exposure_taxfiling}-\ref{eq:exposure_taxevasion}, where $\alpha$ is the intercept, and $\mathbf{X}_{i}^{D}$ is a vector with demographic control variables. The results are reported in Table \ref{tab:exposure}.
+%
+%\begin{center}
+%\begin{align}
+%    \label{eq:exposure_taxfiling}
+%    \text{$Exposure\_Tax\_Filing_i$} 
+%    &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_{i}^D + \varepsilon_{i} \\[0.25em]
+%    \text{$Exposure\_Tax\_Software_i$} 
+%    &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_{i}^D +  \varepsilon_{i} \\[0.25em]
+%    \text{$Exposure\_Filing\_Mistakes_i$} 
+%    &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_{i}^D + \varepsilon_{i} \\[0.25em]
+%    \label{eq:exposure_taxevasion}
+%    \text{$Exposure\_Tax\_Evasion_i$} 
+%    &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_{i}^D + \varepsilon_{i}
+%\end{align}
+%\end{center}
+
+%\subsubsection{Government Views and Views on Inequality}
+%Another set of important control variables are the measures on peoples’ views on the government and their views on (general) inequality. The set of variables that we would later want to include would be:
+%\begin{itemize}
+%    \item Trust in government: $Government\_Trust_i$
+%    \item Desired involvement of government: $Government\_More\_Involved_i$
+%    \item Quality of government services: $Government\_Quality_i$
+%    \item Inequality is a serious problem: $Inequality\_Serious\_Problem_i$
+%\end{itemize}
+%The next set of regression are based on Equations \ref{eq:governmenttrust}-\ref{eq:inequalityseriousproblem} analyse how these measures are distributed among demographic groups. Results are reported in Table \ref{tab:government_inequality_views}. I suggest to additionally report a table in the (online) appendix which reports all covariates. 
+%\begin{align}
+%    \label{eq:governmenttrust}
+%    \text{$Government\_Trust_i$} 
+%        &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_i^{D} + \varepsilon_i
+%         \\
+%   \text{$Government\_More\_Involved_i$} 
+%        &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_i^{D} + \varepsilon_i \\
+%   \text{$Government\_Quality_i$} 
+%        &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_i^{D} + \varepsilon_i \\
+%    \label{eq:inequalityseriousproblem}
+%    \text{$Inequality\_Serious\_Problem_i$} 
+%        &= \alpha + \boldsymbol{\beta}^{\top}\mathbf{X}_i^{D} + \varepsilon_i 
+%\end{align}
+\subsection{Recruitment of Survey Participants and Sample}
+\label{sec:recruitment}
+\subsubsection{Prolific Quotas}
+The survey is conducted on a quota representative sample (along dimensions gender, age, and household income) of the US population. We recruit a number of participants\footnote{The number is determined after running the pilot.} through the commercial survey platform Prolific. We include screening questions to reach given quotas, which follow census data of the year 2024. The quotas are displayed on the appendix Table \ref{tab:prolificquotas}. Respondents are randomly allocated (evenly distributed) into 6 treatment arms: 1. Control, 2. Evasion, 3. Evasion \& Inequality, 4. Filing, 5. Filing \& Lobbying, and 6. Full info.
+
+\FloatBarrier
+\subsubsection{Attention Checks}
+\underline{Screening Questions}\\
+Throughout the survey we have five screening attention checks. Three of them are regular text based checks that address respondents that are inattentive and just click through the survey. The other two attention checks specifically address bots: The first one shows a video which includes audio that tells respondents how to respond. Bots often fail to answer properly as they are not able to process audio and concentrate on the video message. The second one shows a video that displays 4 numbers sequentally and respondents have to type in these numbers. Bots often fail to answer properly as they most likely only process one frame of the video.
+
+If a respondent fails two screening attention checks, they are automatically screened out by the survey provider and therefore will not be in the final sample. \\[0.5em]
+\underline{Additional Checks}\\
+Prolific's LLM check will analyze our open-ended questions for unusual behavior, such as high typing speed. Prolific's authenticity check will check for unusual behavior along the overall survey. If respondents do show unusual behavior, we exclude them from the sample. And, respondents have to respond to two very easy validation checks to see whether they have watched the videos. If they fail both, we remove them from our final sample.\\[0.5em]
+\underline{Attrition Bias} \\
+Because we collected extensive demographic information at the beginning of the survey, we can test whether the excluded sample is balanced, which would indicate the absence of attrition bias.
+\subsubsection{Final Sample}
+In Table~\ref{tab:finalsample} we compare the properties of the final sample to census data. As our sample should be representative for the age groups 18-69 by construction, and not the overall population, we compare our samples' properties to census data corresponding to this age category (where available). Additionally, we compare it to the overall population. We will show the share of respondents for each of these variables. 
+
+\begin{itemize}
+    \item Gender: 
+    \begin{itemize}
+        \item $Female_i$
+        \item $Male_i$
+    \end{itemize}
+    \item Age:
+    \begin{itemize}
+        \item $Age\_18\_29_i$
+        \item $Age\_30\_39_i$
+        \item $Age\_40\_49_i$
+        \item $Age\_50\_59_i$
+        \item $Age\_60\_69_i$
+    \end{itemize}
+    \item Income:
+    \begin{itemize}
+        \item $Income\_0\_20_i$
+        \item $Income\_20\_40_i$
+        \item $Income\_40\_60_i$
+        \item $Income\_60\_100_i$
+        \item $Income\_100\_150_i$
+        \item $Income\_150_i$
+    \end{itemize}
+    \item Wealth:
+    \begin{itemize}
+        \item $Wealth\_0\_25_i$ 
+        \item $Wealth\_25\_50_i$
+        \item $Wealth\_50\_75_i$
+        \item $Wealth\_75\_100_i$
+    \end{itemize}
+    \item Region
+        \begin{itemize}
+            \item $Northeast_i$
+            \item $Midwest_i$
+            \item $South_i$
+            \item $West_i$
+        \end{itemize}
+    \item Education
+    \begin{itemize}
+        \item $Less\_Than\_High\_School_i$
+        \item $Less\_Than\_4\_Year\_College_i$
+        \item $4\_Year\_College\_Or\_More_i$
+    \end{itemize}
+    \item School
+    \begin{itemize}
+        \item $Student_i$
+    \end{itemize}
+    \item Employment
+    \begin{itemize}
+        \item $Employed_i$
+        \item $Unemployed_i$
+        \item $Not\_in\_Labor\_Force_i$
+    \end{itemize}
+    \item Marital Status
+    \begin{itemize}
+        \item $Married_i$
+        \item $Never\_Married_i$
+        \item $Widowed_i$
+        \item $Divorced_i$
+    \end{itemize}
+    \item Race
+    \begin{itemize}
+        \item $White_i$
+        \item $Black_i$
+        \item $Hispanic_i$
+        \item $Asian_i$
+        \item $Other\_Race_i$
+    \end{itemize}
+    \item Political Affiliation
+    \begin{itemize}
+        \item $Democrat_i$
+        \item $Rebublican_i$
+        \item $Independent_i$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Appendix}
+\subsubsection{Description of Variables}
+\label{sec:appendixvariables}
+\underline{Demographics} \\
+$Female_i$: Respondent's gender is "female". \\[0.15em]
+$Male_i$: Respondent's gender is "male".  \\[0.15em]
+$Gender\_Other_i$: Respondent's gender is "other".  \\[0.15em]
+$Age_i$: Respondent's age. \\[0.15em]
+$Age\_18\_29$: Respondent's age is between 18-29.\\[0.15em]
+$Age\_30\_39$: Respondent's age is between 30-39.\\[0.15em]
+$Age\_40\_49$: Respondent's age is between 40-49.\\[0.15em]
+$Age\_50\_59$: Respondent's age is between 50-59.\\[0.15em]
+$Age\_60\_69$: Respondent's age is between 60-69.\\[0.15em]
+$Northeast_i$: Respondent's state is in region Northeast. \\[0.15em]
+$Midwest_i$: Respondent's state is in region Midwest. \\[0.15em]
+$South_i$: Respondent's state is in region South. \\[0.15em]
+$West_i$: Respondent's state is in region West. \\[0.15em]
+$Area\_Urbanized_i$: Zipcode is in Urbanized Area (more than 50,000 people). \\[0.15em]
+$Area\_Urban\_Cluster$: Zipcode is in Urban Cluster (2.500-49.999 people).\\[0.15em]
+$Area\_Rural$: Zipcode is in rural area \\[0.15em]
+$Married_i$: Respondent is not married. \\[0.15em]
+$Widowed_i$: Respondent is widowed.\\[0.15em]
+$Divorced_i$: Respondent is divorced.\\[0.15em]
+$Never\_Married_i$: Respondent has never been married. \\[0.15em]
+$Less\_Than\_High\_School_i$: Respondent's highest education is Eighth Grade or lower or Some High School.\\[0.15em]
+$Less\_Than\_4\_Year\_College_i$: Respondent's highest education is Some College or 2-year College Degree.\\[0.15em]
+$4\_Year\_College\_Or\_More_i$: Respondent's highest education is 4-year College Degree, Master’s Degree, Doctoral Degree, or Professional Degree (JD, MD, MBA). \\[0.15em]
+$White_i$: Respondent's ethnicity is White. (For the moment this data comes from the prolific demographics)\\[0.15em]
+$Black_i$: Respondent's ethnicity is Black or African-American.(For the moment this data comes from the prolific demographics) \\[0.15em]
+$Hispanic_i$: Respondent's ethnicity is Hispanic or Latino.(For the moment this data comes from the prolific demographics) \\[0.15em]
+$Asian_i$: Respondent's ethnicity is Asian.(For the moment this data comes from the prolific demographics) \\[0.15em]
+$Other\_Race_i$: Respondent's ethnicity is Other race or multiracial or respondent selected more than one option.(For the moment this data comes from the prolific demographics) \\[0.15em]
+$Household\_Partner_i$: Respondent lives with partner. \\[0.15em]
+$Household\_Size_i$: No.\ of persons living in respondent's household. \\[0.15em]
+$Household\_Kids_i$: No.\ of kids living in respondent's household. \\[0.15em]
+$Homeowner_i$: Respondent is homeowner or homeowner + tenant. \\[0.15em]
+$Employed_i$: Respondent is Full-time employed, Part-time employed, Self-employed or (Part-time) employed and self-employed. \\[0.15em]
+$Unemployed_i$: Respondent is Unemployed (searching for a job). \\[0.15em]
+$Not\_in\_Labor\_Force_i$: Respondent is not in labor force (no job and not searching for one / full time student / retired). \\[0.15em]
+$Self\_Employed_i$: Respondent is self-employed or (Part-time) employed and self-employed. \\[0.15em]
+$Student_i$: Respondent is enrolled as student in college, graduate school or professional school. \\[0.15em]
+$Income\_0\_20_i$: Respondent's household income is \$0-\$19,999. \\[0.15em]
+$Income\_20\_40_i$: Respondent's household income is \$20,000-\$39,999. \\[0.15em]
+$Income\_40\_60_i$: Respondent's household income is \$40,000-\$59,999. \\[0.15em]
+$Income\_60\_100_i$: Respondent's household income is \$60,000-\$99,999. \\[0.15em]
+$Income\_100\_150_i$: Respondent's household income is \$100,000-\$149,999. \\[0.15em]
+$Income\_150_i$: Respondent's household income is more than \$150,000. \\[0.15em]
+$Income\_Middle$: Respondent's household income is between 50,000 (p31) and 124,999 (p69). \\[0.15em]
+$Income\_High$: Respondent's household income is above 125,000 (p69). \\[0.15em]
+$Wealth\_0\_25_i$: Respondent's wealth is below 30,000.\\[0.15em]
+$Wealth\_25\_50_i$: Respondent's wealth is between 30,000 and 209,999.\\[0.15em]
+$Wealth\_50\_75_i$: Respondent's wealth is between 210,000 and 710,000.\\[0.15em]
+$Wealth\_75\_100_i$: Respondent's wealth is above 710,000.\\[0.15em]
+$Wealth\_Middle\_i$: Respondent's wealth is between 70'000 (p33.3) and 459'999 (p66.6). \\[0.15em]
+$Wealth\_High_i$: Respondent's wealth is above 459'999 (p66.6). \\[0.15em]
+$Income\_TPR\_Covered_i$: Respondent has income that is covered by domestic third-party reporting, namely salary or wages (payroll), interest from domestic bank accounts, dividends or capital gains from publicly traded stocks or mutual funds, income from savings or investment products held at domestic banks. \\[0.15em]
+$Income\_Abroad_i$: Respondent has income held abroad that might be covered by IEI depending on the agreement in place, namely interest from foreign bank accounts, income from savings or investment products held at foreign banks. \\[0.15em]
+$Income\_Self\_Employment_i$: Respondent has income from income from self-employment or freelance work. \\[0.15em]
+$Income\_Property_i$: Respondent has income from property they own. \\[0.15em]
+$Income\_Privat\_Business_i$: Respondent has income from private business inveestments or partnerships. \\[0.15em]
+$Income\_Digital\_Assets_i$: Respondent has income from cryptocurrency or digital assets. \\[0.15em]
+$Income\_Cash_i$: Respondent has income from cash payments (tips, informal or unreported work). \\[0.15em]
+$Income\_Other\_Sources_i$: Respondent has income from other sources. \\[0.15em]
+$Democrat_i$: Respondent's political affiliation is democrat. \\[0.15em]
+$Republican_i$: Respondent's political affiliation is republican. \\[0.15em]
+$Independent_i$: Respodnent's is non-affiliated or independent. \\[0.15em]
+$Other\_Affiliation_i$: Respondent has an other political affiliation. \\[0.15em]
+\\
+\underline{Support for Policies} \\[0.15em]
+$TPR\_Support_{i1}$: Respondent's support for comprehensive third-party reporting. \\[0.15em]
+$TPR\_Support_{i2}$: Respondent's support for comprehensive third-party reporting (if it applied equally to all taxpayers). \\[0.15em]
+$TPR\_Support_{i3}$: Respondent's support for comprehensive third-party reporting (if it applied primarily to businesses, but not to individual taxpayers). \\[0.15em]
+$TPR\_Support_{i4}$: Respondent's support for comprehensive third-party reporting (if it focuses primarily on high-income individuals, but not on low-income individuals). \\[0.15em]
+$TPR\_Support_{i5}$: Respondent's support for comprehensive third-party reporting (if it focuses primarily on large enterprises, but not on small or medium-sized busisses). \\[0.15em]
+$TPR\_Support_{i6}$: Respondent's support for comprehensive third-party reporting (if the data could only be used for purposes related to tax enforcement and tax administration, and not for other government functions). \\[0.15em]
+$TPR\_Support_{i7}$: Respondent's support for comprehensive third-party reporting (if the collected data would be used to offer prepopulated tax returns in addition to tax enforcement purposes). \\[0.15em]
+$TPR\_Support_{i8}$: Respondent's support for comprehensive third-party reporting (if the data were only used to provide prepopulated tax returns (and not for enforcement purposes)). \\[0.15em]
+$TPR\_Support_{i9}$: Respondent's support for comprehensive third-party reporting (if taxpayers could voluntarily choose to have their own data covered). \\[0.15em]
+$TPR\_Petition_i$: Respondent's support for the petition for stronger action against tax evasion. \\[0.15em]
+$IEI\_Support_i$: Respondent's support for international exchange of information. \\[0.15em]
+$TS\_Support_i$:  Respondent's support for government provided free tax software. \\[0.15em]
+$PPR\_Support_i$: Respondent's support for the government offering prepopulated tax returns. \\[0.15em]
+$TS\_PPR\_Petition_i$: Respondent's support for the petition to make tax filing easier and more accessible for everyone.\\[0.15em]
+\\[0.15em]
+\underline{Knowledge} \\[0.15em]
+$Perception\_Tax\_Gap_i$: Respondent's perception about the No.\ of dollars out of each 100 dollars that is lost due to tax evasion. (each year) \\[0.15em]
+$Perception\_Filing\_Cost\_Time_i$: Respondent's perception about the average time a US taxpayer spends to file taxes. (each year) \\[0.15em]
+$Perception\_Filing\_Cost\_Cost_i$: Respondent's perception about the average amount of dollars a US taxpayer spends to file taxes. (each year) \\[0.15em]
+\\[0.15em]
+\underline{Considerations on Economic Problems} \\[0.15em]
+$Tax\_Evasion\_Serious\_Problem_i$: The extent to which the respondent thinks that tax evasion is a serious problem. \\[0.15em]
+$Tax\_Evasion\_Unequally\_Distributed_i$: The extent to which the respondent thinks that tax evasion is unequally distributed. \\[0.15em]
+$Tax\_Evasion\_Importance\_Reduce_i$: The extent to which the respondent thinks that tax evasion is important to reduce.\\[0.15em]
+$Tax\_Filing\_Cost\_High_i$: The extent to which the respondent thinks that tax filing costs are high.\\[0.15em]
+$Tax\_Filing\_Importance\_Reduce_i$: The extent to which the respondent thinks that tax filing costs are important to reduce.\\[0.15em]
+$Tax\_Filing\_Fair_i$: The extent to which the respondent thinks the tax filing process is fair (From very unfair to very fair).\\[0.15em]
+$Data\_Privacy\_Concerned_i$: The extent to which a respondent is concerned about the government collecting data. \\[0.15em]
+$Data\_Privacy\_Importance\_Protect_i$: The extent to which the respondent thinks that data privacy is important to protect.\\[0.15em]
+\\
+\underline{Considerations on Third-Party Reporting and International Exchange of Information} \\[0.15em]
+$TPR\_Reduces\_Tax\_Evasion_i$: The extent to which a respondent thinks that comprehensive third-party reporting reduces tax evasion. \\[0.15em]
+$IEI\_Reduces\_Tax\_Evasion_i$: The extent to which a respondent thinks that international exchange of information reduces tax evasion.\\[0.15em]
+$TPR\_Reduces\_Admin\_Costs_i$: The extent to which a respondent thinks that comprehensive third-party reporting reduces administrative costs.\\[0.15em]
+$IEI\_Reduces\_Admin\_Costs_i$: The extent to which a respondent thinks that international exchange of information reduces administrative costs.\\[0.15em]
+$TPR\_Increases\_Tax\_Revenue_i$: The extent to which a respondent thinks that comprehensive third-party reporting increases tax revenue.\\[0.15em]
+$IEI\_Increases\_Tax\_Revenue_i$: The extent to which a respondent thinks that international exchange of information increases tax revenue.\\[0.15em]
+$TPR\_Increases\_Fairness_i$: The extent to which a respondent thinks that comprehensive third-party reporting increases fairness.\\[0.15em]
+$IEI\_Increases\_Fairness_i$: The extent to which a respondent thinks that international exchange of information increases fairness.\\[0.15em]
+$TPR\_Reduces\_Inequality_i$: The extent to which a respondent thinks that comprehensive third-party reporting reduces inequality.\\[0.15em]
+$IEI\_Reduces\_Inequality_i$: The extent to which a respondent thinks that international exchange of information reduces inequality.\\[0.15em]
+$TPR\_Reduces\_Filing\_Costs_i$: The extent to which a respondent thinks that comprehensive third-party reporting reduces filing costs.\\[0.15em]
+$IEI\_Reduces\_Filing\_Costs_i$: The extent to which a respondent thinks that international exchange of information reduces filing costs.\\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i1}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy. \\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i2}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes employment data in general). \\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i3}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes employment data limited to tax relevant information).\\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i4}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes general health insurance data).\\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i5}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes health insurance data limited to tax-relevant financial information).\\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i6}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes general bank account data).\\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i7}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes bank account data limited to tax-relevant information).\\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i8}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes payment data).\\[0.15em]
+$TPR\_Data\_Privacy\_Concerned_{i9}$: The extent to which a respondent is concerned that comprehensive third-party reporting reduces data privacy (if third-party reporting includes payment data limited to tax-relevant information).\\[0.15em]
+$IEI\_Data\_Privacy\_Concerned_i$: The extent to which a respondent is concerned that international exchange of information reduces data privacy. \\[0.15em]
+\\
+\underline{Considerations on Tax Software and Prepopulated Returns} \\[0.15em]
+$TS\_Costly_i$: The extent to which a respondent thinks that tax software is costly for the government to provide.\\[0.15em]
+$PPR\_Costly_i$: The extent to which a respondent thinks that prepopulated tax returns are costly for the government to provide. \\[0.15em]
+$TS\_Reduce\_Filing\_Cost_i$: The extent to which a respondent thinks that tax software reduces filing costs.\\[0.15em]
+$PPR\_Reduce\_Filing\_Cost_i$: The extent to which a respondent thinks that prepopulated tax returns reduces filing costs.\\
+$TS\_Share\_Data\_Problematic_i$: The extent to which a respondent thinks that data sharing needed for tax software is problematic.\\[0.15em]
+$PPR\_Share\_Data\_Problematic_i$: The extent to which a respondent thinks that data sharing needed for prepopulated tax returns is problematic. \\[0.15em]
+$TS\_Tax\_Authority_{i1}$: The extent to which a respondent thinks that the tax authority (vs. private companies) should offer tax software. \\[0.15em]
+$TS\_Tax\_Authority_{i2}$: The extent to which a respondent thinks that the tax authority (vs. private companies) should offer tax software (in terms of reducing time and monetary costs for taxpayers). \\[0.15em]
+$TS\_Tax\_Authority_{i3}$: The extent to which a respondent thinks that the tax authority (vs. private companies) should offer tax software (in terms of overall costs to the society).\\[0.15em]
+$TS\_Tax\_Authority_{i4}$: The extent to which a respondent thinks that the tax authority (vs. private companies) should offer tax software (in terms of data privacy).\\[0.15em]
+$TS\_Tax\_Authority_{i5}$: The extent to which a respondent thinks that the tax authority (vs. private companies) should offer tax software (in terms of fairness in how tax filing is organized).\\[0.15em]
+\\[0.15em]
+\underline{Definition of Indices} \\[0.15em]
+$TPR\_Tax\_Revenue_i^+$: This index summarizes the extent to which the respondent thinks that comprehensive third party reporting reduces tax evasion, reduces administrative costs and increases tax revenue.  \\[0.15em]
+$TPR\_Inequality_i^-$: This index summarizes the extent to which the respondent thinks that comprehensive third party reporting increases fairness and reduces inequality.\\[0.15em]
+$IEI\_Tax\_Revenue_i^+$: This index summarizes the extent to which the respondent thinks that international exchange of information reduces tax evasion, reduces administrative costs and increases tax revenue.\\[0.15em]
+$IEI\_Inequality_i^-$: This index summarizes the extent to which the respondent thinks that international exchange of information increases fairness and reduces inequality. \\[0.15em]
+\\[0.15em]
+\underline{Voluntary Disclosure of Data} \\[0.15em]
+$Voluntary\_Disclosure_{i1}$: The extent to which the respondent is willing to voluntarily disclose data if the collected data would only be used for tax enforcement purposes (and not for prepopulating tax returns). \\[0.15em]
+$Voluntary\_Disclosure_{i2}$: The extent to which the respondent is willing to voluntarily disclose data if the collected data would be used to offer prepopulated tax returns (in addition to tax enforcement purposes).\\[0.15em]
+$Voluntary\_Disclosure_{i3}$: the collected data were only used to provide prepopulated tax returns (and not for enforcement purposes).\\[0.15em]
+\\[0.15em]
+\underline{Personal Exposure to Tax Enforcement and Tax Filing Services} \\[0.15em]
+$Exposure\_Tax\_Filing_i$: Respondent prepares and files taxes by themselves, together with help from a friend or relative, or together with a professional.\\[0.15em]
+$Exposure\_Tax\_Software_i$: Respondent's tax return is either filed by using tax software or by hand and tax software. \\[0.15em]
+$Exposure\_Filing\_Mistakes_i$: The extent to which the respondent thinks that people he/she knows make unintentional mistakes on their tax returns. We use this as a proxy for the respondent's own exposure to filing mistakes.\\[0.15em]
+$Exposure\_Tax\_Evasion_i$: The extent to which the respondent thinks that people he/she knows intentionally misreport parts of their income. We use this as a proxy for the respondent's own exposure to tax evasion.\\[0.15em]
+\\[0.15em]
+\underline{Government Views and Views on Inequality} \\[0.15em]
+$Government\_Trust_i$: The extent to which the respondent thinks he/she can trust the federal government to do what is right. \\[0.15em]
+$Government\_Public\_Interest_i$: The extent to which the respondent agrees with the statement that the government acts in ways that align with the interests of the public.\\[0.15em]
+$Government\_Reduce\_Resources_i$: The extent to which the respondent thinks government resources should be decreased or increased (from strongly decrease to strongly increase).\\[0.15em]
+$Government\_More\_Involved_i$: The extent to which the respondent thinks the government should in general be more (vs. less) involved in providing public services and functions than it is now. \\[0.15em]
+$Government\_Quality_i$: The extent to which the respondent thinks the quality of government service is good (vs. poor). 
+\\
+\underline{Treatments}\\[0.15em]
+$Evasion_i$: Respondent is in Evasion treatment arm. \\[0.15em]
+$Evasion\_Inequality_i$: Respondent is in Evasion \& Inequality Treatment arm. \\[0.15em]
+$Filing_i$: Respondent is in Filing Treatment arm. \\[0.15em]
+$Filing\_Lobbying_i$: Respondent is in Filing Treatment arm. \\[0.15em]
+$Full\_Info_i$: Respondent is in full info treatment arm. \\[0.15em]
+\\
+\underline{Conditions} \\
+$\mathbf{C}_k^{DP}$: Equal to one if consideration was reported under condition k.\\[0.15em] 
+$\mathbf{C}_k^{TPR}$: Equal to one if support was reported under condition k.  \\[0.15em] 
+$\mathbf{C}_k^{TS}$: Equal to one if consideration was reported under condition k. \\[0.15em] 
+\\
+\underline{Vectors} \\[0.15em]
+Throughout the analysis we use the control variables $\mathbf{X}_{i} = \{\}$, $\mathbf{X}_{i} = \mathbf{X}_{i}^{D}$, and $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$. $\mathbf{X}_{i}^{D}$ includes all the demographic controls. $\mathbf{X}_{i} = \mathbf{X}_{i}^{R}$ is a more robust vector that besides including demographic variables also controls for other determinants for policy support; Respondent's views on inequality, respondent's government views and respondent's exposure to tax filing services and tax enforcement. 
+\subsubsection{Description of Vectors}
+\label{sec:appendixvectors}
+\pagebreak[0]\begin{center}
+{\footnotesize
+\[
+\begin{array}{ccc}
+X_i^{D} =
+\left(
+\begin{array}{c}
+Female_i \\ Gender\_Other_i \\[0.2em]
+Black_i \\ Hispanic_i \\ Asian_i \\ Other\_Race_i \\[0.2em]
+Northeast_i \\ Midwest_i \\ West_i \\[0.2em]
+Area\_Urban\_Cluster \\ Area\_Rural \\[0.2em]
+Age_i \\[0.2em]
+Married_i \\ Widowed_i \\ Divorced_i \\[0.2em]
+Less\_Than\_4\_Year\_College_i \\ 4\_Year\_College\_Or\_More_i \\[0.2em]
+Household\_Size_i \\ Household\_Kids_i \\ Household\_Partner_i \\[0.2em]
+Homeowner_i \\
+Unemployed_i \\ Not\_in\_Labor\_Force_i \\ Self\_Employed_i \\[0.2em]
+Student_i \\[0.2em]
+Income\_Middle \\ Income\_High \\[0.2em]
+Wealth\_Middle\_i \\ Wealth\_High_i \\[0.2em]
+Income\_Abroad_i \\ Income\_Self\_Employment_i \\ Income\_Property_i \\ Income\_Privat\_Business_i \\ Income\_Digital\_Assets_i \\ Income\_Cash_i \\ Income\_Other\_Sources_i \\[0.2em]
+Republican_i \\ Independent_i \\ Other\_Affiliation_i
+\end{array}
+\right)
+
+& \qquad\qquad &
+X_i^{R} =
+\left(
+\begin{array}{c}
+Female_i \\ Gender\_Other_i \\[0.2em]
+Black_i \\ Hispanic_i \\ Asian_i \\ Other\_Race_i \\[0.2em]
+Northeast_i \\ Midwest_i \\ West_i \\[0.2em]
+Area\_Urban\_Cluster \\ Area\_Rural \\[0.2em]
+Age_i \\[0.2em]
+Married_i \\ Widowed_i \\ Divorced_i \\[0.2em]
+Less\_Than\_4\_Year\_College_i \\ 4\_Year\_College\_Or\_More_i \\[0.2em]
+Household\_Size_i \\ Household\_Kids_i \\ Household\_Partner_i \\[0.2em]
+Homeowner_i \\
+Unemployed_i \\ Not\_in\_Labor\_Force_i \\ Self\_Employed_i \\[0.2em]
+Student_i \\[0.2em]
+Income\_Middle \\ Income\_High \\[0.2em]
+Wealth\_Middle\_i \\ Wealth\_High_i \\[0.2em]
+Income\_Abroad_i \\ Income\_Self\_Employment_i \\ Income\_Property_i \\ Income\_Privat\_Business_i \\ Income\_Digital\_Assets_i \\ Income\_Cash_i \\ Income\_Other\_Sources_i \\[0.2em]
+Republican_i \\ Independent_i \\ Other\_Affiliation_i \\[0.2em]
+Exposure\_Tax\_Filing_i \\ Exposure\_Tax\_Software_i \\ Exposure\_Filing\_Mistakes_i \\ Exposure\_Tax\_Evasion_i
+\end{array}
+\right)
+
+\end{array}
+\]
+}
+\vspace{2em}
+{\small
+\[
+\begin{array}{c}
+K_{i} =
+\left(
+\begin{array}{c}
+Perception\_Tax\_Gap_i \\ Perception\_Filing\_Cost\_Time_i \\ Perception\_Filing\_Cost\_Cost_i \end{array}
+\right)
+\end{array}
+\]
+}
+\\[1em]
+{\small
+\[
+\begin{array}{c}
+\\[1em]
+T_i =
+\left(
+\begin{array}{c}
+Evasion_i \\
+Evasion\_Inequality_i \\
+Filing_i \\
+Filing\_Lobbying_i \\
+Full\_Info_i 
+\end{array}
+\right)
+\end{array}
+\]
+}
+\\[1em]
+{\small
+
+\[
+\begin{array}{ccc}
+
+C_i^{GV} =
+\left(
+\begin{array}{c}
+Government\_Trust_i \\
+Government\_Public\_Interest_i \\
+Government\_Reduce\_Resources_i \\
+Government\_More\_Involved_i \\
+Government\_Quality_i 
+\end{array}
+\right)
+
+\end{array}
+\]
+
+\[
+\begin{array}{ccc}
+
+C_i^{EP} =
+\left(
+\begin{array}{c}
+Tax\_Evasion\_Serious\_Problem_i \\
+Tax\_Evasion\_Unequally\_Distributed_i \\
+Tax\_Evasion\_Importance\_Reduce_i \\[0.25em]
+Tax\_Filing\_Cost\_High_i \\
+Tax\_Filing\_Importance\_Reduce_i \\
+Tax\_Filing\_Fair_i\\[0.25em]
+Data\_Privacy\_Concerned_i \\
+Data\_Privacy\_Importance\_Protect_i 
+\end{array}
+\right)
+
+\end{array}
+\]
+}
+\vspace{2em}
+{\small
+\[
+\begin{array}{ccc}
+
+C_i^{TPR} =
+\left(
+\begin{array}{c}
+TPR\_Tax\_Revenue_i^+ \\
+TPR\_Inequality_i^- \\
+TPR\_Reduces\_Filing\_Costs_i \\
+TPR\_Data\_Privacy\_Concerned_{i1}
+\end{array}
+\right)
+
+\end{array}
+\]
+}
+\vspace{2em}
+{\small
+\[
+\begin{array}{ccc}
+
+C_i^{IEI} =
+\left(
+\begin{array}{c}
+IEI\_Tax\_Revenue_i^+ \\
+IEI\_Inequality_i^- \\
+TPR\_Reduces\_Filing\_Costs_i \\
+IEI\_Data\_Privacy\_Concerned_i
+\end{array}
+\right)
+
+\end{array}
+\]
+}
+\vspace{2em}
+{\small
+\[
+\begin{array}{ccc}
+
+C_i^{TS} =
+\left(
+\begin{array}{c}
+TS\_Costly_i \\
+TS\_Reduce\_Filing\_Cost_i \\
+TS\_Share\_Data\_Problematic_i
+\end{array}
+\right)
+
+\end{array}
+\]
+}
+\vspace{2em}
+{\small
+\[
+\begin{array}{ccc}
+
+C_i^{PPR} =
+\left(
+\begin{array}{c}
+PPR\_Costly_i \\
+PPR\_Reduce\_Filing\_Costs\_i \\
+TS\_Share\_Data\_Problematic_i
+\end{array}
+\right)
+
+\end{array}
+\]
+}
+\vspace{2em}
+{\small
+\[
+\begin{array}{ccc}
+
+\\[2em]
+
+D_c^{DP} =
+\left(
+\begin{array}{c}
+\mathbf{C}_2^{DP} \\
+\mathbf{C}_3^{DP} \\
+\mathbf{C}_4^{DP} \\
+\mathbf{C}_5^{DP} \\
+\mathbf{C}_6^{DP} \\
+\mathbf{C}_7^{DP} \\
+\mathbf{C}_8^{DP} \\
+\mathbf{C}_9^{DP} 
+\end{array}
+\right)
+\end{array}
+\]
+}
+\vspace{2em}
+\[
+\begin{array}{ccc}
+
+D_c^{TPR} =
+\left(
+\begin{array}{c}
+\mathbf{C}_2^{TPR} \\
+\mathbf{C}_3^{TPR} \\
+\mathbf{C}_4^{TPR} \\
+\mathbf{C}_5^{TPR} \\
+\mathbf{C}_6^{TPR} \\
+\mathbf{C}_7^{TPR} \\
+\mathbf{C}_8^{TPR} \\
+\mathbf{C}_9^{TPR} 
+\end{array}
+\right)
+
+\end{array}
+\]
+\vspace{2em}
+\[
+\begin{array}{ccc}
+
+D_c^{TS} =
+\left(
+\begin{array}{c}
+\mathbf{C}_1^{TS} \\
+\mathbf{C}_2^{TS} \\
+\mathbf{C}_3^{TS} \\
+\mathbf{C}_4^{TS} \\
+\mathbf{C}_5^{TS} 
+\end{array}
+\right)
+
+\end{array}
+\]
+\end{center}
+
+\newpage
+\subsubsection{Appendix Tables}
+
+\begin{table}[!htbp]\centering
+\caption{Knowledge of Economic Problems (Appendix)}
+\label{tab:perception}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+ & (1) & (2) & (3)  \\
+ & Perception & Perception & Perception\\
+ & Tax Gap & Filing Cost (Time) & Filing Cost (Cost)\\
+\midrule
+Female                     &-& - & - \\
+Age                        &-& - & - \\
+College degree             &-& - & - \\
+Middle income              &-& - & - \\
+High income                &-& - & - \\
+Middle wealth              &-& - & - \\
+High wealth                &-& - & - \\
+Self-employed              &-& - & - \\
+Republican                 &-& - & - \\[0.5em]
+Evasion       & - & - & - \\
+Evasion \& Inequality     & - & - & - \\
+Filing            & - & - & - \\
+Filing \& Lobbying            & - & - & - \\
+Full info               & - & - & - \\[0.5em]
+Intercept              &   -& -   & -  \\
+\midrule
+True Value & - & - & -\\
+\midrule
+Observations               & - & - & -       \\
+$R^2$                      & - & - & -       \\
+Controls                   & $\mathbf{X}_{i}^{D}$& $\mathbf{X}_{i}^{D}$& $\mathbf{X}_{i}^{D}$\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[!htbp]\centering
+\caption{Private or Government Tax Software Provider}
+\label{tab:taxsoftwareprovider}
+\begin{threeparttable}
+\begin{tabular}{l|c}
+\toprule
+& (1) \\
+ & Tax Authority Should \\
+ & Provide Tax Software \\
+ \midrule
+\textit{Considerations} \\[0.25em]
+-In general & - \\[0.25em]
+-In terms of reducing time and monetary costs for taxpayers & - \\[0.25em]
+-In terms of overall costs to the society & - \\[0.25em]
+-In terms of data privacy & - \\[0.25em]
+-In terms of of fairness in how tax filing is organized & -\\[1em]
+\textit{Treatments} \\[0.25em]
+Evasion        & - \\[0.25em]
+Evasion \& Revenue    & - \\[0.25em]
+Filing             & - \\[0.25em]
+Filing \& Lobbying            & - \\[0.25em]
+Full info               & - \\
+
+\midrule
+Observations                        &-       \\
+$R^2$                               &-    \\
+Controls                 & $\mathbf{X}_{i}^{D}$      \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}:   
+\end{tablenotes}
+\end{threeparttable}
+\end{table} 
+
+\begin{table}[!htbp]\centering
+\caption{Exposure to tax filing and evasion}
+\label{tab:exposure}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+ & (1) & (2) & (3) & (4) \\
+ & Exposure: & Exposure: & Exposure: & Exposure: \\
+ & Tax Filing & Tax Software & Filing Mistakes & Evasion \\
+\midrule
+Female                     &-& - & - &-  \\
+Age                        &-& - & - &-  \\
+College degree             &-& - & - &-  \\
+Middle income              &-& - & - &-  \\
+High income                &-& - & - &-  \\
+Middle wealth              &-& - & - &-  \\
+High wealth                &-& - & - &-  \\
+Self-employed              &-& - & - &-  \\
+Republican                 &-& - & - &-  \\[0.5em]
+Intercept              &   -& -   & -  &   -\\
+\midrule
+Observations               &        &        &        &        \\
+$R^2$                      &        &        &        &        \\
+Controls                   &$\mathbf{X}_{i}^D$&$\mathbf{X}_{i}^D$&$\mathbf{X}_{i}^D$&$\mathbf{X}_{i}^D$\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: Each column reports OLS estimates from a regression of the respective exposure outcome on the baseline covariate vector $\mathbf{X}_i^{base}$. A selection of covariates is reported on the Table, the full set of covariates can be found in the appendix. 
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[!htbp]\centering
+\caption{Willingness to disclose data}
+\label{tab:willingnessdisclosedata}
+\begin{threeparttable}
+\begin{tabular}{l|c}
+\toprule
+& (1) \\
+ & Willingness to \\
+ & Disclose Data \\
+ \midrule
+\textit{Conditions} \\[0.25em]
+Condition 1  & - \\[0.25em]
+Condition 2 & -\\[0.25em]
+Condition 3 & - \\[1em]
+\textit{Treatments} \\[0.25em]
+Evasion        & - \\[0.25em]
+Evasion \& Inequality     & - \\[0.25em]
+Filing             & - \\[0.25em]
+Filing \& Lobbying             & - \\[0.25em]
+Full info               & - \\
+\midrule
+Observations                        &-       \\
+$R^2$                               &-    \\
+Controls                 & $\mathbf{X}_{i}^{D}$     \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: Dependent variables are the responses to the questions of whether respondents would be willing to share data under certain conditions: (1) the collected data would only be used for tax enforcement purposes (and not for prepopulating tax returns) and (2) if the collected data would be used to offer prepopulated tax returns (in addition to tax enforcement purposes) and (3) if the collected data were only used to provide prepopulated tax returns (and not for enforcement purposes).    
+\end{tablenotes}
+\end{threeparttable}
+\end{table} 
+
+\begin{table}[!htbp]\centering
+\caption{Prolific Quotas}
+\label{tab:prolificquotas}
+\begin{threeparttable}
+\begin{tabular}{lc}
+\toprule
+& (1) \\
+& Quotas according to 2024 census  \\
+
+\midrule
+\textbf{Gender} \\
+Female                  & 50.09 \\
+Male                    & 49.91 \\[0.5em]
+\textbf{Age} \\
+18-29                  & 23.79 \\
+30-39                  & 20.92 \\
+40-49                  & 19.11 \\
+50-59                  & 17.95 \\
+60-69                  & 18.24 \\[0.5em]
+\textbf{Income}\\
+\$0-\$10,000        & 5.13 \\
+\$10,000–\$15,999   & 3.81 \\
+\$16,000–\$19,999   & 2.21 \\
+\$20,000–\$29,999   & 6.21 \\
+\$30,000–\$39,999   & 6.53 \\
+\$40,000–\$49,999   & 6.68 \\
+\$50,000–\$59,999   & 6.43 \\
+\$60,000–\$69,999   & 6.14 \\
+\$70,000–\$79,999   & 5.60 \\
+\$80,000–\$89,999   & 5.05 \\
+\$90,000–\$99,999   & 5.05 \\
+\$100,000–\$149,999 & 17.76\\
+more than \$150,000 & 23.40 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: Census data come from American Community Survey \url{https://data.census.gov/table?q=ACS+B19001}.  \tk{I have to reduce age strata by 1. For example by forming a 30-49 group. Else Prolific doesn't allow it. }
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\begin{ThreePartTable}
+\begin{TableNotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: Census data come from American Community Survey 
+\url{https://data.census.gov/table?q=ACS+B19001}. 
+Characteristics of comparable sample; Gender (Age: 18--69), Age (Age 18--69), 
+Income (All households), Education (Age: 18--64), Marital Status (Age: 18--64), 
+Employment (Age: 20--69), School (Age 18--69, we assume that all students are 
+within this age category), Race (Age: 18--64). Wealth is compared to the 
+percentiles of the Survey of Consumer Finances (SCF), which approximates the 
+distribution for all households.
+\end{TableNotes}
+\FloatBarrier
+\begin{longtable}{lccc}
+\caption{Characteristics Sample and US Population}
+\label{tab:finalsample}\\
+
+\toprule
+ & (1) & (2) & (3) \\
+ & 2026 Sample & 2024 Census & 2024 Census \\
+ &  & (Comparable) & (Overall) \\
+\midrule
+\endfirsthead
+
+\toprule
+ & (1) & (2) & (3) \\
+ & 2026 Sample & 2024 Census & 2024 Census \\
+ &  & (Comparable) & (Overall) \\
+\midrule
+\endhead
+
+\midrule
+\insertTableNotes
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textbf{Gender} \\
+Female                  & - & 50.09 & -\\
+Male                    & - & 49.91 & -\\[0.5em]
+
+\textbf{Age} \\
+18--29                  & - & 23.79 & -\\
+30--39                  & - & 20.92 & -\\
+40--49                  & - & 19.11 & -\\
+50--59                  & - & 17.95 & -\\
+60--69                  & - & 18.24 & -\\[0.5em]
+
+\textbf{Income} \\
+\$0--\$19{,}999            & - & 11.15 & -\\
+\$20{,}000--\$39{,}999     & - & 12.74 & -\\
+\$40{,}000--\$59{,}999     & - & 13.10 & -\\
+\$60{,}000--\$99{,}999     & - & 21.85 & -\\
+\$100{,}000--\$149{,}999   & - & 17.76 & -\\
+More than \$150{,}000     & - & 23.40 &  -\\[0.5em]
+
+\textbf{Wealth} \\
+\$0--\$29{,}999            & - & 25 & -\\
+\$30{,}000--\$209{,}999    & - & 25 & -\\
+\$210{,}000--\$709{,}999   & - & 25 & -\\
+More than \$710{,}000     & - & 25 &  -\\[0.5em]
+
+\textbf{Region} \\
+Northeast   & - & 25 & -\\
+Midwest     & - & 25 & -\\
+South       & - & 25 & -\\
+West       & - & 25 &  -\\[0.5em]
+
+\textbf{Education} \\
+Less than High School         & - & - &  -\\
+Less than 4-year college           & - & - &  -\\
+Four-year college degree or more     & - & - &  -\\[0.5em]                
+
+\textbf{School} \\
+Student                   & - & - & -\\[0.5em]
+
+\textbf{Employment} \\
+Employed                     & - & - & -\\
+Unemployed                   & - & - & -\\
+Not in labor force           & - & - & -\\[0.5em]
+
+\textbf{Marital Status} \\
+Now married                     & - & - & -\\
+Never married                   & - & - & -\\
+Widowed                         & - & - & -\\
+Divorced                        & - & - & -\\[0.5em]
+
+\textbf{Race} \\
+White (not Hispanic or Latino)                      & - & - & -\\
+Black or African American (not Hispanic or Latino)  & - & - & -\\
+Asian (not Hispanic or Latino)                      & - & - & -\\
+Hispanic or Latino                                  & - & - & -\\
+Other race or multiracial (not Hispanic or Latino)  & - & - & -\\[0.5em]
+
+\textbf{Political affiliation} \\
+Democrat        & - & - & 28 \\
+Republican      & - & - & 28 \\
+Independent     & - & - & 43 \\
+
+\end{longtable}
+\end{ThreePartTable}
+
+\FloatBarrier
+\end{document}

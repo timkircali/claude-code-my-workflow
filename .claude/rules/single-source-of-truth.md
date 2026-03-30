@@ -1,69 +1,60 @@
 ---
 paths:
   - "Figures/**/*"
-  - "Quarto/**/*.qmd"
   - "Slides/**/*.tex"
+  - "PAP/**/*.tex"
+  - "Analysis/**/*.R"
 ---
 
 # Single Source of Truth: Enforcement Protocol
 
-**The Beamer `.tex` file is the authoritative source for ALL content.** Everything else is derived.
+**This project has two authoritative sources:**
 
-## The SSOT Chain
+1. **Pre-Analysis Plan `.tex`** — authoritative for study design, hypotheses, estimators, and subgroup definitions. R code must implement exactly what is specified here.
+2. **R analysis scripts** — authoritative for all computed results (coefficients, p-values, figures, tables). Slides consume these outputs; never type numbers into slides by hand.
 
 ```
-Beamer .tex (SOURCE OF TRUTH)
-  ├── extract_tikz.tex → PDF → SVGs (derived)
-  ├── Quarto .qmd → HTML (derived)
-  ├── Bibliography_base.bib (shared)
-  └── Figures/LectureN/*.rds → plotly charts (data source)
+PAP .tex  (SOURCE OF TRUTH: study design)
+  └── R scripts implement PAP specifications exactly
+        └── R outputs: Figures/*.pdf, Figures/*.png, tables/*.tex
+              └── Beamer .tex slides \includegraphics / \input these files
+                    └── Bibliography_base.bib (shared)
 
-NEVER edit derived artifacts independently.
-ALWAYS propagate changes from source → derived.
+NEVER compute results manually and type them into slides.
+NEVER run analyses not pre-specified in the PAP without flagging clearly.
+ALWAYS trace a result back to its R script and PAP section.
 ```
 
 ---
 
-## TikZ Freshness Protocol (MANDATORY)
+## PAP Compliance Protocol
 
-**Before using ANY TikZ SVG in a Quarto slide, verify it matches the current Beamer source.**
-
-### Diff-Check Procedure
-
-1. Read the TikZ block from the Beamer `.tex` file
-2. Read the corresponding block from `Figures/LectureN/extract_tikz.tex`
-3. Compare EVERY coordinate, label, color, opacity, and anchor point
-4. If ANY difference exists: update `extract_tikz.tex` from Beamer, recompile, regenerate SVGs
-5. Only then reference the SVG in the QMD
-
-### When to Re-Extract
-
-Re-extract ALL TikZ diagrams when:
-- The Beamer `.tex` file has been modified since last extraction
-- Starting a new Quarto translation
-- Any TikZ-related quality issue is reported
-- Before any commit that includes QMD changes
+Before running any analysis, verify:
+1. The estimator is defined in the PAP
+2. The outcome variable is defined in the PAP
+3. The sample restriction matches the PAP
+4. If deviating from PAP: flag clearly as "unregistered analysis" in code comments and slides
 
 ---
 
-## Environment Parity (MANDATORY)
+## R → Slides Handoff
 
-**Every Beamer environment MUST have a CSS equivalent before translation begins.**
+**Figures:** R saves to `Figures/` as PDF or PNG with transparent background. Beamer uses `\includegraphics`.
 
-1. Scan the Beamer source for all custom environments
-2. Check each against your theme SCSS file
-3. If ANY environment is missing from SCSS, create it BEFORE translating
+**Tables:** R saves `.tex` fragments to a tables output directory. Beamer uses `\input`.
+
+**Never hardcode numbers.** If a coefficient appears in a slide, it must be either:
+- `\input`-ed from an R-generated `.tex` file, or
+- Clearly marked as approximate/illustrative
 
 ---
 
-## Content Fidelity Checklist
+## Content Fidelity Checklist (Slides)
 
 ```
-[ ] Frame count: Beamer frames == Quarto slides
-[ ] Math check: every equation appears with identical notation
-[ ] Citation check: every \cite has a @key in Quarto
-[ ] Environment check: every Beamer box has CSS equivalent
-[ ] Figure check: every \includegraphics has SVG or plotly equivalent
-[ ] No added content: Quarto does not invent slides not in Beamer
-[ ] No dropped content: every Beamer idea appears in Quarto
+[ ] Every result shown in slides traces to a specific R script output
+[ ] Every analysis shown is pre-specified in the PAP (or flagged as unregistered)
+[ ] Figure files referenced in .tex exist in Figures/
+[ ] Table files referenced in .tex exist in tables output directory
+[ ] No hardcoded numerical results in slide source
 ```

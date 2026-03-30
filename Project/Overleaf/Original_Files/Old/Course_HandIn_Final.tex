@@ -1,0 +1,207 @@
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage[a4paper, margin=1in]{geometry} % Adjust margins
+\usepackage{setspace} % For line spacing
+\usepackage{tocloft} % Optional: better spacing for TOC
+\usepackage[backend=biber,style=apa]{biblatex} % Load biblatex with APA style
+\addbibresource{references.bib} % Link to your .bib file
+
+% Set line spacing
+\onehalfspacing % or use \doublespacing for double spacing
+
+% Title information
+\title{\vspace{2cm}\textbf{Preferences on Tax Enforcement and Tax Administration} \vspace{2cm}}
+\author{\textbf{Tim Kircali} \\ joint with Stefanie Stantcheva and Matthias Weber}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\vspace{2cm}
+
+\begin{center}
+    Paper Hand-In\\
+    \vspace{0.5cm}
+    \textit{Topics in Experimental and Behavioral Economics} \\
+    (25FS DOEC0596 PhD Course) \\
+    \vspace{0.5cm}
+    Ernst Fehr \& Julien Senn \\
+    Spring 2025
+\end{center}
+
+\newpage
+\pagenumbering{arabic}
+\section{Introduction}
+Tax revenue is essential for modern governments to provide their functions, reaching from the provision of safety over infrastructure, and education to healthcare and social security. Since it is crucial that the taxes that are due are also paid, governments and tax administrations must decide how to design an effective tax system that will enforce tax collection. In addition to choosing the level of tax enforcement,\footnote{Existing evidence suggests that additional investments in tax enforcement are welfare improving (\cite{boning2025welfare}).} governments have to decide which instruments tax authorities can and should use to enforce taxes. For example, several countries have implemented automatic exchange of information (AEI) in tax systems, which allows tax administrations to easily validate information, while other countries' tax administrations do not have access and mostly have to rely on taxpayers to file their returns correctly. And if we change the tax administration's viewpoint to a service perspective, tax administrations have to decide what services they want to provide to taxpayers. While some countries offer prepopulated tax returns and free government-provided tax software, other countries' taxpayers face considerable tax compliance costs and have to pay for tax software by themselves.%\footnote{e.g. American taxpayer has 12 hours + 270\$ tax filing costs} 
+
+One way of understanding and deciding how a tax system should be designed and what services it should provide is to elicit society's preferences for it directly. In a democracy, one can argue that the level \& design of tax enforcement and which services a tax administration offers should correspond to the preference of the population. Similarly to previous studies analyzing people's policy support using surveys (for the demand for redistribution: \textcite{kuziemko2015elastic},  for the preference on the tax schedule: \textcite{stantcheva2021understanding}), we analyze how people's preferences for the design of tax enforcement and government-provided tax filing services look like. In a large survey on citizens from the US and possibly other countries, we ask people about their views on tax enforcement policies. Should governments expand the AEI? - And, if we switch to the tax administration's service perspective, should tax administrations offer (free) tax software and prepopulated tax returns to reduce tax filing costs? These questions are closely related because for a government to be able to offer prepopulated tax returns, it must have automatic access to tax-related information.
+
+And how do people reason about these policy views? What are the considerations driving policy support and what is the role of (mis)information? There might be a big number of considerations underlying support for tax enforcement policies, however, we try to understand the role of four economically convincing factors underlying policy support: Data privacy concerns, considerations of tax evasion and tax revenue, considerations regarding fairness \& inequality and tax filing concerns. In addition to these underlying considerations, (mis)information and political leanings \& government views might play a strong role in the formation of policy preferences. To shed more light on how these underlying considerations link to policy views, we include questions to elicit them. 
+
+Finally, to understand the role of information and to establish a causal link between considerations and policy views, we experimentally provide respondents with information specifically addressing these four underlying considerations mentioned above. In doing so, we can observe how considerations of treated groups change and, more interestingly, how this translates into changing policy views. These changes help us to understand which of the underlying considerations is primarily driving policy views. \\[0.5em]
+\textbf{Related Literature:} First, this project is related to the broad literature on measuring people's support for policies using experimental surveys. Most closely related, \textcite{stantcheva2021understanding} elicits preferences on tax policy in general. While she concentrates on the question which tax schedule of income and wealth taxes people prefer, we try to understand people's views on which instruments tax administration should use to enforce that tax schedule. 
+
+Second, this project relates to the literature on tax administration, tax enforcement, and tax evasion, and especially to the literature on the role of AEI and third-party reporting in reducing tax evasion. While \textcite{kleven2011unwilling}, \textcite{pomeranz2015no}, \textcite{slemrod2017does} show that AEI and third-party reporting is effective in reducing tax evasion, our research tries to uncover why many countries' parliaments and societies oppose further expanding AEI into their tax systems. 
+
+Finally, our project contributes to the literature on tax filing costs and the governments' role in providing services to reduce them. \textcite{benzarti2020taxing} observes how taxpayers choose between itemizing deductions and claiming the standard deduction and finds that taxpayers forgo large tax savings to avoid compliance costs. \textcite{hauck2024optional} show that in Germany non-filing of tax declaration is common. In particular, this is the case at the lower end of the income distribution. Therefore, non-filing reduces the effectiveness of redistribution. And to show that tax compliance costs have been steadily increasing, \textcite{benzarti2024rising} use word counts of the tax codes in several countries dating back to the early 1980s as a proxy for tax compliance costs. Using a survey on US taxpayers, they also show that the majority would be willing to pay for simplifying the tax system and adopting prepopulated tax returns. 
+
+Our survey strongly expands this branch of research in several ways. First, it also looks at people's demand for tax software. Second, it elicits people's views about high AEI, which is in itself a prerequisite for government-provided prepopulated tax returns. Finally, by experimentally providing information, we can understand the role of (mis)information in shaping policy decisions.  \\[1em] 
+In the rest of the paper we will first discuss the data sources and the survey design before discussing expected results and concluding. 
+
+\section{Conceptual Framework} From an economic perspective, there are several considerations that could underlie support for a policy related to automatic exchange of information (AEI). However, we try to focus on and to understand the role of four economically convincing factors, which we discuss below. \\[0.5em]
+\textbf{Data Privacy:} First, people may generally dislike (government) institutions collecting and having access to private (financial) data. If the AEI policy in question increases the amount of data exchanged with (government) institutions or increases the amount of data exchanged between institutions, people might oppose AEI policies due to financial privacy considerations. \\[0.5em]
+\textbf{Evasion and Revenue:} Second, people might be interested in governments effectively collecting tax revenue because they believe that government tax revenue is important. Existing evidence shows that audit rates are low, tax evasion is high, and that AEI generally helps tax administrations to reduce tax evasion (Kleven et al. 2011, Pomeranz 2015, Slemrod et al. 2017). These are strong arguments in favour of stronger AEI policies. \\[0.5em]
+\textbf{Fairness and Inequality:} Third, and closely related, people might be interested in everyone paying their fair share of taxes. The fact that tax evasion is much more pronounced at the top of the income distribution, and the consideration that honest taxpayers have to finance the tax gaps created by evaders would be reasons to support stronger AEI policies. \\[0.5em]
+\textbf{Tax Filing:} Fourth, people may have considerations about tax filing and compliance costs that influence their political views. In fact, \textcite{benzarti2024rising} show that US taxpayers perceive that tax complexity and filing costs have increased and that the majority would be willing to pay for a simplification of the tax system and the introduction of prepopulated tax returns. People may also be concerned about making mistakes when filing their taxes. The fact that AEI would help tax administrations to offer services such as free government-provided tax software and prepopulated tax returns, which could significantly reduce tax filing costs, would be a reason for AEI policy support. \\[1em]
+In addition to these underlying considerations, (mis)information and political leanings \& government views can play a strong role in the formation of policy preferences.
+\\[0.5em]
+\textbf{Knowledge:} Knowledge may not be directly related to people's preferred AEI policy, but it might shape policy views through the considerations discussed above. For example, two people with the same preference for prepopulated tax returns and financial privacy may differ in support for AEI if only one understands that AEI enables prepopulated returns. \\[0.5em]
+\textbf{Political Leaning and Government Views:} Previous literature (e.g., \textcite{kuziemko2015elastic} and \textcite{stantcheva2021understanding}) shows that political leanings and government views are strong drivers of political views, which is why we will also include them in our analysis.   \\[1em]
+Using an experimental survey approach, we will measure the underlying considerations and how they are related to policy views. To understand the role of information, we elicit people's prior knowledge about the economic factors underlying AEI policies and analyse how knowledge levels are related to considerations and policy views. To establish a causal link between considerations and policy views, we experimentally provide respondents with information that specifically addresses one of the underlying considerations mentioned above.  This allows us to observe how the considerations of the treated groups change and, more interestingly, how this translates into changes in policy views. These changes help us to understand which of the underlying considerations is primarily driving policy views. 
+\section{Data and Survey Design}
+\subsection{Data Collection}
+The core data will come from a survey conducted at the end of 2025 on US residents aged 18 to 69. We consider expanding the survey to other countries such as Germany, Switzerland, and Denmark. The planned sample sizes lie between 2500 (for the US Sample) and 6000 (for all 4 countries). We will use a commercial survey provider such as Bilendi, Dynata or YouGov, which offer large pools of vetted survey respondents that come from different panels, who can freely log in and take surveys in exchange for rewards. On the entry page, we give them information about the length of the survey to avoid selection based on the topic. Then they are guided through a consent page and after that trough some screening questions that ensure that the final sample is representative along gender, age, and education/income. 
+\subsection{Survey Structure} 
+\textbf{Demographic Background and Political Leanings:}
+To begin the survey, we ask people about their demographic background. \\[0.5em]
+\textbf{Knowledge:}
+Then we ask questions about factual knowledge that is relevant to understand the AEI policies in question. We ask respondents if they know what AEI with the tax administration is and how it works. We ask them about their perceptions of the tax gap and how it is distributed along the income distribution. We consider using incentivized questions for a subsample to analyze how precision of people's responses change.  \\[0.5em]
+\textbf{Information Treatments:}
+Respondents are randomly split into 6 groups. Each group of respondents will see either one of four different instructional information video treatments, a full info treatment including all information from the treatments before, or no information at all (control). Each of these information treatments addresses certain underlying considerations. More details about the treatments will be given in Section 3.3.\\[0.5em]
+\textbf{Considerations on AEI Policies:}
+In this section we ask people about their considerations and expectations about the economic impact of very general AEI policies. For example, we refer to an expansion of AEI and describe it as "more tax-relevant data are being exchanged between institutions and tax administration". First, we ask about their data privacy concerns on these policies. Second, we ask about their expectations of the economic impact on factors such as tax evasion and tax revenue. Third, we ask about their concerns regarding fairness and inequality; we ask them if they think income inequality is concerning and if they think it can be reduced with AEI. And we ask them if they think the current tax system is fair and if AEI helps to make it fairer. Finally, we ask about their tax filing and tax compliance considerations. For example, we ask them about their concerns about tax filing costs and if they think that the fear to make mistakes in tax filing is a legitimate concern.  Finally, we ask them if they think that AEI might help reduce tax filing costs and reduce the risk of making mistakes. \\[0.5em]
+\textbf{Support for AEI Policies:}
+In the last block we ask them about their preferences on policies related to AEI. Specifically, we ask them if they would support an expansion of AEI. To further understand reasons for their support, we ask them if they would support expansion of AEI conditional on certain elements, such as if the policy concentrates on high-net-worth individuals or if it includes corporate tax payers. Finally, we move on to understand their support for government efforts to provide tax software and prepopulated tax returns, where we ask them how much they would value free public tax software and prepopulated tax returns. \\[0.5em]
+\textbf{Political Leanings and Government Views:} We ask respondents about their political orientation and their views about the government. Due to its importance, political leaning is elicited with more than one question. We ask respondents where they see themselves on a left/right spectrum and how they voted in the last elections. To understand their views about the government, we ask them if they trust the government, what the scope of government intervention should be, and ask about their perceptions of governments capabilities providing consumer-friendly administrative solutions to reduce compliance costs of citizen. The last question aims to elicit if people think that the government would be capable of providing user-friendly tax software or prepopulated tax returns. \\[0.5em]
+\textbf{Final Questions:}
+At the end of the survey, we ask some finalizing questions such as if respondents think the survey was biased (left/right) or if they would be willing to pay for information. 
+\subsection{Information Treatments}
+We use four information treatments in the form of illustrative video treatments that are very closely related to one of the primary considerations of policy support. We use this strategy to understand how specific information on certain considerations translates into policy views. Additionally, one group will see a full information treatment that includes the information of all four specific information treatments. \\[0.5em]
+\textbf{Data Privacy Treatment:}
+In the first information treatment, we illustrate tax-relevant players and institutions and how tax-relevant data are being exchanged between them. Then we explain how information exchange would change if AEI is expanded. For that, we consider using comparisons to other countries and explain how it works there. The primary goal of the data privacy treatment is to shock people’s knowledge and perceptions about AEI, specifically addressing their data privacy considerations and distinguishing them from other economic considerations. \\[0.5em]
+\textbf{Tax Filing Treatment:}
+The second treatment discusses concerns about tax filing costs such as the fact that an average American taxpayer has 12 hours + 270 \$ tax filing costs. It describes how (guided) tax software works and what a prepopulated tax return looks like. We emphasize that tax software and prepopulated tax returns help tax filers to make fewer mistakes and significantly reduce their tax filing costs. And, most importantly, we highlight the importance of AEI to the tax administration in providing prepopulated tax returns. The primary goal of the tax filing treatment is to shock people's knowledge and perceptions about tax filing costs and tax filing services and how they are related to the existence of AEI. \\[0.5em]  
+\textbf{Tax Evasion Treatment:}
+The third treatment provides respondents with information about the economic effects of AEI in tax enforcement. We give them information about the size of the tax gap, about the limited resources of IRS and that audit levels are generally low. We directly point out that AEI is effective in reducing tax evasion by explaining evidence which shows that tax evasion is rare in areas which are covered under AEI. The primary goal of the tax evasion treatment is to shock people’s knowledge and perceptions about the economic effects of tax enforcement and AEI without affecting considerations related to fairness \& inequality. \\[0.5em]
+\textbf{Inequality Treatment:}
+The last specific information treatment again includes information about tax evasion, but additionally explains the fact that the tax gap is much more pronounced for high-income individuals, and discusses reasons why this is the case. After that, we explain fairness considerations of tax evasion such as the fact that honest taxpayers have to finance the fiscal gap caused by tax evaders. The primary goal of the inequality treatment is to shock people’s knowledge and perceptions about fairness and distributional considerations of tax enforcement policy and AEI. \\[0.5em]
+\textbf{Full Information Treatment and Control Treatment:} The full information treatment will include all the information above and will therefore be much longer than the specific info treatments. We plan to implement a test that addresses the issues regarding survey fatigue. And finally, the control group will not receive information.  \\[0.5em]
+\textbf{Manipulation Checks:} Even when we try to design information treatments that are factual and neutral, there is a risk that they are unintentionally framed in a way that appeals to certain emotions. To check how treatments affect respondents' emotions and how exactly they change their reasoning, we have an additional sample of respondents evaluate our information treatments. We ask them how they feel after viewing the treatment and whether they think the information provided was biased. This manipulation check is crucial to validate the neutrality of the information treatments.
+
+\section{Potential Results and Concluding Remarks}
+The results will help us understand whether people support or oppose automatic information exchange, and what considerations drive these policy views. For example, an interesting finding might be that privacy considerations are strongly pronounced and correlated with opposition to AEI policies. However, if respondents are provided with information about other considerations, these may contribute much more strongly to changes in policy views than data privacy considerations do. 
+
+For example, people may have strong concerns about tax filing costs, but prior to the provision of information, they may not understand the importance of AEI for governments to provide services such as prepopulated tax returns. Alternatively, they might have a strong preference for governments to collect taxes effectively but strongly misperceive the size of the tax gap. If they were provided with information about the true extent of tax evasion, their policy preferences might change significantly. 
+
+Understanding their underlying reasoning and the misperceptions involved in forming policy views is crucial to understanding what policies a government should propose. It helps policy makers decide what elements a policy related to AEI should include and what elements the public needs to be informed about to gain support for the policy. Ultimately, even if the policy debate about AEI is mostly tied to people's data privacy concerns, it could be the case that informed people might rather ground their support for such policies on tax filing considerations.
+
+\newpage
+\printbibliography
+\newpage
+\section*{Appendix: Detailed Survey Questions}
+In the following I show detailed survey questions which will be asked in the order presented.  We indicate with "/" and "-" whether questions have discrete choice options (e.g. \textit{yes / no}) or continuous choice options (e.g. \textit{strongly oppose - strongly support}). The list of questions is a work in progress and should not be interpreted as a final questionnaire, but rather as an example of how our preliminary research ideas could be translated into a questionnaire. 
+\subsection*{Screening Questions and Demographic Background}
+1. What is your gender? \textit{(male/female/other)} \\[0.5em]
+2. What is your age? \textit{(/)} \\[0.5em]
+3. What is your highest level of education? \textit{(Primary education or less / Some High School / High School degree/GED / Some College / 2-year College Degree / 4-year College Degree / Master’s Degree / Doctoral Degree / Professional Degree (JD, MD, MBA))} \\[0.5em]
+4. What was your annual household income in 2024? \textit{(options from which respondents can choose including "I don't know" and "I prefer not to answer")} \\[0.5em]
+5. In which zip code do you live in? \textit{(/)} \\[0.5em]
+6. \textit{Screening Question: A long question that indicates which answer should be given to test whether the respondent is actually reading.} \\[0.5em]
+7. What is your marital status? \textit{(Single/Married/Legally Seperated or Divorced/Widowed)} \\[0.5em]
+8. What is your ethnicity? \textit{(European American-White / African American-Black / Hispanic-Latino / Asian-Asian American / Mixed race)} 
+\subsection*{Knowledge}
+Think about how tax authorities check people's tax returns and how they use data to verify the information. While they have automatic access to some data, some tax-relevant data is not directly accessible to the tax authorities and they have to rely on information provided by taxpayers themselves. This data may only be available if there is a serious suspicion of tax fraud). \\[0.5em] 
+1. Try to evaluate, which of the following data types do the tax authorities in the US have automatic access to?
+\begin{itemize}
+    \item Employment data \textit{(yes / no)}
+    \item Health insurance data \textit{(yes / no)}
+    \item Bank account data \textit{(yes / no)}
+    \item Payment data \textit{(yes / no)}
+\end{itemize} 
+Some people and companies don't pay their taxes honestly. They might hide their income and wealth from the tax authorities, or they might simply cheat when filing their tax declarations. This means that governments don't get as much money as they should from taxes. The tax gap is the difference between the taxes that should have been paid if no one evaded taxes and the taxes that have actually been paid. For the following question, please think about how big this gap could be. \textit{This description is displayed above the following questions.} \\[0.5em]
+2. What would you say is the size of the tax gap as a percentage of total tax revenue? What is the percentage of the taxes that are being evaded? \textit{(0\% - 100\%)} \\[0.5em]
+3. There may be differences in the tax gap across subgroups. What would you say is the size of the tax gap as a percentage of total tax revenue for the following subgroups? 
+\begin{itemize}
+    \item Large businesses \textit{(0\% - 100\%)}
+    \item Small businesses \textit{(0\% - 100\%)}
+    \item High-income households \textit{(0\% - 100\%)}
+    \item Middle-income households \textit{(0\% - 100\%)}
+    \item Low-income households \textit{(0\% - 100\%)}
+\end{itemize}
+\subsection*{Considerations}
+\textbf{Considerations on data privacy}\\[0.5em]
+Some people argue that it is worrying that the government automatically collects data about people and businesses, and that it is important to protect privacy from the state. Others argue that there is nothing wrong with the government collecting data, and they value the opportunities that data harmonisation brings. \\[0.5em]
+1. In general, do you think it is concerning if the government collects data about population and firms? \textit{(not concerning at all - very concerning)} \\[1em]
+Tax authorities may not have automatic access to all tax-relevant data. Now suppose that the government introduces a change in the automatic exchange of information (AEI) with the tax authorities so that the tax authorities now have access to much more tax-relevant data which they can use to check/verify the tax returns of individuals and companies. \textit{This description is displayed above the following questions.} \\[0.5em]
+2. Do you think that people and firms would lose much privacy if such a change is introduced? \textit{(do not loose privacy at all - loose much privacy)} \\[0.5em]
+3. If people and firms loose data privacy due to that reform, would you say this is concerning? \textit{(not concerning at all - very concerning)} \\[0.5em]
+4. Do you think it depends on which data governments are collecting? Evaluate for the following data types, do you think it is concerning if the government collects data about population and firms? 
+\begin{itemize}
+    \item Employment data \textit{(not concerning at all - very concerning)}
+    \item Health insurance data \textit{(not concerning at all - very concerning)}
+    \item Bank account data \textit{(not concerning at all - very concerning)}
+    \item Payment data \textit{(not concerning at all - very concerning)}
+\end{itemize}
+\textbf{Info Treatments}\\[0.5em]
+At this stage of the questionnaire respondents watch illustrational video treatments. 
+\textbf{Expectations on tax evasion and tax revenue} \\[0.5em]
+Tax authorities may not have automatic access to all tax-relevant data. Now suppose that the government introduces a change in the automatic exchange of information (AEI) with the tax authorities so that the tax authorities now have access to much more tax-relevant data which they can use to check/verify the tax returns of individuals and companies. \textit{(This description is screened above the following questions.)}\\[0.5em]
+1. Do you think, overall, this change in automatic exchange of information would have an effect on the level of tax evasion? Do you think people and firms would reduce the level of tax evasion? \textit{(strongly reduce / strongly increase)} \\[0.5em] 
+2. Some people might argue that the implementation of automatic exchange of information might be costly. What is your opinion, would this change help the government to increase tax revenues, and therefore their fiscal budget, or would it cost a lot and end up reducing their fiscal budget? \textit{(costly-reducing fiscal budget / not costly-increasing fiscal budget)} \\[0.5em] 
+3. Would you say the extend of tax evasion we have in our country is worrying? \textit{(not worrying at all / very worrying)} \\[0.5em] 
+4. Do you think it is important that the government is able to effectively collect taxes? \textit{(very important - not important at all)} \\[1em] 
+\textbf{Considerations regarding fairness and inequality} \\[0.5em]
+1. Would you say the current state of income inequality is worrying? \textit{(not worrying at all / very worrying)}\\[0.5em]
+2. Do you think the tax system is an important tool to address income inequality? \textit{(not important at all - very important)} \\[0.5em]
+3. Generally, do you think the tax system is fair? \textit{(not fair at all - very fair)} \\[1em]
+Tax authorities may not have automatic access to all tax-relevant data. Now suppose that the government introduces a change in the automatic exchange of information (AEI) with the tax authorities so that the tax authorities now have access to much more tax-relevant data which they can use to check/verify the tax returns of individuals and companies.\textit{(This description is screened above the following questions.)}\\[0.5em]
+4. Do you think income inequality would be reduced/increased if such a change in automatic exchange of information is introduced? \textit{strongly reduce - strongly increase}\\[0.5em]
+5. Do you think such a change in automatic exchange of information would reduce/increase fairness in the tax system? \textit{strongly reduce - strongly increase}\\[1em]
+\textbf{Considerations regarding tax filing costs} \\[0.5em]
+1. How do you usually file your taxes? \textit{}(several options)\\[0.5em]
+2. Do you think that filing taxes is tedious/not tedious at all? \textit{not tedious at all / very tedious} \\[1em]
+Tax authorities may not have automatic access to all tax-relevant data. Now suppose that the government introduces a change in the automatic exchange of information (AEI) with the tax authorities so that the tax authorities now have access to much more tax-relevant data which they can use to check/verify the tax returns of individuals and companies. \textit{(This description is screened above the following questions.)} \\[0.5em]
+3. Do you think the introduction of AEI could reduce tax control costs on the tax administrators’ side? \textit{(not at all reduce / strongly reduce)} \\[0.5em]
+4. Do you think the introduction of AEI could reduce tax filing costs on the tax filers side? \textit(not at all reduce - strongly reduce)
+\subsection*{Policy Views}
+\textbf{Support for Automatic Exchange of Information} \\[0.5em]
+Tax authorities may not have automatic access to all tax-relevant data. Now suppose that the government plans to introduce a change in the automatic exchange of information (AEI) with the tax authorities so that the tax authorities now have access to much more tax-relevant data which they can use to check/verify the tax returns of individuals and companies. \textit{(This description is screened above the following questions.)} \\[0.5em]
+1. In general, would you support if the government changes the way information is exchanged so that more data is automatically sent to tax authorities? \textit{(not support at all - strongly support)}\\[1em]
+Before, you showed [low/medium/high] support for a general increase of automatic exchange of information of tax relevant data with tax authorities. In the following questions we want to understand how your support is determined and which factors are important to you. \textit{(This description is screened above the following questions.)} \\[0.5em]
+2. How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if all taxpayers, whether companies or individuals, were treated equally? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)} \\[0.5em]
+3.  How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if the policy primarily targets at individual but not at corporate taxpayers? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)} \\[0.5em]
+4. How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if the policy primarily targets at individual but not at corporate taxpayers? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)} \\[0.5em]
+5. How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if the policy primarily targets at corporate but not individual taxpayers? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)} \\[0.5em]
+6. How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if the policy primarily targets at high income but not low income individual taxpayers? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)} \\[0.5em]
+7. How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if the policy primarily targets at big enterprises and not small or mid-size companies? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)}\\[0.5em]
+8. How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if the data is only used for tax enforcement purposes? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)} \\[1em]
+\textbf{Support for Tax Software and Prepopulated Tax Returns} \\[0.5em]
+Many taxpayers use tax software to file their taxes. While other countries offer free tax software provided by the tax authority as a service to taxpayers, taxpayers in the US have to buy software from several commercial providers. \textit{(This description is screened above the following questions.)} \\[0.5em] 
+1. From the taxpayer's point of view, do you think it is better if the government or if private companies provide tax software? \textit{(private companies / I don't mind / government)} \\[0.5em]
+2. How important would you say it is for the government to offer free tax software? \textit{(not important at all - very important)} \\[1em]
+3. Do you know what a prepopulated tax return is? \textit{(Yes/No)}\\[1em]
+Prepopulated tax returns are forms that are automatically filled in by the IRS based on information they already have. These exist in other countries, but not in the United States. Taxpayers can review and verify the prepopulated information and make any necessary adjustments or additions before submitting the form. \textit{(This description is screened above the following questions.)} \\[0.5em]
+4. Would you be willing to pay to receive a prepopulated tax return? \textit{(not willing at all - very willing)} \\[0.5em]
+5. How important would you say it is for the government to introduce prepopulated tax returns? \textit{(not important at all / very important)} \\[0.5em]
+6. A high level of automatic information exchange is a prerequisite for governments to offer prepopulated tax returns. Previously, you indicated [weak/medium/high] support for a general increase in the automatic exchange of tax information with tax authorities. How would your support change if you knew that tax authorities would offer pre-populated tax returns with the data they collect? \textit{(strongly decrase - strongly increase)}\\[1em]
+Before, you showed [low/medium/high] support for a general increase of automatic exchange of information of tax relevant data with tax authorities. In the following questions we want to understand how your support is determined and which factors are important to you. \textit{(This description is screened above the following questions.)} \\[0.5em]
+9. How would your support for a general increase of automatic exchange of information of tax relevant data with tax authorities change if the data is only used for provision of prepopulated tax returns and tax software? \textit{my support for a general increase of automatic exchange of information would...(strongly decrease - strongly increase)}
+\subsection*{Political Leaning and Government Views}
+1. On economic policy matters, where do you see yourself on the liberal/conservative spectrum? \textit{(Very liberal, Liberal, Moderate, Conservative, Very Conservative)} \\[0.5em]
+2. What do you consider to be your political affiliation, as of today? \textit{(Republican/ Democrat/ Independent/ Other/ Non-affiliated)}\\[0.5em]
+3. Did you vote in the last presidential elections? \textit{(Yes/No)}\\[0.5em]
+4. Who did you support in the last presidential elections? \textit{(Trump/Harris/Other)}\\[0.5em]
+5. How much of the time do you think you can trust the federal government to do what is right? \textit{Almost always - Almost never}\\[0.5em]
+6. Where would you rate yourself on a scale of 1 to 5, where 1 means you think the government should do only those things necessary to provide the most basic government functions, and 5 means you think the government should take active steps in every area it can to try and improve the lives of its citizens? You may use any number from 1 to 5. \textit{(1/2/3/4/5)}\\[0.5em]
+7. We want to understand what you think about the capability of the government to provide quality services to its citizens. On a scale of 1 to 5, where 1 means that government services are usually consumer unfriendly, bureaucratic and generally expensive, and 5 means that they are very consumer friendly, not bureaucratic and generally inexpensive, how would you rate yourself? You can use any number between 1 and 5. \textit{(1/2/3/4/5)}
+\subsection*{Final Questions}
+1. Do you think this survey was biased? \textit{(Yes, left-wing biased / Yes, right-wing biased / No)}\\[0.5em]
+2. Please feel free to give us any feedback or impressions regarding this survey.  
+
+
+
+
+\end{document}

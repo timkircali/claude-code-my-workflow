@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+
+% Packages
+\usepackage[a4paper, margin=1in]{geometry} % Adjust margins
+\usepackage{setspace} % For line spacing
+\usepackage{tocloft} % Optional: better spacing for TOC
+\usepackage[backend=biber,style=apa]{biblatex} % Load biblatex with APA style
+\addbibresource{references.bib} % Link to your .bib file
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor={blue!70!black},
+	linkcolor={blue!70!black},
+	urlcolor={blue!70!black}}
+
+
+% Set line spacing
+\onehalfspacing % or use \doublespacing for double spacing
+
+% Title information
+\title{\textbf{\large{Working Title TBD}}}
+\author{\normalsize{Tim Kircali, Stefanie Stantcheva, Matthias Weber}}
+\date{\normalsize{\today}}
+\begin{document}
+\maketitle
+\pagenumbering{arabic}
+%\begin{center}
+%\textbf{Abstract}
+
+%\end{center}
+%This study explores public preferences regarding tax enforcement and tax administration, focusing on attitudes towards the expansion of third-party reporting and the role of the tax authority in providing tax software and prepopulated tax returns. We conduct a survey experiment on a representative sample of the U.S.\ population. We vary the information that participants obtain to make causal inference on the role that information on tax evasion, inequality, and tax filing costs plays in views on comprehensive third-party reporting. Our results show that without additional information, about half of the respondents are in favor of comprehensive third-party reporting. This number increases up to almost three quarters for participants in our full information treatmet. Free tax software and the pre-population of tax returns by the tax authority are supported by a majority of respondents who have not received additional information and by a vast majority of respondents in our information treatments.
+
+
+\section{Introduction}
+Tax revenues are essential for governments to fulfill their responsibilities, such as providing security, infrastructure, education, health, and social protection. However, not all taxes that are due are actually paid---tax evasion poses a serious problem in many countries. Third-party reporting of tax-relevant information and international automatic exchange of information are very effective tools in reducing tax evasion \parencite{kleven2011unwilling, pomeranz2015no, slemrod2017does, boas2024taxing}. Moreover, comprehensive third-party reporting does not only help to enforce tax laws, but it can also improve the service that the tax authority can provide to citizens. In the U.S., taxpayers face high tax filing costs and are urged to purchase commercial tax software to file tax returns. On average, an individual taxpayer needs $13$ hours and about \$$250$ to file their taxes \parencite[][]{IRS2022}---when aggregated over all individual taxpayers in the U.S., this reflects a total cost of approximately \$$100$ billion per year. % Rough calculations: 160 million tax payers * (USD250 + 13 * USD25) = USD 92 billion OR 165 * (250 + 13 * 30) = 105600
+In other countries, governments ease the burden of tax filing by offering free tax software and sometimes even pre-populated tax returns. Despite the benefits of third-party reporting and automatic exchange of information, the U.S.\ and some other countries are still reluctant to adopt these practices more widely.
+
+We study preferences relating to these key issues in tax administration and tax enforcement on a sample that is representative of the population in the U.S. We examine attitudes toward the reporting of tax-relevant data to the tax authority by third parties, toward international exchange of information, and toward services that the tax authority could provide, namely the free provision of tax software and the offering of pre-populated tax returns (the pre-population of tax returns requires sufficient data being reported to the tax authority by third parties). In simple words, we analyze people's preferences regarding questions such as the following. Should different organizations and companies be obliged to report tax-relevant data to the tax authority? What type of data and which taxpayers should be included in such reporting? Should the tax authority reduce tax filing costs by providing free tax software? Should the tax authority offer pre-populated tax returns?
+
+We try to understand the considerations driving the support for these practices and what role (missing) information plays in this support. In particular, we aim to understand the role of the following factors underlying policy support: (i) considerations of tax evasion with a focus on generated tax revenue, (ii) considerations of tax evasion with a focus on fairness and inequality, and (iii) considerations of tax filing costs (including the effort needed for tax filing). To establish causal links from these considerations and the related (missing) information to peoples support for the policies, we randomize participants to five treatments, one control treatment and four information treatments. In the four information treatments, participants see informational video treatments. In three treatments, the videos provide information regarding each of the three analyzed factors (evasion with a focus on revenue, evasion with a focus on fairness and inequality, and filing costs). The fourth treatment is a full information treatment providing information on all three factors. The observed treatment differences allow us to make causal inferences on which of the underlying considerations are primarily driving policy views. 
+
+In addition, previous research suggests that political leanings, government views, and the demographic background might play a role in the formation of the policy preferences. Therefore, we include analyzes on how these shape the underlying considerations and the policy views. 
+
+To preview our results, we find that without additional information (i.e., in our control treatment) about $54\%$ of respondents are in favor of comprehensive third-party reporting. When survey participants receive additional information on the consequences of such third-party reporting, the support increases to $62\%$ (tax evasion treatment), $64\%$ (inequality treatment), $69\%$ (tax filing treatment), or $72\%$ (in the full information treatment). For the international automatic exchange of information, the support is overall lower, but directions of treatments effect are as for third-party reporting: the support reaches from $39\%$ in the control treatment to $58\%$ in the full information treatment. Support for free tax software provided by the government is high in all treatments, with $78\%$ of respondents considering this valuable in the control treatment and up to $86\%$ in the full information treatment. Support for pre-populated tax returns is similarly high in all treatments, reaching from $76\%$ in the control treatment up to $88\%$ in the full information treatment.
+%$39\%$ (control treatment), $46\%$ (tax evasion treatment), $49\%$ (inequality treatment), $54\%$ (tax filing treatment), or $58\%$ (in the full information treatment)
+
+%Providing explanations of the mechanisms behind the causal effects of the information provision, we find that in fairness considerations play an important role in explaining the effects of the evasion and inequality treatments, while expected benefits to the respondents themselves play a key role in the effects of the tax filing treatment. Both of these considerations play a role in explaining the effects of the full information treatment. CAN WE EASILY SAY SOMETHING MORE DETAILED OR MORE INTERESTING ABOUT THE MECHANISMS FROM OUR SURVEY (ASSUMING ANY REASONABLE OUTCOMES AS WE LIKE AT THE MOMENT)?
+The role that fairness and inequality play in the support for third-party reporting can be seen by the fact that respondents are particularly in favor of third-party reporting if only data related to large businesses is included (in all treatments, but particularly so in the treatments with information on tax evasion). The considerations of tax filing costs play a very important role in people's decisions. The support for pre-populated tax returns is considerably higher than the support for third-party reporting in general, which might appear to be an inconsistency. However, when respondents are asked whether they would support comprehensive third-party reporting under the assumptions that the data will be used to provide pre-populated tax returns, the support for third-party reporting increases considerably over the general support in all treatments. The support for third-party reporting is also high if taxpayers could voluntarily choose to have their own data covered by third-party reporting (which would thus help to ease tax filing but not or hardly to reduce tax evasion).
+
+We observe some heterogeneity across the surveyed population. Politically left-leaning respondents are more supportive of all practices than right-leaning respondents. Younger respondents tend to be more supportive than older respondents and women more than men. We also find that income and level of education are positively associated with support of information sharing with the tax authority and of the tax authority's active provision of services to the taxpayers.
+
+
+
+
+
+%\begin{center}
+\textbf{Related Literature.}
+%\end{center} 
+First, this project relates to the broad literature on measuring people's support for policies using experimental surveys. Most closely related, \textcite{stantcheva2021understanding} elicits preferences on tax policy in general. While she concentrates on the question which tax schedule of income and wealth taxes people prefer, we try to understand people's views on which instruments tax administration should use to enforce that tax schedule. 
+
+Second, this project relates to the literature on tax enforcement, tax evasion, and especially to the literature on the role of third-party reporting in reducing tax evasion. While \textcite{kleven2011unwilling}, \textcite{pomeranz2015no}, \textcite{slemrod2017does} and \textcite{boas2024taxing} show that automatic exchange of information and third-party reporting is effective in reducing tax evasion, our research tries to uncover why many countries' parliaments and societies oppose further expanding third party reporting into their tax systems. 
+
+Finally, our project contributes to the literature on tax filing costs and the governments' role in providing services to reduce them. \textcite{benzarti2020taxing} observes how taxpayers choose between itemizing deductions and claiming the standard deduction and finds that taxpayers forgo large tax savings to avoid compliance costs. \textcite{hauck2024optional} show that in Germany non-filing of tax declaration is common. In particular, this is the case at the lower end of the income distribution. Therefore, non-filing reduces the effectiveness of redistribution. And to show that tax compliance costs have been steadily increasing, \textcite{benzarti2024rising} use word counts of the tax codes in several countries dating back to the early 1980s as a proxy for tax filing costs. Using a survey on US taxpayers, they also show that the majority would be willing to pay for simplifying the tax system and adopting prepopulated tax returns. Our survey expands this branch of research in several ways. First, it also looks at people's demand for tax software. Second, it elicits people's views about high levels of third-party reporting, which is in itself a prerequisite for government-provided prepopulated tax returns. Finally, by experimentally providing information, we can understand the role of (mis)information in shaping policy preferences. 
+%\newpage
+\printbibliography
+\end{document}
