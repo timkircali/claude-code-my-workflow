@@ -1,0 +1,663 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{pdflscape}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+
+\title{Tax Enforcement Survey Experiment\\
+\large \textcolor{red}{PILOT RESULTS --- N$\approx$14 --- FOR ILLUSTRATION ONLY}\\
+\large \textcolor{red}{Standard errors unreliable at this sample size. Do not interpret substantively.}}
+\author{Tim Kircali, Stefanie Stantcheva, Matthias Weber}
+\date{März 30, 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Main Results}
+
+\begin{table}[!htbp]\centering
+\caption{Support for Third-Party Reporting and International Exchange of Information}
+\label{tab:supportTPRIEI}
+\begin{threeparttable}
+\begin{tabular}{l|cc}
+\toprule
+& (1) & (2) \\
+& Support TPR & Support IEI \\
+\midrule
+Female -- & -- \\
+  &  \\
+Age -- & -- \\
+  &  \\
+College degree -- & -- \\
+  &  \\
+Middle income -- & -- \\
+  &  \\
+High income -- & -- \\
+  &  \\
+Middle wealth -- & -- \\
+  &  \\
+High wealth -- & -- \\
+  &  \\
+Self-employed -- & -- \\
+  &  \\
+Republican -- & -- \\
+  &  \\
+\\[0.5em]
+Evasion -- & -- \\
+  &  \\
+Evasion \& Inequality -- & -- \\
+  &  \\
+Filing -- & -- \\
+  &  \\
+Filing \& Lobbying -- & -- \\
+  &  \\
+Full info -- & -- \\
+  &  \\
+\\[0.5em]
+Intercept 3.333*** & 4.000*** \\
+ (0.702) & (0.773) \\
+\midrule
+Observations & 14 & 14 \\
+$R^2$ & 0.471 & 0.456 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Conditional Support for Third-Party Reporting}
+\label{tab:conditionalsupporttpr}
+\begin{threeparttable}
+\begin{tabular}{l|c}
+\toprule
+ & (1)\\
+ & Value \\
+\midrule
+\textit{Conditions} \\[0.25em]
+General & 3.333*** \\[0.25em]
+Equal to all & 2.833*** \\[0.25em]
+Primarily businesses & 3.667*** \\[0.25em]
+High-income individuals & 3.000*** \\[0.25em]
+Large enterprises & 3.200*** \\[0.25em]
+Data: tax enforcement only & 4.333*** \\[0.25em]
+Data: also prepopulated returns & 4.000*** \\[0.25em]
+Data: only prepopulated returns & 5.000*** \\[0.25em]
+Voluntary opt-in & 5.000*** \\[0.25em]
+\\[1em]
+\textit{Treatments} \\[0.25em]
+Evasion -- \\
+  \\
+Evasion \& Inequality -- \\
+  \\
+Filing -- \\
+  \\
+Filing \& Lobbying -- \\
+  \\
+Full info -- \\
+  \\
+\\[0.5em]
+Intercept 3.333*** \\
+ (0.702) \\
+\midrule
+Observations & 14 \\
+$R^2$ & 0.471 \\
+Controls & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. Condition means shown. Treatment effects from general model. OLS. SE in parentheses.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Support for free tax software and prepopulated tax returns}
+\label{tab:supporttaxsoftware}
+\begin{threeparttable}
+\begin{tabular}{l|cc}
+\toprule
+& (1) & (2) \\
+& Support TS & Support PPR \\
+\midrule
+Female -- & -- \\
+  &  \\
+Age -- & -- \\
+  &  \\
+College degree -- & -- \\
+  &  \\
+Middle income -- & -- \\
+  &  \\
+High income -- & -- \\
+  &  \\
+Middle wealth -- & -- \\
+  &  \\
+High wealth -- & -- \\
+  &  \\
+Self-employed -- & -- \\
+  &  \\
+Republican -- & -- \\
+  &  \\
+\\[0.5em]
+Evasion -- & -- \\
+  &  \\
+Evasion \& Inequality -- & -- \\
+  &  \\
+Filing -- & -- \\
+  &  \\
+Filing \& Lobbying -- & -- \\
+  &  \\
+Full info -- & -- \\
+  &  \\
+\\[0.5em]
+Intercept 3.667*** & 4.333*** \\
+ (0.471) & (0.527) \\
+\midrule
+Observations & 14 & 14 \\
+$R^2$ & 0.230 & 0.568 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Government Views}
+\label{tab:government_views}
+\begin{threeparttable}
+\begin{tabular}{l|ccccc}
+\toprule
+& (1) & (2) & (3) & (4) & (5) \\
+& Trust in Gov. & Gov. Actions Align & Decrease Resources & More Involved & Quality \\
+\midrule
+Female -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Age -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+College degree -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Middle income -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+High income -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Middle wealth -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+High wealth -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Self-employed -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Republican -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+\\[0.5em]
+Evasion -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Evasion \& Inequality -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Filing -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Filing \& Lobbying -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+Full info -- & -- & -- & -- & -- \\
+  &  &  &  &  \\
+\\[0.5em]
+Intercept 2.000** & 1.667** & 1.000 & 2.333** & 2.667*** \\
+ (0.635) & (0.656) & (0.571) & (0.968) & (0.677) \\
+\midrule
+Observations & 14 & 14 & 14 & 14 & 14 \\
+$R^2$ & 0.473 & 0.620 & 0.551 & 0.188 & 0.198 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Considerations on Economic Problems}
+\label{tab:considerationseconomicproblems}
+\begin{threeparttable}
+\begin{tabular}{l|cccccccc}
+\toprule
+& (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) \\
+& Evasion Serious & Evasion Unequal & Reduce Evasion & Filing Costs High & Reduce Filing Costs & Filing Fair & Data Privacy Concern & Data Privacy Important \\
+\midrule
+Female -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Age -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+College degree -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Middle income -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+High income -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Middle wealth -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+High wealth -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Self-employed -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Republican -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+\\[0.5em]
+Evasion -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Evasion \& Inequality -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Filing -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Filing \& Lobbying -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+Full info -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  \\
+\\[0.5em]
+Intercept 2.667*** & 2.000*** & 3.333*** & 4.667*** & 4.333*** & 1.333* & 4.000*** & 5.000*** \\
+ (0.276) & (0.553) & (0.527) & (0.312) & (0.624) & (0.645) & (0.682) & (0.618) \\
+\midrule
+Observations & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 \\
+$R^2$ & 0.937 & 0.329 & 0.736 & 0.464 & 0.146 & 0.533 & 0.519 & 0.514 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Considerations on Third-Party Reporting and International Exchange of Information}
+\label{tab:policyconsiderationstpr}
+\begin{threeparttable}
+\begin{tabular}{l|cccccccccccccc}
+\toprule
+& (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10) & (11) & (12) & (13) & (14) \\
+\midrule
+Female -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Age -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+College degree -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Middle income -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+High income -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Middle wealth -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+High wealth -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Self-employed -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Republican -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\\[0.5em]
+Evasion -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Evasion \& Inequality -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Filing -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Filing \& Lobbying -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+Full info -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\\[0.5em]
+Intercept 3.333*** & 3.000*** & 2.333*** & 2.000*** & 3.333*** & 3.000*** & 3.000*** & 2.667** & 3.000*** & 2.333** & 3.000*** & 1.333** & 3.000*** & 3.667*** \\
+ (0.433) & (0.717) & (0.471) & (0.493) & (0.493) & (0.486) & (0.741) & (0.816) & (0.858) & (0.924) & (0.618) & (0.520) & (0.702) & (0.924) \\
+\midrule
+Observations & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 14 \\
+$R^2$ & 0.679 & 0.215 & 0.536 & 0.490 & 0.568 & 0.605 & 0.574 & 0.343 & 0.330 & 0.178 & 0.542 & 0.739 & 0.448 & 0.196 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Detailed Data Privacy Concerns}
+\label{tab:detaileddataprivacy}
+\begin{threeparttable}
+\begin{tabular}{l|c}
+\toprule
+ & (1)\\
+ & Value \\
+\midrule
+\textit{Conditions} \\[0.25em]
+Employment data (general) & 2.433** \\[0.25em]
+Employment data (tax-relevant) & 2.767** \\[0.25em]
+Health insurance (general) & 3.167*** \\[0.25em]
+Health insurance (tax-relevant) & 2.833** \\[0.25em]
+Bank account (general) & 2.500*** \\[0.25em]
+Bank account (tax-relevant) & 2.433** \\[0.25em]
+Payment data & 2.700*** \\[0.25em]
+Payment data (tax-relevant) & 2.433** \\[0.25em]
+\\[1em]
+\textit{Treatments} \\[0.25em]
+Evasion -- \\
+  \\
+Evasion \& Inequality -- \\
+  \\
+Filing -- \\
+  \\
+Filing \& Lobbying -- \\
+  \\
+Full info -- \\
+  \\
+\\[0.5em]
+Intercept 2.433** \\
+ (0.811) \\
+\midrule
+Observations & 14 \\
+$R^2$ & 0.189 \\
+Controls & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. Condition means shown. Treatment effects from general model. OLS. SE in parentheses.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Considerations on Tax Software and Prepopulated Tax Returns}
+\label{tab:considerationsts}
+\begin{threeparttable}
+\begin{tabular}{l|cccccc}
+\toprule
+& (1) & (2) & (3) & (4) & (5) & (6) \\
+& Costly TS & Costly PPR & Reduces Costs TS & Reduces Costs PPR & Data Problematic TS & Data Problematic PPR \\
+\midrule
+Female -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Age -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+College degree -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Middle income -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+High income -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Middle wealth -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+High wealth -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Self-employed -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Republican -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+\\[0.5em]
+Evasion -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Evasion \& Inequality -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Filing -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Filing \& Lobbying -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+Full info -- & -- & -- & -- & -- & -- \\
+  &  &  &  &  &  \\
+\\[0.5em]
+Intercept 1.333** & 1.667*** & 3.667*** & 4.000*** & 2.000** & 2.000** \\
+ (0.471) & (0.400) & (0.373) & (0.624) & (0.799) & (0.777) \\
+\midrule
+Observations & 14 & 14 & 14 & 14 & 14 & 14 \\
+$R^2$ & 0.587 & 0.211 & 0.624 & 0.294 & 0.202 & 0.477 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Drivers of Policy Support}
+\label{tab:PolicySupportDrivers}
+\begin{threeparttable}
+\begin{tabular}{l|cccc}
+\toprule
+& (1) & (2) & (3) & (4) \\
+& Support TPR & Support IEI & Support TS & Support PPR \\
+\midrule
+Trust in government 11.817 & -5.321 & -1.332 & 8.934 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Government actions align w. public interest -4.115 & 4.539 & 0.002 & -1.416 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Decrease government resources 0.123 & -0.435 & -0.134 & -0.230 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Government more involved 6.198 & -1.770 & -0.814 & 5.283 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Quality of gov. services -0.912 & 0.120 & 0.003 & -1.463 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Tax evasion is serious -3.094 & -1.910 & 0.706 & -3.491 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Tax evasion is unequal 8.113 & -2.987 & -1.325 & 6.677 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Reduce evasion important -1.969 & 2.826 & 0.556 & -1.113 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Filing costs are high 15.929 & -6.046 & -3.013 & 12.834 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Reduce filing costs important 7.092 & -1.261 & -1.690 & 5.883 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Filing process is fair -2.723 & -0.187 & 0.694 & -3.365 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Concerned about data collection -10.261 & 2.820 & 1.821 & -8.549 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+Data privacy important -3.497 & 1.824 & 0.349 & -2.919 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+TPR reduces evasion -- & -- & -- & -- \\
+  &  &  &  \\
+TPR reduces inequality -- & -- & -- & -- \\
+  &  &  &  \\
+TPR reduces filing costs -- & -- & -- & -- \\
+  &  &  &  \\
+TPR data privacy -- & -- & -- & -- \\
+  &  &  &  \\
+IEI reduces evasion -- & -- & -- & -- \\
+  &  &  &  \\
+IEI reduces inequality -- & -- & -- & -- \\
+  &  &  &  \\
+IEI reduces filing costs -- & -- & -- & -- \\
+  &  &  &  \\
+IEI data privacy -- & -- & -- & -- \\
+  &  &  &  \\
+Republican -- & -- & -- & -- \\
+  &  &  &  \\
+Intercept -69.916 & 26.501 & 18.697 & -51.810 \\
+ ( NaN) & ( NaN) & ( NaN) & ( NaN) \\
+\midrule
+Observations & 14 & 14 & 14 & 14 \\
+$R^2$ & 1.000 & 1.000 & 1.000 & 1.000 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. No treatment variables — channels regression only. OLS. SE in parentheses.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\section{Appendix}
+
+\begin{table}[!htbp]\centering
+\caption{Knowledge of Economic Problems}
+\label{tab:perception}
+\begin{threeparttable}
+\begin{tabular}{l|ccc}
+\toprule
+& (1) & (2) & (3) \\
+& Perception Tax Gap & Perception Filing Time & Perception Filing Cost \\
+\midrule
+Female -- & -- & -- \\
+  &  &  \\
+Age -- & -- & -- \\
+  &  &  \\
+College degree -- & -- & -- \\
+  &  &  \\
+Middle income -- & -- & -- \\
+  &  &  \\
+High income -- & -- & -- \\
+  &  &  \\
+Middle wealth -- & -- & -- \\
+  &  &  \\
+High wealth -- & -- & -- \\
+  &  &  \\
+Self-employed -- & -- & -- \\
+  &  &  \\
+Republican -- & -- & -- \\
+  &  &  \\
+\\[0.5em]
+Evasion -- & -- & -- \\
+  &  &  \\
+Evasion \& Inequality -- & -- & -- \\
+  &  &  \\
+Filing -- & -- & -- \\
+  &  &  \\
+Filing \& Lobbying -- & -- & -- \\
+  &  &  \\
+Full info -- & -- & -- \\
+  &  &  \\
+\\[0.5em]
+Intercept 15.000 & 9.333*** & 233.333*** \\
+ (11.358) & (2.465) & (27.513) \\
+\midrule
+Observations & 14 & 14 & 14 \\
+$R^2$ & 0.214 & 0.525 & 0.859 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Private or Government Tax Software Provider}
+\label{tab:taxsoftwareprovider}
+\begin{threeparttable}
+\begin{tabular}{l|c}
+\toprule
+ & (1)\\
+ & Value \\
+\midrule
+\textit{Conditions} \\[0.25em]
+In general & 3.667*** \\[0.25em]
+Reducing time and monetary costs & 3.667*** \\[0.25em]
+Overall costs to society & 3.667*** \\[0.25em]
+In terms of data privacy & 4.333*** \\[0.25em]
+In terms of fairness & 4.333*** \\[0.25em]
+\\[1em]
+\textit{Treatments} \\[0.25em]
+Evasion -- \\
+  \\
+Evasion \& Inequality -- \\
+  \\
+Filing -- \\
+  \\
+Filing \& Lobbying -- \\
+  \\
+Full info -- \\
+  \\
+\\[0.5em]
+Intercept 3.667*** \\
+ (0.433) \\
+\midrule
+Observations & 14 \\
+$R^2$ & 0.697 \\
+Controls & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. Condition means shown. Treatment effects from general model. OLS. SE in parentheses.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\begin{table}[!htbp]\centering
+\caption{Exposure to Tax Filing and Evasion}
+\label{tab:exposure}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+& (1) & (2) & (3) & (4) \\
+& Exposure: Tax Filing & Exposure: Tax Software & Exposure: Filing Mistakes & Exposure: Evasion \\
+\midrule
+Female -0.696 & 0.771 & -0.307 & 0.171 \\
+ (1.082) & (0.796) & (0.641) & (0.892) \\
+Age 0.117** & 0.007 & 0.018 & 0.003 \\
+ (0.041) & (0.030) & (0.024) & (0.034) \\
+College degree 0.459 & 0.280 & 0.029 & -0.507 \\
+ (1.038) & (0.763) & (0.614) & (0.855) \\
+Middle income -4.646* & -1.194 & -1.467 & 0.413 \\
+ (2.004) & (1.475) & (1.187) & (1.651) \\
+High income -- & -- & -- & -- \\
+  &  &  &  \\
+Middle wealth -- & -- & -- & -- \\
+  &  &  &  \\
+High wealth -3.028* & -0.357 & -0.496 & -0.499 \\
+ (1.247) & (0.918) & (0.739) & (1.028) \\
+Self-employed 2.377 & 0.726 & 0.721 & -0.464 \\
+ (1.225) & (0.901) & (0.725) & (1.009) \\
+Republican 2.307* & 0.459 & 0.922 & 0.125 \\
+ (1.175) & (0.865) & (0.696) & (0.968) \\
+Intercept -3.946 & 1.465 & 2.108 & 2.324 \\
+ (2.270) & (1.670) & (1.344) & (1.870) \\
+\midrule
+Observations & 14 & 14 & 14 & 14 \\
+$R^2$ & 0.692 & 0.386 & 0.339 & 0.181 \\
+Controls & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ & $\mathbf{X}_{i}^{D}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item \textit{Notes}: PILOT RESULTS. No treatment variables. OLS on demographic controls. SE in parentheses.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
+\end{document}
+

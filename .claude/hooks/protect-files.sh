@@ -24,6 +24,19 @@ PROTECTED_PATTERNS=(
   "settings.json"
 )
 
+# Protect entire directories — block any write/edit inside these paths
+PROTECTED_DIRS=(
+  "Project/Data/Data_Raw"
+  "Project/Overleaf/Original_Files"
+)
+
+for DIR in "${PROTECTED_DIRS[@]}"; do
+  if [[ "$FILE" == *"$DIR"* ]]; then
+    echo "Protected directory: $DIR is read-only. Save new/modified files to Project/Overleaf/Update_Files instead." >&2
+    exit 2
+  fi
+done
+
 BASENAME=$(basename "$FILE")
 for PATTERN in "${PROTECTED_PATTERNS[@]}"; do
   if [[ "$BASENAME" == "$PATTERN" ]]; then
