@@ -89,6 +89,7 @@ as_num <- function(x) suppressWarnings(as.numeric(x))
 df_merged <- df_merged %>%
   mutate(
     att1_fail = as_num(`Attention 1`) != 2,
+    att2_fail = as_num(`Attention 2`) != 2,
     att3_fail = as_num(`Attention 3`) != 1,
     att4_fail = as_num(`Attention 4`) != 4861,
     att5_fail = as_num(`Attention 5`) != 1,
@@ -126,6 +127,7 @@ cat("Final analysis sample:", nrow(df), "\n")
 # Use positional column references (1-based after make.unique)
 # Position 162 = col index 162 in 0-based = column 163 in R 1-based
 # R is 1-based, original Python was 0-based, so add 1
+
 c_va_evasion_1   <- q_headers_unique[162]   # col 161 (0-based) = 162 (1-based)
 c_va_evasion_2   <- q_headers_unique[163]
 c_va_evineq_1    <- q_headers_unique[176]
@@ -134,30 +136,42 @@ c_va_filing_1    <- q_headers_unique[190]
 c_va_filing_2    <- q_headers_unique[191]
 c_va_fillobby_1  <- q_headers_unique[204]
 c_va_fillobby_2  <- q_headers_unique[205]
-c_va_fullinfo_1  <- q_headers_unique[252]
-c_va_fullinfo_2  <- q_headers_unique[253]
-c_q134           <- q_headers_unique[230]   # Control arm video check
-c_q135           <- q_headers_unique[231]
+c_va_fullinfo_1_v1  <- q_headers_unique[230]
+c_va_fullinfo_2_v1  <- q_headers_unique[231]
+c_va_fullinfo_1_v2  <- q_headers_unique[252]
+c_va_fullinfo_2_v2  <- q_headers_unique[253]
+c_q134           <- q_headers_unique[210]   # Control arm video check
+
 
 df <- df %>%
   mutate(
-    treat_evasion      = !is.na(as_num(.data[[c_va_evasion_1]])) & as_num(.data[[c_va_evasion_1]]) > 0,
-    treat_evineq       = !is.na(as_num(.data[[c_va_evineq_1]])) & as_num(.data[[c_va_evineq_1]]) > 0,
-    treat_filing       = !is.na(as_num(.data[[c_va_filing_1]])) & as_num(.data[[c_va_filing_1]]) > 0,
-    treat_fillobby     = !is.na(as_num(.data[[c_va_fillobby_1]])) & as_num(.data[[c_va_fillobby_1]]) > 0,
-    treat_fullinfo     = !is.na(as_num(.data[[c_va_fullinfo_1]])) & as_num(.data[[c_va_fullinfo_1]]) > 0,
-    treat_control      = !treat_evasion & !treat_evineq & !treat_filing & !treat_fillobby & !treat_fullinfo,
+    treat_evasion      = !is.na(as_num(.data[[c_va_evasion_1]]))  > 0,
+    treat_evineq       = !is.na(as_num(.data[[c_va_evineq_1]]))  > 0,
+    treat_filing       = !is.na(as_num(.data[[c_va_filing_1]]))  > 0,
+    treat_fillobby     = !is.na(as_num(.data[[c_va_fillobby_1]])) > 0,
+    treat_fullinfo_1   = !is.na(as_num(.data[[c_va_fullinfo_1_v1]])) >0,
+    treat_fullinfo_2   = !is.na(as_num(.data[[c_va_fullinfo_1_v2]])) >0,
+    treat_control      = !treat_evasion & !treat_evineq & !treat_filing & !treat_fillobby & !treat_fullinfo_1 & !treat_fullinfo_2,
     treatment = case_when(
       treat_evasion  ~ "Evasion",
       treat_evineq   ~ "Evasion & Inequality",
       treat_filing   ~ "Filing",
       treat_fillobby ~ "Filing & Lobbying",
-      treat_fullinfo ~ "Full Info",
+      treat_fullinfo_1 ~ "Full Info 1",
+      treat_fullinfo_2 ~ "Full Info 2",
       treat_control  ~ "Control",
       TRUE           ~ NA_character_
     ),
     treatment = factor(treatment, levels = c("Control","Evasion","Evasion & Inequality",
-                                              "Filing","Filing & Lobbying","Full Info"))
+                                              "Filing","Filing & Lobbying","Full Info 1","Full Info 2")),
+    t_control = ifelse(treatment == "Control",1,0),
+    t_evasion = ifelse(treatment == "Evasion",1,0),
+    t_evasion_inequality = ifelse(treatment == "Evasion & Inequality",1,0),
+    t_filing = ifelse(treatment == "Filing",1,0),
+    t_filing_lobbying = ifelse(treatment == "Filing & Lobbying",1,0),
+    t_full_info_1 = ifelse(treatment == "Full Info 1",1,0),
+    t_full_info_2 = ifelse(treatment == "Full Info 2",1,0),
+    t_full_info = ifelse(treatment == "Full Info 1",1,ifelse(treatment == "Full Info 2",1,0))
   )
 
 cat("\nTreatment distribution:\n")
@@ -265,63 +279,103 @@ df <- df %>% mutate(
   Voluntary_Disclosure_PrepopOnly = qn(df, "Q71_3"),
 
   # TS/PPR petition
-  TS_PPR_Petition                 = qn(df, "Q72")
+  TS_PPR_Petition                 = qn(df, "Q72"),
+  
+  #Channel indices
+  TPR_Tax_Revenue_Plus = TPR_Increases_Tax_Revenue + TPR_Reduces_Admin_Costs + TPR_Reduces_Tax_Evasion,
+  TPR_Inequality_Minus = TPR_Increases_Fairness + TPR_Reduces_Inequality, 
+  IEI_Tax_Revenue_Plus = IEI_Increases_Tax_Revenue + IEI_Reduces_Admin_Costs + IEI_Reduces_Tax_Evasion,
+  IEI_Inequality_Minus = IEI_Increases_Fairness + IEI_Reduces_Inequality
 )
 
 # --- Demographic controls (X_i^D) ---
 df <- df %>% mutate(
   # From Qualtrics
-  Age_i           = qn(df, q_headers_unique[37]),   # Q11 (age, first occurrence col 36 0-based)
-  Female_i        = as.integer(qn(df, "Q2") == 1),
-  Gender_Other_i  = as.integer(qn(df, "Q2") == 3),
-  Region_raw      = qn(df, "Q3"),
+  Age           = qn(df, q_headers_unique[37]),   # Q11 (age, first occurrence col 36 0-based)
+  Male          = as.integer(qn(df, "Q2") == 1), #Female is coded as 2
+  Female        = as.integer(qn(df, "Q2") == 2), #Female is coded as 2
+  Gender_Other  = as.integer(qn(df, "Q2") == 3),
+  Region_raw      = qn(df, "Q3"), #Has to be recoded
+  Zipcode_raw     = qn(df, "Q4"), #Has to be recoded
   Marital_raw     = qn(df, "Q5"),
-  Married_i       = as.integer(qn(df, "Q5") == 1),
-  Widowed_i       = as.integer(qn(df, "Q5") == 4),
-  Divorced_i      = as.integer(qn(df, "Q5") %in% c(2,3)),
+  Married       = as.integer(qn(df, "Q5") == 2),
+  Widowed       = as.integer(qn(df, "Q5") == 3),
+  Divorced      = as.integer(qn(df, "Q5") == 4),
   Education_raw   = qn(df, "Q6"),
-  Less_Than_4yr_College_i = as.integer(qn(df, "Q6") %in% 1:3),
-  College_4yr_Plus_i      = as.integer(qn(df, "Q6") %in% 4:6),
-  Partner_i       = as.integer(qn(df, "Q7") == 1),
-  Homeowner_i     = as.integer(qn(df, "Q10") == 1),
+  Less_Than_High_School = as.integer(qn(df, "Q6") %in% 1:2),
+  Less_Than_4yr_College = as.integer(qn(df, "Q6") %in% 3:5),
+  College_4yr_Plus      = as.integer(qn(df, "Q6") %in% 6:9),
+  Partner      = as.integer(qn(df, "Q7") == 1),
+  
+  Homeowner     = as.integer(qn(df, "Q10") %in% c(1,3)),
   Employment_raw  = qn(df, q_headers_unique[88]),   # Q11 (employment, second occurrence)
-  Unemployed_i    = as.integer(qn(df, q_headers_unique[88]) == 5),
-  Not_in_LF_i     = as.integer(qn(df, q_headers_unique[88]) %in% c(6,7)),
-  Self_Employed_i = as.integer(qn(df, q_headers_unique[88]) == 3),
-  Student_i       = as.integer(qn(df, "Q12") == 1),
+  Employed      = as.integer(qn(df, q_headers_unique[88]) %in% c(1,2,4)), 
+  Unemployed    = as.integer(qn(df, q_headers_unique[88]) == 5),
+  Not_in_LF     = as.integer(qn(df, q_headers_unique[88]) %in% c(6,7)),
+  Self_Employed = as.integer(qn(df, q_headers_unique[88]) %in% c(3,4)),
+  Student       = as.integer(qn(df, "Q12") == 1),
   Income_raw      = qn(df, "Q13"),
-  Income_Middle_i = as.integer(qn(df, "Q13") %in% 3:5),
-  Income_High_i   = as.integer(qn(df, "Q13") %in% 6:7),
+  Income_0_20   = as.integer(qn(df, "Q13") %in% 1:3),
+  Income_20_40  = as.integer(qn(df, "Q13") %in% 4:5),
+  Income_40_60  = as.integer(qn(df, "Q13") %in% 6:7),
+  Income_60_100 = as.integer(qn(df, "Q13") %in% 8:11),
+  Income_100_150= as.integer(qn(df, "Q13") %in% 12:13),
+  Income_150_200= as.integer(qn(df, "Q13") %in% 14),
+  Income_Middle = as.integer(qn(df, "Q13") %in% 7:12),
+  Income_High   = as.integer(qn(df, "Q13") %in% 13:14),
   Wealth_raw      = qn(df, "Q15"),
-  Wealth_Middle_i = as.integer(qn(df, "Q15") %in% 3:5),
-  Wealth_High_i   = as.integer(qn(df, "Q15") %in% 6:7),
+  Wealth_0_25   = as.integer(qn(df, "Q15") %in% 1:3),
+  Wealth_25_50  = as.integer(qn(df, "Q15") %in% 4:6),
+  Wealth_50_75  = as.integer(qn(df, "Q15") %in% 7:9),
+  Wealth_75_100 = as.integer(qn(df, "Q15") %in% 10:12),
+  Wealth_Middle = as.integer(qn(df, "Q15") %in% 3:5),
+  Wealth_High   = as.integer(qn(df, "Q15") %in% 6:7),
   Politic_raw     = qn(df, "Q16"),
-  Republican_i    = as.integer(qn(df, "Q16") == 2),
-  Independent_i   = as.integer(qn(df, "Q16") == 3),
-  Other_Affil_i   = as.integer(qn(df, "Q16") %in% c(4,5)),
+  Democrat      = as.integer(qn(df, "Q16") == 1),
+  Republican    = as.integer(qn(df, "Q16") == 2),
+  Independent   = as.integer(qn(df, "Q16") %in% c(3,5)),
+  Other_Affil   = as.integer(qn(df, "Q16") == 4),
 
   # Household size and kids
-  Household_Size_i = qn(df, "Q8"),
-  Household_Kids_i = qn(df, "Q9"),
+  Household_Size = qn(df, "Q8")-4, #-4 to match recoding of qualtrics
+  Household_Kids = qn(df, "Q9")-4, #-4 to match recoding of qualtrics
 
   # Income sources (Q14 is multi-select, comma-separated)
-  Income_Abroad_i          = as.integer(grepl("8",  df$Q14)),
-  Income_Self_Employ_i     = as.integer(grepl("2",  df$Q14)),
-  Income_Property_i        = as.integer(grepl("3",  df$Q14)),
-  Income_Digital_Assets_i  = as.integer(grepl("7",  df$Q14)),
-  Income_Cash_i            = as.integer(grepl("5",  df$Q14)),
-
+  #Income_TPR_Covered       = as.integer(grepl("1""4""6""9",  df$Q14)),
+  #Income_Abroad_i          = as.integer(grepl("5","10",  df$Q14)),
+  #Income_Self_Employ_i     = as.integer(grepl("2",  df$Q14)),
+  #Income_Property_i        = as.integer(grepl("3",  df$Q14)),
+  #Income_Privat_Business_i = as.integer(grepl("7",  df$Q14)),
+  #Income_Digital_Assets_i  = as.integer(grepl("6",  df$Q14)),
+  #Income_Cash_i            = as.integer(grepl("11",  df$Q14)),
+  Income_TPR_Covered = as.integer(sapply(strsplit(Q14, ","), function(x) any(trimws(x) %in% c("1", "4", "6", "9")))),
+  Income_Abroad = as.integer(sapply(strsplit(Q14, ","), function(x) any(trimws(x) %in% c("5", "10")))),
+  Income_Self_Employ = as.integer(sapply(strsplit(Q14, ","), function(x) any(trimws(x) %in% c("2")))),
+  Income_Property = as.integer(sapply(strsplit(Q14, ","), function(x) any(trimws(x) %in% c("3")))),
+  Income_Privat_Business = as.integer(sapply(strsplit(Q14, ","), function(x) any(trimws(x) %in% c("7")))),
+  Income_Digital_Assets = as.integer(sapply(strsplit(Q14, ","), function(x) any(trimws(x) %in% c("6")))),
+  Income_Cash = as.integer(sapply(strsplit(Q14, ","), function(x) any(trimws(x) %in% c("11")))),
+  
+  #Qualtrics gender question has to be implemented first
+  #White_i tbd 
+  #Black_i tbd
+  #Hispanic_i tbd
+  #Asian_i tbd
+  #Other_Race_i = as.integer(!ethnicity %in% c("White","Black","Hispanic","Asian")),
+  
   # From Prolific
-  Black_i    = as.integer(ethnicity == "Black"),
-  Hispanic_i = as.integer(ethnicity == "Hispanic"),
-  Asian_i    = as.integer(ethnicity == "Asian"),
-  Other_Race_i = as.integer(!ethnicity %in% c("White","Black","Hispanic","Asian")),
+  White    = as.integer(ethnicity == "White"),
+  Black    = as.integer(ethnicity == "Black"),
+  Asian    = as.integer(ethnicity == "Asian"),
+  Other_Race = as.integer(!ethnicity %in% c("White","Black","Asian")),
 
   # Exposure controls (X_i^R)
-  Exposure_Tax_Filing_i   = qn(df, "Q20"),
-  Exposure_Tax_Software_i = qn(df, "Q21"),
-  Exposure_Filing_Mistakes_i = qn(df, "Q22"),
-  Exposure_Tax_Evasion_i  = qn(df, "Q23")
+  Exposure_Tax_Filing   = as.integer(qn(df, "Q20") %in% c(1, 2, 4)),
+  Exposure_Tax_Software = as.integer(qn(df, "Q21") %in% c(2, 3)), 
+  Exposure_Filing_Mistakes = ifelse(qn(df, "Q22") == 6, NA, qn(df, "Q22")),
+  Exposure_Filing_Mistakes_Prefernottosay = ifelse(qn(df, "Q22") == 6, 1, 0),
+  Exposure_Tax_Evasion = ifelse(qn(df, "Q23") == 6, NA, qn(df, "Q23")),
+  Exposure_Tax_Evasion_Prefernottosay = ifelse(qn(df, "Q23") == 6, 1, 0)
 )
 
 # =============================================================================
@@ -331,7 +385,7 @@ df <- df %>% mutate(
 # PAP variables only
 pap_vars <- c(
   "ResponseId", "prolific_id", "treatment",
-  "treat_evasion","treat_evineq","treat_filing","treat_fillobby","treat_fullinfo","treat_control",
+  "t_control","t_evasion","t_evasion_inequality","t_filing","t_filing_lobbying","t_full_info_1","t_full_info_2","t_full_info",
   # Knowledge
   "Perception_Tax_Gap","Perception_Filing_Cost_Time","Perception_Filing_Cost_Cost",
   # Government views
@@ -368,18 +422,20 @@ pap_vars <- c(
   # Voluntary disclosure
   "Voluntary_Disclosure_TaxOnly","Voluntary_Disclosure_TaxPrepop","Voluntary_Disclosure_PrepopOnly",
   # Demographics
-  "Age_i","Female_i","Gender_Other_i","Married_i","Widowed_i","Divorced_i",
-  "Less_Than_4yr_College_i","College_4yr_Plus_i","Partner_i","Homeowner_i",
-  "Unemployed_i","Not_in_LF_i","Self_Employed_i","Student_i",
-  "Income_Middle_i","Income_High_i","Wealth_Middle_i","Wealth_High_i",
-  "Republican_i","Independent_i","Other_Affil_i",
-  "Household_Size_i","Household_Kids_i",
-  "Black_i","Hispanic_i","Asian_i","Other_Race_i",
-  "Income_Abroad_i","Income_Self_Employ_i","Income_Property_i",
-  "Income_Digital_Assets_i","Income_Cash_i",
+  "Age","Male","Female","Gender_Other","Region_raw","Zipcode_raw","Married","Widowed","Divorced",
+  "Less_Than_High_School","Less_Than_4yr_College","College_4yr_Plus","Partner","Homeowner",
+  "Employed","Unemployed","Not_in_LF","Self_Employed","Student",
+  "Income_0_20","Income_20_40","Income_40_60","Income_60_100","Income_100_150","Income_150_200","Income_Middle","Income_High","Wealth_Middle","Wealth_High",
+  "Democrat","Republican","Independent","Other_Affil",
+  "Household_Size","Household_Kids",
+  "White","Black","Asian","Other_Race",
+  #"White","Black","Asian","Hispanic","Other_Race", #As soon as i have the qualtrics demographics
+  "Income_Abroad","Income_Self_Employ","Income_Property",
+  "Income_Digital_Assets","Income_Cash",
   # Exposure
-  "Exposure_Tax_Filing_i","Exposure_Tax_Software_i",
-  "Exposure_Filing_Mistakes_i","Exposure_Tax_Evasion_i"
+  "Exposure_Tax_Filing","Exposure_Tax_Software",
+  "Exposure_Filing_Mistakes","Exposure_Filing_Mistakes_Prefernottosay",
+  "Exposure_Tax_Evasion","Exposure_Tax_Evasion_Prefernottosay"
 )
 
 data_clean <- df %>% select(any_of(pap_vars))
@@ -387,7 +443,7 @@ saveRDS(data_clean, file.path(path_processed, "data_clean.rds"))
 cat("\nSaved data_clean.rds:", nrow(data_clean), "rows,", ncol(data_clean), "columns\n")
 
 # Time tracker dataset
-time_cols <- names(df)[grepl("Click|Submit|tracker|Tracker|Time ", names(df), ignore.case = FALSE)]
+time_cols <- names(df)[grepl("Submit", names(df), ignore.case = FALSE)]
 data_time <- df %>% select(ResponseId, prolific_id, treatment, all_of(time_cols))
 saveRDS(data_time, file.path(path_processed, "data_time.rds"))
 cat("Saved data_time.rds:", nrow(data_time), "rows,", ncol(data_time), "columns\n")
@@ -397,7 +453,7 @@ cat("Saved data_time.rds:", nrow(data_time), "rows,", ncol(data_time), "columns\
 # =============================================================================
 
 # Treatment dummies (control = reference)
-treat_vars <- c("treat_evasion","treat_evineq","treat_filing","treat_fillobby","treat_fullinfo")
+treat_vars <- c("t_evasion","t_evasion_inequality","t_filing","t_filing_lobbying","t_full_info")
 
 # Run OLS — Spec 1 (no controls)
 run_ols <- function(outcome, data, controls = NULL) {
@@ -483,22 +539,42 @@ m_tsppr <- lapply(tsppr_outcomes, run_ols, data = d)
 
 # Table 9: Drivers of support (channels) — no treatment, just controls + considerations
 # PAP: no treatment variables in this regression; use considerations as RHS
-channel_rhs <- c("Government_Trust","Government_Public_Interest","Government_Reduce_Resources",
+channel_rhs_TPR <- c("Government_Trust","Government_Public_Interest","Government_Reduce_Resources",
                  "Government_More_Involved","Government_Quality",
                  "Tax_Evasion_Serious_Problem","Tax_Evasion_Unequal","Tax_Evasion_Importance_Reduce",
                  "Filing_Cost_High","Filing_Cost_Importance_Reduce","Filing_Fair",
                  "Data_Privacy_Concerned","Data_Privacy_Importance_Protect",
-                 "TPR_Reduces_Tax_Evasion","TPR_Reduces_Inequality","TPR_Reduces_Filing_Costs","TPR_Data_Privacy_Concerned",
-                 "IEI_Reduces_Tax_Evasion","IEI_Reduces_Inequality","IEI_Reduces_Filing_Costs","IEI_Data_Privacy_Concerned",
-                 "Republican_i")
-run_channels <- function(outcome, data) {
+                 "TPR_Tax_Revenue_Plus","TPR_Inequality_Minus","TPR_Reduces_Filing_Costs","TPR_Data_Privacy_Concerned")
+channel_rhs_IEI <- c("Government_Trust","Government_Public_Interest","Government_Reduce_Resources",
+                     "Government_More_Involved","Government_Quality",
+                     "Tax_Evasion_Serious_Problem","Tax_Evasion_Unequal","Tax_Evasion_Importance_Reduce",
+                     "Filing_Cost_High","Filing_Cost_Importance_Reduce","Filing_Fair",
+                     "Data_Privacy_Concerned","Data_Privacy_Importance_Protect",
+                     "IEI_Tax_Revenue_Plus","IEI_Inequality_Minus","IEI_Reduces_Filing_Costs","IEI_Data_Privacy_Concerned")
+channel_rhs_TS <- c("Government_Trust","Government_Public_Interest","Government_Reduce_Resources",
+                     "Government_More_Involved","Government_Quality",
+                     "Tax_Evasion_Serious_Problem","Tax_Evasion_Unequal","Tax_Evasion_Importance_Reduce",
+                     "Filing_Cost_High","Filing_Cost_Importance_Reduce","Filing_Fair",
+                     "Data_Privacy_Concerned","Data_Privacy_Importance_Protect",
+                    "TS_Costly","TS_Reduces_Filing_Costs","TS_Share_Data_Problematic")
+channel_rhs_PPR <- c("Government_Trust","Government_Public_Interest","Government_Reduce_Resources",
+                    "Government_More_Involved","Government_Quality",
+                    "Tax_Evasion_Serious_Problem","Tax_Evasion_Unequal","Tax_Evasion_Importance_Reduce",
+                    "Filing_Cost_High","Filing_Cost_Importance_Reduce","Filing_Fair",
+                    "Data_Privacy_Concerned","Data_Privacy_Importance_Protect",
+                    "PPR_Costly","PPR_Reduces_Filing_Costs","PPR_Share_Data_Problematic")
+
+run_channels <- function(outcome, data,channel_rhs) {
   d2 <- data %>% filter(!is.na(.data[[outcome]]))
   if (nrow(d2) < 3) return(NULL)
   fml <- as.formula(paste(outcome, "~", paste(channel_rhs, collapse = " + ")))
   tryCatch(lm(fml, data = d2), error = function(e) NULL)
 }
-m_chan <- lapply(c("TPR_Support_General","IEI_Support","TS_Support","PPR_Support"),
-                 run_channels, data = d)
+m_chan_TPR <- mapply(run_channels, 
+                     outcome = c("TPR_Support_General", "IEI_Support", "TS_Support", "PPR_Support"),
+                     channel_rhs = list(channel_rhs_TPR, channel_rhs_IEI, channel_rhs_TS, channel_rhs_PPR),
+                     MoreArgs = list(data = d),
+                     SIMPLIFY = FALSE)
 
 # Table 10 (appendix): Knowledge
 m_know <- lapply(c("Perception_Tax_Gap","Perception_Filing_Cost_Time","Perception_Filing_Cost_Cost"),
@@ -510,11 +586,11 @@ tsprov_conditions <- c("TS_Tax_Authority_General","TS_Reduces_Filing_Costs",
 m_tsprov_list <- lapply(tsprov_conditions, run_ols, data = d)
 
 # Table 12: Exposure (no treatment vars — just demographic controls)
-exp_outcomes <- c("Exposure_Tax_Filing_i","Exposure_Tax_Software_i",
-                  "Exposure_Filing_Mistakes_i","Exposure_Tax_Evasion_i")
+exp_outcomes <- c("Exposure_Tax_Filing","Exposure_Tax_Software",
+                  "Exposure_Filing_Mistakes","Exposure_Tax_Evasion")
 run_exposure <- function(outcome, data) {
-  dem_controls <- c("Female_i","Age_i","College_4yr_Plus_i","Income_Middle_i","Income_High_i",
-                    "Wealth_Middle_i","Wealth_High_i","Self_Employed_i","Republican_i")
+  dem_controls <- c("Female","Age","College_4yr_Plus","Income_Middle","Income_High",
+                    "Wealth_Middle","Wealth_High","Self_Employed","Republican")
   d2 <- data %>% filter(!is.na(.data[[outcome]]))
   if (nrow(d2) < 3) return(NULL)
   fml <- as.formula(paste(outcome, "~", paste(dem_controls, collapse = " + ")))
@@ -531,8 +607,8 @@ treat_r_vars <- treat_vars  # same order
 
 dem_labels <- c("Female","Age","College degree","Middle income","High income",
                 "Middle wealth","High wealth","Self-employed","Republican")
-dem_r_vars <- c("Female_i","Age_i","College_4yr_Plus_i","Income_Middle_i","Income_High_i",
-                "Wealth_Middle_i","Wealth_High_i","Self_Employed_i","Republican_i")
+dem_r_vars <- c("Female","Age","College_4yr_Plus","Income_Middle","Income_High",
+                "Wealth_Middle","Wealth_High","Self_Employed","Republican")
 
 # Helper: build a row for a coefficient
 make_row <- function(label, models, var) {
@@ -600,7 +676,7 @@ build_table2 <- function() {
     "--it applied primarily to businesses.",
     "--it focuses on high-income individuals.",
     "--it focuses on large enterprises.",
-    "--the data could only be used for tax enforcement.",
+    "--the data could excl. be used for tax administration.",
     "--the data would also be used for prepopulated returns.",
     "--the data could only be used for prepopulated returns.",
     "--taxpayers could voluntarily opt in."
