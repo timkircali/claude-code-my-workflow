@@ -34,3 +34,8 @@ merge Qualtrics + Prolific, clean sample, construct all PAP variables, run all 1
 - Table 2 (conditional TPR support) uses condition means rather than full panel regression — revisit for final analysis
 - Pipeline ready to rerun on full dataset — just update the file path for the new data export
 - Should commit current state to git
+
+
+---
+**Context compaction (auto) at 14:56**
+Check git log and quality_reports/plans/ for current state.
