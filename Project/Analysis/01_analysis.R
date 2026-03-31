@@ -613,8 +613,8 @@ dem_r_vars <- c("Female","Age","College_4yr_Plus","Income_Middle","Income_High",
 # Helper: build a row for a coefficient
 make_row <- function(label, models, var) {
   cells <- lapply(models, function(m) fmt_coef(coef_se(m, var)[1], coef_se(m, var)[2], coef_se(m, var)[3]))
-  coef_row <- paste(label, paste(sapply(cells, `[[`, "coef"), collapse = " & "), "\\\\")
-  se_row   <- paste("",    paste(sapply(cells, `[[`, "se"),   collapse = " & "), "\\\\")
+  coef_row <- paste0(label, " & ", paste(sapply(cells, `[[`, "coef"), collapse = " & "), " \\\\")
+  se_row   <- paste0(" & ",        paste(sapply(cells, `[[`, "se"),   collapse = " & "), " \\\\")
   paste(coef_row, se_row, sep = "\n")
 }
 
@@ -778,30 +778,46 @@ build_generic_table <- function(caption, label, col_headers, models, row_labels 
   )
 }
 
-# Build condition-mean panel table (for Tables 2, 7, 11)
-build_panel_table <- function(caption, label, cond_labels, models, treat_model = NULL, notes = NULL) {
-  ncols <- 1
-  cond_rows <- paste(mapply(function(lbl, m) {
-    cs <- coef_se(m, "(Intercept)")
-    paste0(lbl, " & ", fmt_coef(cs[1], cs[2], cs[3])$coef, " \\\\[0.25em]")
-  }, cond_labels, models), collapse = "\n")
-
-  tm <- if (is.null(treat_model)) models[[1]] else treat_model
-  note_str <- if (is.null(notes)) "PILOT RESULTS. Condition means shown. Treatment effects from general model. OLS. SE in parentheses." else notes
-
+# Build a stacked panel regression table (Tables 2, 7, 11)
+# panel_model : single lm() on stacked long data with condition dummies cond_2...cond_k
+# cond_labels : row labels for condition dummy rows
+# cond_vars   : coef names in model ("cond_2", ...; use "(Intercept)" to show intercept as a condition row)
+# show_intercept : TRUE = separate Intercept row after treatments (Tables 2, 7)
+#                  FALSE = intercept already included via cond_labels/cond_vars (Table 11)
+build_panel_regression_table <- function(
+  caption, label, col_label = "Support",
+  panel_model,
+  cond_section_header = NULL,
+  cond_labels,
+  cond_vars,
+  show_intercept = TRUE,
+  notes = NULL
+) {
+  mod <- list(panel_model)
+  header_str <- if (!is.null(cond_section_header))
+    paste0(cond_section_header, " \\\\[0.25em]\n") else ""
+  cond_rows <- paste(mapply(function(lbl, var) {
+    paste0(make_row(lbl, mod, var), "\\\\[0.25em]")
+  }, cond_labels, cond_vars), collapse = "\n")
+  int_block <- if (show_intercept)
+    paste0(make_row("Intercept", mod, "(Intercept)"), "\n") else ""
+  note_str <- if (is.null(notes))
+    "PILOT RESULTS. Stacked panel OLS; condition dummies relative to c=1 (reference). SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01."
+  else notes
   paste0(
     "\\begin{table}[!htbp]\\centering\n",
     sprintf("\\caption{%s}\n\\label{%s}\n", caption, label),
     "\\begin{threeparttable}\n",
     "\\begin{tabular}{l|c}\n\\toprule\n",
-    " & (1)\\\\\n & Value \\\\\n\\midrule\n",
+    sprintf(" & (1)\\\\\n & %s \\\\\n\\midrule\n", col_label),
     "\\textit{Conditions} \\\\[0.25em]\n",
+    header_str,
     cond_rows, "\n\\\\[1em]\n",
     "\\textit{Treatments} \\\\[0.25em]\n",
-    make_treat_rows(list(tm)), "\n\\\\[0.5em]\n",
-    make_row("Intercept", list(tm), "(Intercept)"), "\n",
+    make_treat_rows(mod), "\n\\\\[0.5em]\n",
+    int_block,
     "\\midrule\n",
-    make_stats(list(tm)), "\n",
+    make_stats(mod), "\n",
     "Controls & $\\mathbf{X}_{i}^{D}$ \\\\\n",
     "\\bottomrule\n\\end{tabular}\n",
     "\\begin{tablenotes}[flushleft]\n\\footnotesize\n",
@@ -809,6 +825,44 @@ build_panel_table <- function(caption, label, cond_labels, models, treat_model =
     "\\end{tablenotes}\n\\end{threeparttable}\n\\end{table}\n"
   )
 }
+
+# --- Panel regression helper ---
+run_panel_ols <- function(outcome_vars, data) {
+  long <- do.call(rbind, lapply(seq_along(outcome_vars), function(i) {
+    d2 <- data[, c(treat_vars, outcome_vars[i]), drop = FALSE]
+    d2$outcome_value <- as.numeric(d2[[outcome_vars[i]]])
+    d2[[outcome_vars[i]]] <- NULL  # drop named column so rbind sees identical columns
+    d2$condition <- i
+    d2
+  }))
+  for (i in 2:length(outcome_vars)) {
+    long[[paste0("cond_", i)]] <- as.integer(long$condition == i)
+  }
+  d2 <- long[!is.na(long$outcome_value), ]
+  if (nrow(d2) < 3) return(NULL)
+  rhs <- c(treat_vars, paste0("cond_", 2:length(outcome_vars)))
+  fml <- as.formula(paste("outcome_value ~", paste(rhs, collapse = " + ")))
+  tryCatch(lm(fml, data = d2), error = function(e) NULL)
+}
+
+# Table 2: 9 TPR conditions; c1 = general support (reference → intercept)
+tpr_panel_vars <- c("TPR_Support_General","TPR_Support_Equal","TPR_Support_Businesses",
+                    "TPR_Support_HighIncome","TPR_Support_LargeEnterprises","TPR_Support_TaxOnly",
+                    "TPR_Support_PrepopData","TPR_Support_PrepopOnly","TPR_Support_VoluntaryOptIn")
+m_tpr_panel <- run_panel_ols(tpr_panel_vars, d)
+
+# Table 7: c1 = general data privacy concern; c2–c9 = specific data-type conditions
+priv_panel_vars <- c("TPR_Data_Privacy_Concerned",
+                     "TPR_Privacy_Employment_General","TPR_Privacy_Employment_Limited",
+                     "TPR_Privacy_Health_General","TPR_Privacy_Health_Limited",
+                     "TPR_Privacy_Bank_General","TPR_Privacy_Bank_Limited",
+                     "TPR_Privacy_Payment","TPR_Privacy_Payment_Limited")
+m_priv_panel <- run_panel_ols(priv_panel_vars, d)
+
+# Table 11: 5 TS provider conditions; c1 = In general (reference, shown as intercept row)
+tsprov_panel_vars <- c("TS_Tax_Authority_General","TS_Reduces_Filing_Costs",
+                       "TS_Tax_Auth_Overall","TS_Tax_Auth_Privacy","TS_Tax_Auth_Fairness")
+m_tsprov_panel <- run_panel_ols(tsprov_panel_vars, d)
 
 # =============================================================================
 # Build all tables
@@ -821,14 +875,24 @@ t1 <- build_generic_table(
   list(m_tpr, m_iei)
 )
 
-t2 <- build_panel_table(
+t2 <- build_panel_regression_table(
   "Conditional Support for Third-Party Reporting",
   "tab:conditionalsupporttpr",
-  c("General","Equal to all","Primarily businesses","High-income individuals",
-    "Large enterprises","Data: tax enforcement only","Data: also prepopulated returns",
-    "Data: only prepopulated returns","Voluntary opt-in"),
-  m_tpr_cond_list,
-  treat_model = m_tpr_cond_list[[1]]
+  col_label = "Support",
+  panel_model = m_tpr_panel,
+  cond_section_header = "Support for comprehensive third-party reporting if",
+  cond_labels = c(
+    "--it applied equally to all taxpayers.",
+    "--it applied primarily to businesses.",
+    "--it focuses on high-income individuals.",
+    "--it focuses on large enterprises.",
+    "--the data collected could only be used for purposes related to tax enforcement and tax administration.",
+    "--the data collected would also be used to offer prepopulated tax returns.",
+    "--the data collected could only be used to offer prepopulated tax returns.",
+    "--taxpayers could voluntarily choose to have their own data covered."
+  ),
+  cond_vars = paste0("cond_", 2:9),
+  show_intercept = TRUE
 )
 
 t3 <- build_generic_table(
@@ -860,14 +924,24 @@ t6 <- build_generic_table(
   m_pol
 )
 
-t7 <- build_panel_table(
+t7 <- build_panel_regression_table(
   "Detailed Data Privacy Concerns",
   "tab:detaileddataprivacy",
-  c("Employment data (general)","Employment data (tax-relevant)",
-    "Health insurance (general)","Health insurance (tax-relevant)",
-    "Bank account (general)","Bank account (tax-relevant)",
-    "Payment data","Payment data (tax-relevant)"),
-  m_priv_list
+  col_label = "Concerned about data privacy",
+  panel_model = m_priv_panel,
+  cond_section_header = "if third-party reporting includes..",
+  cond_labels = c(
+    "--employment data in general",
+    "--employment data limited to tax relevant information",
+    "--general health insurance data",
+    "--health insurance data limited to tax-relevant financial information",
+    "--general bank account data",
+    "--bank account data limited to tax-relevant information",
+    "--payment data",
+    "--payment data limited to tax-relevant information"
+  ),
+  cond_vars = paste0("cond_", 2:9),
+  show_intercept = TRUE
 )
 
 t8 <- build_generic_table(
@@ -880,20 +954,56 @@ t8 <- build_generic_table(
 
 # Table 9: Channels (no treatment vars)
 build_channels_table <- function() {
-  chan_labels <- c(
-    "Trust in government","Government actions align w. public interest",
-    "Decrease government resources","Government more involved","Quality of gov. services",
-    "Tax evasion is serious","Tax evasion is unequal","Reduce evasion important",
-    "Filing costs are high","Reduce filing costs important","Filing process is fair",
-    "Concerned about data collection","Data privacy important",
-    "TPR reduces evasion","TPR reduces inequality","TPR reduces filing costs","TPR data privacy",
-    "IEI reduces evasion","IEI reduces inequality","IEI reduces filing costs","IEI data privacy",
-    "Republican"
+  mods <- m_chan_TPR  # list of 4 models: TPR, IEI, TS, PPR
+
+  # Common channel variables — appear in all 4 models
+  common_labels <- c(
+    "Trust in government", "Gov. aligns w. public interest",
+    "Gov. decrease resources", "Gov. more involved", "Quality of gov. services",
+    "Evasion is serious", "Evasion is unequal", "Reduce evasion important",
+    "Filing costs are high", "Reduce filing costs important", "Filing process is fair",
+    "Data collection concern", "Data privacy important"
   )
-  chan_vars <- channel_rhs
-  ncols <- length(m_chan)
-  rows_out <- paste(mapply(make_row, chan_labels, MoreArgs = list(models = m_chan), var = chan_vars), collapse = "\n")
-  rows_out <- paste0(rows_out, "\n", make_row("Intercept", m_chan, "(Intercept)"))
+  common_vars <- c(
+    "Government_Trust","Government_Public_Interest","Government_Reduce_Resources",
+    "Government_More_Involved","Government_Quality",
+    "Tax_Evasion_Serious_Problem","Tax_Evasion_Unequal","Tax_Evasion_Importance_Reduce",
+    "Filing_Cost_High","Filing_Cost_Importance_Reduce","Filing_Fair",
+    "Data_Privacy_Concerned","Data_Privacy_Importance_Protect"
+  )
+
+  # Policy-specific channels: each row has a different var per column
+  # (NA means that variable is not in that model → shows "--")
+  pol_labels <- c("Revenue index", "Inequality index", "Reduces filing costs", "Data privacy concern")
+  pol_vars <- list(
+    c("TPR_Tax_Revenue_Plus",    "IEI_Tax_Revenue_Plus",    "TS_Costly",                 "PPR_Costly"),
+    c("TPR_Inequality_Minus",    "IEI_Inequality_Minus",    "TS_Reduces_Filing_Costs",   "PPR_Reduces_Filing_Costs"),
+    c("TPR_Reduces_Filing_Costs","IEI_Reduces_Filing_Costs","TS_Share_Data_Problematic", "PPR_Share_Data_Problematic"),
+    c("TPR_Data_Privacy_Concerned","IEI_Data_Privacy_Concerned", NA, NA)
+  )
+
+  make_pol_row <- function(label, vars_per_col) {
+    cells <- vector("list", length(mods))
+    for (i in seq_along(mods)) {
+      v <- vars_per_col[i]
+      if (is.na(v)) {
+        cells[[i]] <- list(coef = "--", se = "")
+      } else {
+        cs <- coef_se(mods[[i]], v)
+        cells[[i]] <- fmt_coef(cs[1], cs[2], cs[3])
+      }
+    }
+    coef_row <- paste0(label, " & ", paste(sapply(cells, `[[`, "coef"), collapse = " & "), " \\\\")
+    se_row   <- paste0(" & ",        paste(sapply(cells, `[[`, "se"),   collapse = " & "), " \\\\")
+    paste(coef_row, se_row, sep = "\n")
+  }
+
+  common_rows <- paste(
+    mapply(make_row, common_labels, MoreArgs = list(models = mods), var = common_vars),
+    collapse = "\n"
+  )
+  pol_rows <- paste(mapply(make_pol_row, pol_labels, pol_vars), collapse = "\n")
+  int_row  <- make_row("Intercept", mods, "(Intercept)")
 
   paste0(
     "\\begin{table}[!htbp]\\centering\n",
@@ -903,13 +1013,15 @@ build_channels_table <- function() {
     "& (1) & (2) & (3) & (4) \\\\\n",
     "& Support TPR & Support IEI & Support TS & Support PPR \\\\\n",
     "\\midrule\n",
-    rows_out, "\n",
+    common_rows, "\n\\\\[0.5em]\n",
+    pol_rows, "\n\\\\[0.5em]\n",
+    int_row, "\n",
     "\\midrule\n",
-    make_stats(m_chan), "\n",
+    make_stats(mods), "\n",
     "Controls & $\\mathbf{X}_{i}^{D}$ & $\\mathbf{X}_{i}^{D}$ & $\\mathbf{X}_{i}^{D}$ & $\\mathbf{X}_{i}^{D}$ \\\\\n",
     "\\bottomrule\n\\end{tabular}\n",
     "\\begin{tablenotes}[flushleft]\n\\footnotesize\n",
-    "\\item \\textit{Notes}: PILOT RESULTS. No treatment variables — channels regression only. OLS. SE in parentheses.\n",
+    "\\item \\textit{Notes}: PILOT RESULTS. No treatment variables --- channels regression only. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.\n",
     "\\end{tablenotes}\n\\end{threeparttable}\n\\end{table}\n"
   )
 }
@@ -922,20 +1034,29 @@ t10 <- build_generic_table(
   m_know
 )
 
-t11 <- build_panel_table(
+t11 <- build_panel_regression_table(
   "Private or Government Tax Software Provider",
   "tab:taxsoftwareprovider",
-  c("In general","Reducing time and monetary costs","Overall costs to society",
-    "In terms of data privacy","In terms of fairness"),
-  m_tsprov_list
+  col_label = "Tax Authority Should Provide Tax Software",
+  panel_model = m_tsprov_panel,
+  cond_section_header = NULL,
+  cond_labels = c(
+    "--In general",
+    "--In terms of reducing time and monetary costs for taxpayers",
+    "--In terms of overall costs to the society",
+    "--In terms of data privacy",
+    "--In terms of fairness in how tax filing is organized"
+  ),
+  cond_vars = c("(Intercept)", paste0("cond_", 2:5)),
+  show_intercept = FALSE
 )
 
 # Table 12: Exposure (no treatments)
 build_exposure_table <- function() {
   dem_labels2 <- c("Female","Age","College degree","Middle income","High income",
                    "Middle wealth","High wealth","Self-employed","Republican")
-  dem_vars2   <- c("Female_i","Age_i","College_4yr_Plus_i","Income_Middle_i","Income_High_i",
-                   "Wealth_Middle_i","Wealth_High_i","Self_Employed_i","Republican_i")
+  dem_vars2   <- c("Female","Age","College_4yr_Plus","Income_Middle","Income_High",
+                   "Wealth_Middle","Wealth_High","Self_Employed","Republican")
   rows_out <- paste(mapply(make_row, dem_labels2, MoreArgs = list(models = m_exp), var = dem_vars2), collapse = "\n")
   rows_out <- paste0(rows_out, "\n", make_row("Intercept", m_exp, "(Intercept)"))
   paste0(
