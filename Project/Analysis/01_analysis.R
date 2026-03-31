@@ -567,6 +567,8 @@ channel_rhs_PPR <- c("Government_Trust","Government_Public_Interest","Government
 run_channels <- function(outcome, data,channel_rhs) {
   d2 <- data %>% filter(!is.na(.data[[outcome]]))
   if (nrow(d2) < 3) return(NULL)
+  channel_rhs <- channel_rhs[channel_rhs %in% names(data)]  # drop index vars not yet in data_clean
+  if (length(channel_rhs) == 0) return(NULL)
   fml <- as.formula(paste(outcome, "~", paste(channel_rhs, collapse = " + ")))
   tryCatch(lm(fml, data = d2), error = function(e) NULL)
 }
