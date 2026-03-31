@@ -1142,10 +1142,10 @@ tex_doc <- paste0(
 t2, "\n\\FloatBarrier\n",
 t3, "\n\\FloatBarrier\n",
 t4, "\n\\FloatBarrier\n",
-t5, "\n\\FloatBarrier\n",
-t6, "\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t5, "\\end{landscape}\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t6, "\\end{landscape}\n\\FloatBarrier\n",
 t7, "\n\\FloatBarrier\n",
-t8, "\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t8, "\\end{landscape}\n\\FloatBarrier\n",
 t9, "\n\\FloatBarrier\n",
 
 "\\section{Appendix}
