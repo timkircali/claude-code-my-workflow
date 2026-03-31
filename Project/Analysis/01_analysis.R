@@ -933,7 +933,7 @@ t6 <- build_generic_table(
   "tab:policyconsiderationstpr",
   col_headers = NULL,
   models = m_pol,
-  font_size = "\\scriptsize",
+  font_size = "\\tiny",
   col_spec_override = "l||cc|cc|cc|cc|cc||cc||cc",
   raw_header = paste0(
     "& \\multicolumn{10}{c||}{Tax Evasion (Revenue \\& Inequality)} &",
