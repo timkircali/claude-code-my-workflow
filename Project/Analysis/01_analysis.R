@@ -741,7 +741,7 @@ Controls & $\\mathbf{X}_{i}^{D}$ \\\\
 # Build a generic multi-column table
 build_generic_table <- function(caption, label, col_headers, models, row_labels = NULL,
                                  row_vars = NULL, show_dem = TRUE, show_treat = TRUE,
-                                 notes = NULL, font_size = "\\small",
+                                 notes = NULL, font_size = "\\footnotesize",
                                  col_spec_override = NULL, raw_header = NULL) {
   ncols <- length(models)
   col_spec <- if (!is.null(col_spec_override)) col_spec_override else
@@ -818,7 +818,7 @@ build_panel_regression_table <- function(
     "\\begin{table}[!htbp]\\centering\n",
     sprintf("\\caption{%s}\n\\label{%s}\n", caption, label),
     "\\begin{threeparttable}\n",
-    "\\small\n",
+    "\\footnotesize\n",
     "\\begin{tabular}{l|c}\n\\toprule\n",
     sprintf(" & (1)\\\\\n & %s \\\\\n\\midrule\n", col_label),
     "\\textit{Conditions} \\\\[0.25em]\n",
@@ -933,7 +933,7 @@ t6 <- build_generic_table(
   "tab:policyconsiderationstpr",
   col_headers = NULL,
   models = m_pol,
-  font_size = "\\footnotesize",
+  font_size = "\\scriptsize",
   col_spec_override = "l||cc|cc|cc|cc|cc||cc||cc",
   raw_header = paste0(
     "& \\multicolumn{10}{c||}{Tax Evasion (Revenue \\& Inequality)} &",
@@ -1037,7 +1037,7 @@ build_channels_table <- function() {
     "\\begin{table}[!htbp]\\centering\n",
     "\\caption{Drivers of Policy Support}\n\\label{tab:PolicySupportDrivers}\n",
     "\\begin{threeparttable}\n",
-    "\\small\n",
+    "\\footnotesize\n",
     "\\begin{tabular}{l|cccc}\n\\toprule\n",
     "& (1) & (2) & (3) & (4) \\\\\n",
     "& Support TPR & Support IEI & Support TS & Support PPR \\\\\n",
@@ -1092,7 +1092,7 @@ build_exposure_table <- function() {
     "\\begin{table}[!htbp]\\centering\n",
     "\\caption{Exposure to Tax Filing and Evasion}\n\\label{tab:exposure}\n",
     "\\begin{threeparttable}\n",
-    "\\small\n",
+    "\\footnotesize\n",
     "\\begin{tabular}{lcccc}\n\\toprule\n",
     "& (1) & (2) & (3) & (4) \\\\\n",
     "& Exposure: Tax Filing & Exposure: Tax Software & Exposure: Filing Mistakes & Exposure: Evasion \\\\\n",
