@@ -741,11 +741,21 @@ Controls & $\\mathbf{X}_{i}^{D}$ \\\\
 # Build a generic multi-column table
 build_generic_table <- function(caption, label, col_headers, models, row_labels = NULL,
                                  row_vars = NULL, show_dem = TRUE, show_treat = TRUE,
-                                 notes = NULL) {
+                                 notes = NULL, font_size = "\\small",
+                                 col_spec_override = NULL, raw_header = NULL) {
   ncols <- length(models)
-  col_spec <- paste0("l|", paste(rep("c", ncols), collapse = ""))
+  col_spec <- if (!is.null(col_spec_override)) col_spec_override else
+    paste0("l|", paste(rep("c", ncols), collapse = ""))
   nums <- paste(seq_len(ncols), collapse = ") & (")
-  header_str <- if (!is.null(col_headers)) paste(col_headers, collapse = " & ") else ""
+
+  # Header block: use raw_header if provided, otherwise auto-generate
+  header_block <- if (!is.null(raw_header)) {
+    raw_header
+  } else {
+    header_str <- if (!is.null(col_headers)) paste(col_headers, collapse = " & ") else ""
+    paste0(sprintf("& (%s) \\\\\n", nums),
+           if (header_str != "") paste0(header_str, " \\\\\n") else "")
+  }
 
   rows_out <- ""
   if (show_dem) rows_out <- paste0(rows_out, make_dem_rows(models), "\n\\\\[0.5em]\n")
@@ -763,9 +773,9 @@ build_generic_table <- function(caption, label, col_headers, models, row_labels 
     "\\begin{table}[!htbp]\\centering\n",
     sprintf("\\caption{%s}\n\\label{%s}\n", caption, label),
     "\\begin{threeparttable}\n",
+    font_size, "\n",
     sprintf("\\begin{tabular}{%s}\n\\toprule\n", col_spec),
-    sprintf("& (%s) \\\\\n", nums),
-    if (header_str != "") paste0(header_str, " \\\\\n") else "",
+    header_block,
     "\\midrule\n",
     rows_out,
     "\\midrule\n",
@@ -808,6 +818,7 @@ build_panel_regression_table <- function(
     "\\begin{table}[!htbp]\\centering\n",
     sprintf("\\caption{%s}\n\\label{%s}\n", caption, label),
     "\\begin{threeparttable}\n",
+    "\\small\n",
     "\\begin{tabular}{l|c}\n\\toprule\n",
     sprintf(" & (1)\\\\\n & %s \\\\\n\\midrule\n", col_label),
     "\\textit{Conditions} \\\\[0.25em]\n",
@@ -920,8 +931,25 @@ t5 <- build_generic_table(
 t6 <- build_generic_table(
   "Considerations on Third-Party Reporting and International Exchange of Information",
   "tab:policyconsiderationstpr",
-  NULL,
-  m_pol
+  col_headers = NULL,
+  models = m_pol,
+  font_size = "\\footnotesize",
+  col_spec_override = "l||cc|cc|cc|cc|cc||cc||cc",
+  raw_header = paste0(
+    "& \\multicolumn{10}{c||}{Tax Evasion (Revenue \\& Inequality)} &",
+    " \\multicolumn{2}{c||}{Filing Costs} & \\multicolumn{2}{c}{Data Privacy} \\\\\n",
+    "& (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10)",
+    " & (11) & (12) & (13) & (14) \\\\[0.5em]\n",
+    "& \\multicolumn{2}{c|}{reduces tax evasion}",
+    " & \\multicolumn{2}{c|}{reduces admin. costs}",
+    " & \\multicolumn{2}{c|}{increases tax revenue}",
+    " & \\multicolumn{2}{c|}{increases fairness}",
+    " & \\multicolumn{2}{c||}{reduces inequality}",
+    " & \\multicolumn{2}{c||}{reduces filing costs}",
+    " & \\multicolumn{2}{c}{concerned about data privacy} \\\\\n",
+    "& TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI",
+    " & TPR & IEI & TPR & IEI \\\\\n"
+  )
 )
 
 t7 <- build_panel_regression_table(
@@ -1009,6 +1037,7 @@ build_channels_table <- function() {
     "\\begin{table}[!htbp]\\centering\n",
     "\\caption{Drivers of Policy Support}\n\\label{tab:PolicySupportDrivers}\n",
     "\\begin{threeparttable}\n",
+    "\\small\n",
     "\\begin{tabular}{l|cccc}\n\\toprule\n",
     "& (1) & (2) & (3) & (4) \\\\\n",
     "& Support TPR & Support IEI & Support TS & Support PPR \\\\\n",
@@ -1063,6 +1092,7 @@ build_exposure_table <- function() {
     "\\begin{table}[!htbp]\\centering\n",
     "\\caption{Exposure to Tax Filing and Evasion}\n\\label{tab:exposure}\n",
     "\\begin{threeparttable}\n",
+    "\\small\n",
     "\\begin{tabular}{lcccc}\n\\toprule\n",
     "& (1) & (2) & (3) & (4) \\\\\n",
     "& Exposure: Tax Filing & Exposure: Tax Software & Exposure: Filing Mistakes & Exposure: Evasion \\\\\n",
