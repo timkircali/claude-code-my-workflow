@@ -65,9 +65,11 @@ df_merged <- q_raw %>%
   rename(prolific_id = PROLIFIC_PID) %>%
   filter(nchar(prolific_id) > 20) %>%           # drop test obs (fake/empty IDs)
   filter(Finished == "1") %>%                    # drop incomplete responses
-  inner_join(p_raw %>% select(prolific_id, income_prolific, age_prolific,
-                               sex_prolific, ethnicity, student_prolific,
-                               employment_prolific, bot_check),
+  inner_join(p_raw %>%
+               filter(!status %in% c("RETURNED", "TIMED-OUT")) %>%
+               select(prolific_id, income_prolific, age_prolific,
+                      sex_prolific, ethnicity, student_prolific,
+                      employment_prolific, bot_check),
              by = "prolific_id")
 
 cat("Rows after merge:", nrow(df_merged), "\n")
