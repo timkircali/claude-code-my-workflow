@@ -437,7 +437,10 @@ pap_vars <- c(
   # Exposure
   "Exposure_Tax_Filing","Exposure_Tax_Software",
   "Exposure_Filing_Mistakes","Exposure_Filing_Mistakes_Prefernottosay",
-  "Exposure_Tax_Evasion","Exposure_Tax_Evasion_Prefernottosay"
+  "Exposure_Tax_Evasion","Exposure_Tax_Evasion_Prefernottosay", 
+  #Indices
+  "TPR_Tax_Revenue_Plus","TPR_Inequality_Minus",
+  "IEI_Tax_Revenue_Plus","IEI_Inequality_Minus"
 )
 
 data_clean <- df %>% select(any_of(pap_vars))
@@ -1010,8 +1013,8 @@ build_channels_table <- function() {
   pol_vars <- list(
     c("TPR_Tax_Revenue_Plus",    "IEI_Tax_Revenue_Plus",    "TS_Costly",                 "PPR_Costly"),
     c("TPR_Inequality_Minus",    "IEI_Inequality_Minus",    "TS_Reduces_Filing_Costs",   "PPR_Reduces_Filing_Costs"),
-    c("TPR_Reduces_Filing_Costs","IEI_Reduces_Filing_Costs","TS_Share_Data_Problematic", "PPR_Share_Data_Problematic"),
-    c("TPR_Data_Privacy_Concerned","IEI_Data_Privacy_Concerned", NA, NA)
+    c("TPR_Reduces_Filing_Costs","IEI_Reduces_Filing_Costs", NA, NA),
+    c("TPR_Data_Privacy_Concerned","IEI_Data_Privacy_Concerned", "TS_Share_Data_Problematic", "PPR_Share_Data_Problematic")
   )
 
   make_pol_row <- function(label, vars_per_col) {
