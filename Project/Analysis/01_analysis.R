@@ -1012,8 +1012,8 @@ build_channels_table <- function() {
   pol_labels <- c("Revenue index", "Inequality index", "Reduces filing costs", "Data privacy concern")
   pol_vars <- list(
     c("TPR_Tax_Revenue_Plus",    "IEI_Tax_Revenue_Plus",    "TS_Costly",                 "PPR_Costly"),
-    c("TPR_Inequality_Minus",    "IEI_Inequality_Minus",    "TS_Reduces_Filing_Costs",   "PPR_Reduces_Filing_Costs"),
-    c("TPR_Reduces_Filing_Costs","IEI_Reduces_Filing_Costs", NA, NA),
+    c("TPR_Inequality_Minus",    "IEI_Inequality_Minus",NA ,NA),
+    c("TPR_Reduces_Filing_Costs","IEI_Reduces_Filing_Costs", "TS_Reduces_Filing_Costs", "PPR_Reduces_Filing_Costs"),
     c("TPR_Data_Privacy_Concerned","IEI_Data_Privacy_Concerned", "TS_Share_Data_Problematic", "PPR_Share_Data_Problematic")
   )
 
