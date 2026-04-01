@@ -569,15 +569,17 @@ channel_rhs_PPR <- c("Government_Trust","Government_Public_Interest","Government
                     "Data_Privacy_Concerned","Data_Privacy_Importance_Protect",
                     "PPR_Costly","PPR_Reduces_Filing_Costs","PPR_Share_Data_Problematic")
 
-run_channels <- function(outcome, data,channel_rhs) {
+run_channels <- function(outcome, data, channel_rhs, controls = NULL) {
   d2 <- data %>% filter(!is.na(.data[[outcome]]))
   if (nrow(d2) < 3) return(NULL)
-  channel_rhs <- channel_rhs[channel_rhs %in% names(data)]  # drop index vars not yet in data_clean
-  if (length(channel_rhs) == 0) return(NULL)
-  fml <- as.formula(paste(outcome, "~", paste(channel_rhs, collapse = " + ")))
+  rhs <- channel_rhs
+  if (!is.null(controls)) rhs <- c(rhs, controls)
+  rhs <- rhs[rhs %in% names(data)]  # drop vars not yet in data_clean
+  if (length(rhs) == 0) return(NULL)
+  fml <- as.formula(paste(outcome, "~", paste(rhs, collapse = " + ")))
   tryCatch(lm(fml, data = d2), error = function(e) NULL)
 }
-m_chan_TPR <- mapply(run_channels, 
+m_chan_TPR <- mapply(run_channels,
                      outcome = c("TPR_Support_General", "IEI_Support", "TS_Support", "PPR_Support"),
                      channel_rhs = list(channel_rhs_TPR, channel_rhs_IEI, channel_rhs_TS, channel_rhs_PPR),
                      MoreArgs = list(data = d),
@@ -591,6 +593,28 @@ m_know <- lapply(c("Perception_Tax_Gap","Perception_Filing_Cost_Time","Perceptio
 tsprov_conditions <- c("TS_Tax_Authority_General","TS_Reduces_Filing_Costs",
                        "TS_Tax_Auth_Overall","TS_Tax_Auth_Privacy","TS_Tax_Auth_Fairness")
 m_tsprov_list <- lapply(tsprov_conditions, run_ols, data = d)
+
+# =============================================================================
+# Models WITH demographic controls (Tables 1-11, Spec 2)
+# =============================================================================
+dem_controls <- c("Female","Age","College_4yr_Plus","Income_Middle","Income_High",
+                  "Wealth_Middle","Wealth_High","Self_Employed","Republican")
+
+m_tpr_c   <- run_ols("TPR_Support_General", d, controls = dem_controls)
+m_iei_c   <- run_ols("IEI_Support",          d, controls = dem_controls)
+m_ts_c    <- run_ols("TS_Support",            d, controls = dem_controls)
+m_ppr_c   <- run_ols("PPR_Support",           d, controls = dem_controls)
+m_gov_c   <- lapply(gov_outcomes,   run_ols, data = d, controls = dem_controls)
+m_econ_c  <- lapply(econ_outcomes,  run_ols, data = d, controls = dem_controls)
+m_pol_c   <- lapply(pol_outcomes,   run_ols, data = d, controls = dem_controls)
+m_tsppr_c <- lapply(tsppr_outcomes, run_ols, data = d, controls = dem_controls)
+m_know_c  <- lapply(c("Perception_Tax_Gap","Perception_Filing_Cost_Time","Perception_Filing_Cost_Cost"),
+                    run_ols, data = d, controls = dem_controls)
+m_chan_TPR_c <- mapply(run_channels,
+                       outcome = c("TPR_Support_General", "IEI_Support", "TS_Support", "PPR_Support"),
+                       channel_rhs = list(channel_rhs_TPR, channel_rhs_IEI, channel_rhs_TS, channel_rhs_PPR),
+                       MoreArgs = list(data = d, controls = dem_controls),
+                       SIMPLIFY = FALSE)
 
 # Table 12: Exposure (no treatment vars — just demographic controls)
 exp_outcomes <- c("Exposure_Tax_Filing","Exposure_Tax_Software",
@@ -749,7 +773,8 @@ Controls & $\\mathbf{X}_{i}^{D}$ \\\\
 build_generic_table <- function(caption, label, col_headers, models, row_labels = NULL,
                                  row_vars = NULL, show_dem = TRUE, show_treat = TRUE,
                                  notes = NULL, font_size = "\\footnotesize",
-                                 col_spec_override = NULL, raw_header = NULL) {
+                                 col_spec_override = NULL, raw_header = NULL,
+                                 ctrl_label = "$\\mathbf{X}_{i}^{D}$") {
   ncols <- length(models)
   col_spec <- if (!is.null(col_spec_override)) col_spec_override else
     paste0("l|", paste(rep("c", ncols), collapse = ""))
@@ -773,7 +798,7 @@ build_generic_table <- function(caption, label, col_headers, models, row_labels 
   if (show_treat) rows_out <- paste0(rows_out, make_treat_rows(models), "\n\\\\[0.5em]\n")
   rows_out <- paste0(rows_out, make_row("Intercept", models, "(Intercept)"), "\n")
 
-  ctrl_row <- paste("Controls &", paste(rep("$\\mathbf{X}_{i}^{D}$", ncols), collapse = " & "), "\\\\")
+  ctrl_row <- paste("Controls &", paste(rep(ctrl_label, ncols), collapse = " & "), "\\\\")
   note_str <- if (is.null(notes)) "PILOT RESULTS. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01." else notes
 
   paste0(
@@ -808,7 +833,8 @@ build_panel_regression_table <- function(
   cond_labels,
   cond_vars,
   show_intercept = TRUE,
-  notes = NULL
+  notes = NULL,
+  ctrl_label = "$\\mathbf{X}_{i}^{D}$"
 ) {
   mod <- list(panel_model)
   header_str <- if (!is.null(cond_section_header))
@@ -836,7 +862,7 @@ build_panel_regression_table <- function(
     int_block,
     "\\midrule\n",
     make_stats(mod), "\n",
-    "Controls & $\\mathbf{X}_{i}^{D}$ \\\\\n",
+    sprintf("Controls & %s \\\\\n", ctrl_label),
     "\\bottomrule\n\\end{tabular}\n",
     "\\begin{tablenotes}[flushleft]\n\\footnotesize\n",
     sprintf("\\item \\textit{Notes}: %s\n", note_str),
@@ -845,9 +871,11 @@ build_panel_regression_table <- function(
 }
 
 # --- Panel regression helper ---
-run_panel_ols <- function(outcome_vars, data) {
+run_panel_ols <- function(outcome_vars, data, controls = NULL) {
   long <- do.call(rbind, lapply(seq_along(outcome_vars), function(i) {
-    d2 <- data[, c(treat_vars, outcome_vars[i]), drop = FALSE]
+    cols <- c(treat_vars, outcome_vars[i])
+    if (!is.null(controls)) cols <- c(cols, controls[controls %in% names(data)])
+    d2 <- data[, unique(cols), drop = FALSE]
     d2$outcome_value <- as.numeric(d2[[outcome_vars[i]]])
     d2[[outcome_vars[i]]] <- NULL  # drop named column so rbind sees identical columns
     d2$condition <- i
@@ -859,6 +887,7 @@ run_panel_ols <- function(outcome_vars, data) {
   d2 <- long[!is.na(long$outcome_value), ]
   if (nrow(d2) < 3) return(NULL)
   rhs <- c(treat_vars, paste0("cond_", 2:length(outcome_vars)))
+  if (!is.null(controls)) rhs <- c(rhs, controls[controls %in% names(data)])
   fml <- as.formula(paste("outcome_value ~", paste(rhs, collapse = " + ")))
   tryCatch(lm(fml, data = d2), error = function(e) NULL)
 }
@@ -867,7 +896,8 @@ run_panel_ols <- function(outcome_vars, data) {
 tpr_panel_vars <- c("TPR_Support_General","TPR_Support_Equal","TPR_Support_Businesses",
                     "TPR_Support_HighIncome","TPR_Support_LargeEnterprises","TPR_Support_TaxOnly",
                     "TPR_Support_PrepopData","TPR_Support_PrepopOnly","TPR_Support_VoluntaryOptIn")
-m_tpr_panel <- run_panel_ols(tpr_panel_vars, d)
+m_tpr_panel   <- run_panel_ols(tpr_panel_vars, d)
+m_tpr_panel_c <- run_panel_ols(tpr_panel_vars, d, controls = dem_controls)
 
 # Table 7: c1 = general data privacy concern; c2–c9 = specific data-type conditions
 priv_panel_vars <- c("TPR_Data_Privacy_Concerned",
@@ -875,121 +905,21 @@ priv_panel_vars <- c("TPR_Data_Privacy_Concerned",
                      "TPR_Privacy_Health_General","TPR_Privacy_Health_Limited",
                      "TPR_Privacy_Bank_General","TPR_Privacy_Bank_Limited",
                      "TPR_Privacy_Payment","TPR_Privacy_Payment_Limited")
-m_priv_panel <- run_panel_ols(priv_panel_vars, d)
+m_priv_panel   <- run_panel_ols(priv_panel_vars, d)
+m_priv_panel_c <- run_panel_ols(priv_panel_vars, d, controls = dem_controls)
 
 # Table 11: 5 TS provider conditions; c1 = In general (reference, shown as intercept row)
 tsprov_panel_vars <- c("TS_Tax_Authority_General","TS_Reduces_Filing_Costs",
                        "TS_Tax_Auth_Overall","TS_Tax_Auth_Privacy","TS_Tax_Auth_Fairness")
-m_tsprov_panel <- run_panel_ols(tsprov_panel_vars, d)
+m_tsprov_panel   <- run_panel_ols(tsprov_panel_vars, d)
+m_tsprov_panel_c <- run_panel_ols(tsprov_panel_vars, d, controls = dem_controls)
 
 # =============================================================================
 # Build all tables
 # =============================================================================
 
-t1 <- build_generic_table(
-  "Support for Third-Party Reporting and International Exchange of Information",
-  "tab:supportTPRIEI",
-  c("& Support TPR", "Support IEI"),
-  list(m_tpr, m_iei)
-)
-
-t2 <- build_panel_regression_table(
-  "Conditional Support for Third-Party Reporting",
-  "tab:conditionalsupporttpr",
-  col_label = "Support",
-  panel_model = m_tpr_panel,
-  cond_section_header = "Support for comprehensive third-party reporting if",
-  cond_labels = c(
-    "--it applied equally to all taxpayers.",
-    "--it applied primarily to businesses.",
-    "--it focuses on high-income individuals.",
-    "--it focuses on large enterprises.",
-    "--the data collected could only be used for purposes related to tax enforcement and tax administration.",
-    "--the data collected would also be used to offer prepopulated tax returns.",
-    "--the data collected could only be used to offer prepopulated tax returns.",
-    "--taxpayers could voluntarily choose to have their own data covered."
-  ),
-  cond_vars = paste0("cond_", 2:9),
-  show_intercept = TRUE
-)
-
-t3 <- build_generic_table(
-  "Support for free tax software and prepopulated tax returns",
-  "tab:supporttaxsoftware",
-  c("& Support TS", "Support PPR"),
-  list(m_ts, m_ppr)
-)
-
-t4 <- build_generic_table(
-  "Government Views",
-  "tab:government_views",
-  c("& Trust in Gov.", "Gov. Actions Align", "Decrease Resources", "More Involved", "Quality"),
-  m_gov
-)
-
-t5 <- build_generic_table(
-  "Considerations on Economic Problems",
-  "tab:considerationseconomicproblems",
-  c("& Evasion Serious","Evasion Unequal","Reduce Evasion","Filing Costs High",
-    "Reduce Filing Costs","Filing Fair","Data Privacy Concern","Data Privacy Important"),
-  m_econ
-)
-
-t6 <- build_generic_table(
-  "Considerations on Third-Party Reporting and International Exchange of Information",
-  "tab:policyconsiderationstpr",
-  col_headers = NULL,
-  models = m_pol,
-  font_size = "\\tiny",
-  col_spec_override = "l||cc|cc|cc|cc|cc||cc||cc",
-  raw_header = paste0(
-    "& \\multicolumn{10}{c||}{Tax Evasion (Revenue \\& Inequality)} &",
-    " \\multicolumn{2}{c||}{Filing Costs} & \\multicolumn{2}{c}{Data Privacy} \\\\\n",
-    "& (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10)",
-    " & (11) & (12) & (13) & (14) \\\\[0.5em]\n",
-    "& \\multicolumn{2}{c|}{reduces tax evasion}",
-    " & \\multicolumn{2}{c|}{reduces admin. costs}",
-    " & \\multicolumn{2}{c|}{increases tax revenue}",
-    " & \\multicolumn{2}{c|}{increases fairness}",
-    " & \\multicolumn{2}{c||}{reduces inequality}",
-    " & \\multicolumn{2}{c||}{reduces filing costs}",
-    " & \\multicolumn{2}{c}{concerned about data privacy} \\\\\n",
-    "& TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI",
-    " & TPR & IEI & TPR & IEI \\\\\n"
-  )
-)
-
-t7 <- build_panel_regression_table(
-  "Detailed Data Privacy Concerns",
-  "tab:detaileddataprivacy",
-  col_label = "Concerned about data privacy",
-  panel_model = m_priv_panel,
-  cond_section_header = "if third-party reporting includes..",
-  cond_labels = c(
-    "--employment data in general",
-    "--employment data limited to tax relevant information",
-    "--general health insurance data",
-    "--health insurance data limited to tax-relevant financial information",
-    "--general bank account data",
-    "--bank account data limited to tax-relevant information",
-    "--payment data",
-    "--payment data limited to tax-relevant information"
-  ),
-  cond_vars = paste0("cond_", 2:9),
-  show_intercept = TRUE
-)
-
-t8 <- build_generic_table(
-  "Considerations on Tax Software and Prepopulated Tax Returns",
-  "tab:considerationsts",
-  c("& Costly TS","Costly PPR","Reduces Costs TS","Reduces Costs PPR",
-    "Data Problematic TS","Data Problematic PPR"),
-  m_tsppr
-)
-
 # Table 9: Channels (no treatment vars)
-build_channels_table <- function() {
-  mods <- m_chan_TPR  # list of 4 models: TPR, IEI, TS, PPR
+build_channels_table <- function(mods = m_chan_TPR, ctrl_label = "$\\mathbf{X}_{i}^{D}$") {
 
   # Common channel variables — appear in all 4 models
   common_labels <- c(
@@ -1054,36 +984,190 @@ build_channels_table <- function() {
     int_row, "\n",
     "\\midrule\n",
     make_stats(mods), "\n",
-    "Controls & $\\mathbf{X}_{i}^{D}$ & $\\mathbf{X}_{i}^{D}$ & $\\mathbf{X}_{i}^{D}$ & $\\mathbf{X}_{i}^{D}$ \\\\\n",
+    paste0("Controls & ", paste(rep(ctrl_label, 4), collapse = " & "), " \\\\\n"),
     "\\bottomrule\n\\end{tabular}\n",
     "\\begin{tablenotes}[flushleft]\n\\footnotesize\n",
     "\\item \\textit{Notes}: PILOT RESULTS. No treatment variables --- channels regression only. OLS. SE in parentheses. * p$<$0.1, ** p$<$0.05, *** p$<$0.01.\n",
     "\\end{tablenotes}\n\\end{threeparttable}\n\\end{table}\n"
   )
 }
-t9 <- build_channels_table()
 
-t10 <- build_generic_table(
-  "Knowledge of Economic Problems",
-  "tab:perception",
-  c("& Perception Tax Gap","Perception Filing Time","Perception Filing Cost"),
-  m_know
+t6_raw_header <- paste0(
+  "& \\multicolumn{10}{c||}{Tax Evasion (Revenue \\& Inequality)} &",
+  " \\multicolumn{2}{c||}{Filing Costs} & \\multicolumn{2}{c}{Data Privacy} \\\\\n",
+  "& (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10)",
+  " & (11) & (12) & (13) & (14) \\\\[0.5em]\n",
+  "& \\multicolumn{2}{c|}{reduces tax evasion}",
+  " & \\multicolumn{2}{c|}{reduces admin. costs}",
+  " & \\multicolumn{2}{c|}{increases tax revenue}",
+  " & \\multicolumn{2}{c|}{increases fairness}",
+  " & \\multicolumn{2}{c||}{reduces inequality}",
+  " & \\multicolumn{2}{c||}{reduces filing costs}",
+  " & \\multicolumn{2}{c}{concerned about data privacy} \\\\\n",
+  "& TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI & TPR & IEI",
+  " & TPR & IEI & TPR & IEI \\\\\n"
+)
+t2_cond_labels <- c(
+  "--it applied equally to all taxpayers.",
+  "--it applied primarily to businesses.",
+  "--it focuses on high-income individuals.",
+  "--it focuses on large enterprises.",
+  "--the data collected could only be used for purposes related to tax enforcement and tax administration.",
+  "--the data collected would also be used to offer prepopulated tax returns.",
+  "--the data collected could only be used to offer prepopulated tax returns.",
+  "--taxpayers could voluntarily choose to have their own data covered."
+)
+t7_cond_labels <- c(
+  "--employment data in general",
+  "--employment data limited to tax relevant information",
+  "--general health insurance data",
+  "--health insurance data limited to tax-relevant financial information",
+  "--general bank account data",
+  "--bank account data limited to tax-relevant information",
+  "--payment data",
+  "--payment data limited to tax-relevant information"
+)
+t11_cond_labels <- c(
+  "--In general",
+  "--In terms of reducing time and monetary costs for taxpayers",
+  "--In terms of overall costs to the society",
+  "--In terms of data privacy",
+  "--In terms of fairness in how tax filing is organized"
 )
 
-t11 <- build_panel_regression_table(
-  "Private or Government Tax Software Provider",
-  "tab:taxsoftwareprovider",
+# --- Tables WITHOUT controls ---
+t1_noc <- build_generic_table(
+  "Support for Third-Party Reporting and International Exchange of Information",
+  "tab:supportTPRIEI_noc",
+  c("& Support TPR", "Support IEI"),
+  list(m_tpr, m_iei), ctrl_label = "NO"
+)
+t2_noc <- build_panel_regression_table(
+  "Conditional Support for Third-Party Reporting",
+  "tab:conditionalsupporttpr_noc", col_label = "Support",
+  panel_model = m_tpr_panel,
+  cond_section_header = "Support for comprehensive third-party reporting if",
+  cond_labels = t2_cond_labels, cond_vars = paste0("cond_", 2:9),
+  show_intercept = TRUE, ctrl_label = "NO"
+)
+t3_noc <- build_generic_table(
+  "Support for free tax software and prepopulated tax returns",
+  "tab:supporttaxsoftware_noc",
+  c("& Support TS", "Support PPR"),
+  list(m_ts, m_ppr), ctrl_label = "NO"
+)
+t4_noc <- build_generic_table(
+  "Government Views", "tab:government_views_noc",
+  c("& Trust in Gov.", "Gov. Actions Align", "Decrease Resources", "More Involved", "Quality"),
+  m_gov, ctrl_label = "NO"
+)
+t5_noc <- build_generic_table(
+  "Considerations on Economic Problems", "tab:considerationseconomicproblems_noc",
+  c("& Evasion Serious","Evasion Unequal","Reduce Evasion","Filing Costs High",
+    "Reduce Filing Costs","Filing Fair","Data Privacy Concern","Data Privacy Important"),
+  m_econ, ctrl_label = "NO"
+)
+t6_noc <- build_generic_table(
+  "Considerations on Third-Party Reporting and International Exchange of Information",
+  "tab:policyconsiderationstpr_noc",
+  col_headers = NULL, models = m_pol, font_size = "\\tiny",
+  col_spec_override = "l||cc|cc|cc|cc|cc||cc||cc",
+  raw_header = t6_raw_header, ctrl_label = "NO"
+)
+t7_noc <- build_panel_regression_table(
+  "Detailed Data Privacy Concerns", "tab:detaileddataprivacy_noc",
+  col_label = "Concerned about data privacy",
+  panel_model = m_priv_panel,
+  cond_section_header = "if third-party reporting includes..",
+  cond_labels = t7_cond_labels, cond_vars = paste0("cond_", 2:9),
+  show_intercept = TRUE, ctrl_label = "NO"
+)
+t8_noc <- build_generic_table(
+  "Considerations on Tax Software and Prepopulated Tax Returns",
+  "tab:considerationsts_noc",
+  c("& Costly TS","Costly PPR","Reduces Costs TS","Reduces Costs PPR",
+    "Data Problematic TS","Data Problematic PPR"),
+  m_tsppr, ctrl_label = "NO"
+)
+t9_noc <- build_channels_table(mods = m_chan_TPR,   ctrl_label = "NO")
+t10_noc <- build_generic_table(
+  "Knowledge of Economic Problems", "tab:perception_noc",
+  c("& Perception Tax Gap","Perception Filing Time","Perception Filing Cost"),
+  m_know, ctrl_label = "NO"
+)
+t11_noc <- build_panel_regression_table(
+  "Private or Government Tax Software Provider", "tab:taxsoftwareprovider_noc",
   col_label = "Tax Authority Should Provide Tax Software",
-  panel_model = m_tsprov_panel,
-  cond_section_header = NULL,
-  cond_labels = c(
-    "--In general",
-    "--In terms of reducing time and monetary costs for taxpayers",
-    "--In terms of overall costs to the society",
-    "--In terms of data privacy",
-    "--In terms of fairness in how tax filing is organized"
-  ),
-  cond_vars = c("(Intercept)", paste0("cond_", 2:5)),
+  panel_model = m_tsprov_panel, cond_section_header = NULL,
+  cond_labels = t11_cond_labels, cond_vars = c("(Intercept)", paste0("cond_", 2:5)),
+  show_intercept = FALSE, ctrl_label = "NO"
+)
+
+# --- Tables WITH controls ---
+t1_c <- build_generic_table(
+  "Support for Third-Party Reporting and International Exchange of Information",
+  "tab:supportTPRIEI_c",
+  c("& Support TPR", "Support IEI"),
+  list(m_tpr_c, m_iei_c)
+)
+t2_c <- build_panel_regression_table(
+  "Conditional Support for Third-Party Reporting",
+  "tab:conditionalsupporttpr_c", col_label = "Support",
+  panel_model = m_tpr_panel_c,
+  cond_section_header = "Support for comprehensive third-party reporting if",
+  cond_labels = t2_cond_labels, cond_vars = paste0("cond_", 2:9),
+  show_intercept = TRUE
+)
+t3_c <- build_generic_table(
+  "Support for free tax software and prepopulated tax returns",
+  "tab:supporttaxsoftware_c",
+  c("& Support TS", "Support PPR"),
+  list(m_ts_c, m_ppr_c)
+)
+t4_c <- build_generic_table(
+  "Government Views", "tab:government_views_c",
+  c("& Trust in Gov.", "Gov. Actions Align", "Decrease Resources", "More Involved", "Quality"),
+  m_gov_c
+)
+t5_c <- build_generic_table(
+  "Considerations on Economic Problems", "tab:considerationseconomicproblems_c",
+  c("& Evasion Serious","Evasion Unequal","Reduce Evasion","Filing Costs High",
+    "Reduce Filing Costs","Filing Fair","Data Privacy Concern","Data Privacy Important"),
+  m_econ_c
+)
+t6_c <- build_generic_table(
+  "Considerations on Third-Party Reporting and International Exchange of Information",
+  "tab:policyconsiderationstpr_c",
+  col_headers = NULL, models = m_pol_c, font_size = "\\tiny",
+  col_spec_override = "l||cc|cc|cc|cc|cc||cc||cc",
+  raw_header = t6_raw_header
+)
+t7_c <- build_panel_regression_table(
+  "Detailed Data Privacy Concerns", "tab:detaileddataprivacy_c",
+  col_label = "Concerned about data privacy",
+  panel_model = m_priv_panel_c,
+  cond_section_header = "if third-party reporting includes..",
+  cond_labels = t7_cond_labels, cond_vars = paste0("cond_", 2:9),
+  show_intercept = TRUE
+)
+t8_c <- build_generic_table(
+  "Considerations on Tax Software and Prepopulated Tax Returns",
+  "tab:considerationsts_c",
+  c("& Costly TS","Costly PPR","Reduces Costs TS","Reduces Costs PPR",
+    "Data Problematic TS","Data Problematic PPR"),
+  m_tsppr_c
+)
+t9_c  <- build_channels_table(mods = m_chan_TPR_c)
+t10_c <- build_generic_table(
+  "Knowledge of Economic Problems", "tab:perception_c",
+  c("& Perception Tax Gap","Perception Filing Time","Perception Filing Cost"),
+  m_know_c
+)
+t11_c <- build_panel_regression_table(
+  "Private or Government Tax Software Provider", "tab:taxsoftwareprovider_c",
+  col_label = "Tax Authority Should Provide Tax Software",
+  panel_model = m_tsprov_panel_c, cond_section_header = NULL,
+  cond_labels = t11_cond_labels, cond_vars = c("(Intercept)", paste0("cond_", 2:5)),
   show_intercept = FALSE
 )
 
@@ -1145,20 +1229,32 @@ tex_doc <- paste0(
 
 \\section{Main Results}
 
-", t1, "\n\\FloatBarrier\n",
-t2, "\n\\FloatBarrier\n",
-t3, "\n\\FloatBarrier\n",
-t4, "\n\\FloatBarrier\n",
-"\\begin{landscape}\n", t5, "\\end{landscape}\n\\FloatBarrier\n",
-"\\begin{landscape}\n", t6, "\\end{landscape}\n\\FloatBarrier\n",
-t7, "\n\\FloatBarrier\n",
-"\\begin{landscape}\n", t8, "\\end{landscape}\n\\FloatBarrier\n",
-t9, "\n\\FloatBarrier\n",
+",
+t1_noc,  "\n\\FloatBarrier\n",
+t1_c,   "\n\\FloatBarrier\n",
+t2_noc,  "\n\\FloatBarrier\n",
+t2_c,   "\n\\FloatBarrier\n",
+t3_noc,  "\n\\FloatBarrier\n",
+t3_c,   "\n\\FloatBarrier\n",
+t4_noc,  "\n\\FloatBarrier\n",
+t4_c,   "\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t5_noc,  "\\end{landscape}\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t5_c,   "\\end{landscape}\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t6_noc,  "\\end{landscape}\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t6_c,   "\\end{landscape}\n\\FloatBarrier\n",
+t7_noc,  "\n\\FloatBarrier\n",
+t7_c,   "\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t8_noc,  "\\end{landscape}\n\\FloatBarrier\n",
+"\\begin{landscape}\n", t8_c,   "\\end{landscape}\n\\FloatBarrier\n",
+t9_noc,  "\n\\FloatBarrier\n",
+t9_c,   "\n\\FloatBarrier\n",
 
 "\\section{Appendix}
 
-", t10, "\n\\FloatBarrier\n",
-t11, "\n\\FloatBarrier\n",
+", t10_noc, "\n\\FloatBarrier\n",
+t10_c,  "\n\\FloatBarrier\n",
+t11_noc, "\n\\FloatBarrier\n",
+t11_c,  "\n\\FloatBarrier\n",
 t12, "\n\\FloatBarrier\n",
 
 "\\end{document}\n"
